@@ -1,0 +1,40 @@
+@use 'functions';
+
+@import '@fontsource/poppins';
+@import '@fontsource/poppins/100';
+@import '@fontsource/poppins/200';
+@import '@fontsource/poppins/300';
+@import '@fontsource/poppins/400';
+@import '@fontsource/poppins/500';
+@import '@fontsource/poppins/600';
+@import '@fontsource/poppins/700';
+@import '@fontsource/poppins/800';
+@import '@fontsource/poppins/900';
+
+:root {
+    // main color
+    --accent-color: #FFB100;
+    // dark theme color --default
+    --dark-bg-color: #202020;
+    --dark-text-color: #fff;
+    // light theme color 
+    --light-bg-color: #F6F1E9;
+    --light-text-color: #000;
+    // etc
+    --light-gray: #b3b3b3;
+    --dark-gray: #222831;
+    --medium-gray: #393E46;
+    --success: #33D69F;
+    --warning: #FF6900;
+    --error: #FF4242;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--dark-bg-color);
+    color: var(--dark-text-color);
+}
+::selection{
+    background-color: var(--accent-color);
+    color: var(--medium-gray);
+}
