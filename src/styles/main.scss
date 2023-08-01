@@ -12,29 +12,81 @@
 @import '@fontsource/poppins/900';
 
 :root {
-    // main color
-    --accent-color: #FFB100;
-    // dark theme color --default
-    --dark-bg-color: #202020;
-    --dark-text-color: #fff;
-    // light theme color 
-    --light-bg-color: #F6F1E9;
-    --light-text-color: #000;
-    // etc
-    --light-gray: #b3b3b3;
-    --dark-gray: #222831;
-    --medium-gray: #393E46;
-    --success: #33D69F;
-    --warning: #FF6900;
-    --error: #FF4242;
+	// main color
+	--accent-color: #ffb100;
+	// dark theme color --default
+	--dark-bg-color: #202020;
+	--dark-text-color: #fff;
+	// light theme color
+	--light-bg-color: #f6f1e9;
+	--light-text-color: #000;
+	// etc
+	--light-gray: #b3b3b3;
+	--dark-gray: #222831;
+	--medium-gray: #393e46;
+	--success: #33d69f;
+	--warning: #ff6900;
+	--error: #ff4242;
 }
 
 body {
-    font-family: "Poppins", sans-serif;
-    background-color: var(--dark-bg-color);
-    color: var(--dark-text-color);
+	font-family: 'Poppins', sans-serif;
+	// dark default theme only ATM.
+	background-color: var(--dark-bg-color);
+	color: var(--dark-text-color);
 }
-::selection{
-    background-color: var(--accent-color);
-    color: var(--medium-gray);
+
+::selection {
+	background-color: var(--accent-color);
+	color: var(--medium-gray);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 700;
+	line-height: 1.4;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+h1 {
+	font-size: functions.toRem(36);
+}
+h2 {
+	font-size: functions.toRem(32);
+}
+h3 {
+	font-size: functions.toRem(28);
+}
+h4 {
+	font-size: functions.toRem(24);
+}
+h5 {
+	font-size: functions.toRem(20);
+}
+h6 {
+	font-size: functions.toRem(16);
+}
+
+p {
+	font-size: functions.toRem(16);
+	line-height: 1.7;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+a {
+    color: var(--accent-color);
+}
+
+select, input, button, a {
+    &:focus-visible {
+        outline: 2px solid var(--accent-color);
+        outline-offset: 1px;
+        border-radius: 3px;
+    }
 }
