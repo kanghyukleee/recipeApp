@@ -1,50 +1,40 @@
-import { error, redirect } from '@sveltejs/kit';
-import type { RequestHandler } from '../../../login/oauth2/code/google/$types';
-import {
-	GOOGLE_APP_CLIENT_ID,
-	GOOGLE_APP_CLIENT_SECRET,
-	GOOGLE_REDIRECTION_URI
-} from '$env/static/private';
+import { redirect } from '@sveltejs/kit';
+import pkce from 'pkce-gen';
+import type { RequestHandler } from './$types';
+import { GOOGLE_APP_CLIENT_ID, GOOGLE_REDIRECTION_URI } from '$env/static/private';
 
-export const GET: RequestHandler = async ({ url, cookies, fetch }) => {
-	const code = url.searchParams.get('code') || null;
-	const state = url.searchParams.get('state') || null;
+// function to create state code
+const generateRandomString = (length: number) => {
+	let randomString = '';
+	const possibleChar = 'ABCDEFGHIJKLMNOPURSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
-	const storedState = cookies.get('google_auth_state') || null;
-	const storedChallengeVerifier = cookies.get('google_auth_challenge_verifier') || null;
-
-	if (state === null || state !== storedState) {
-		throw error(400, 'State Mismatch!');
+	for (let i = 0; i < length; i++) {
+		randomString += possibleChar.charAt(Math.floor(Math.random() * possibleChar.length));
 	}
+	return randomString;
+};
 
-	const response = await fetch('https://oauth2.googleapis.com/token', {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/x-www-form-urlencoded',
-			Authorization: `Basic ${Buffer.from(
-				`${GOOGLE_APP_CLIENT_ID}:${GOOGLE_APP_CLIENT_SECRET}`
-			).toString('base64')}`
-		},
-		body: new URLSearchParams({
-			code: code || '',
+const state = generateRandomString(16);
+const challenge = pkce.create();
+
+export const GET: RequestHandler = ({ cookies }) => {
+	
+	cookies.set('google_auth_state', state, {path:'/'});
+	cookies.set('google_auth_challenge_verifier', challenge.code_verifier, {path: '/'});
+
+	console.log(cookies.getAll());
+	
+	throw redirect(
+		307,
+		`https://accounts.google.com/o/oauth2/v2/auth?${new URLSearchParams({
+			client_id: GOOGLE_APP_CLIENT_ID,
 			redirect_uri: GOOGLE_REDIRECTION_URI,
-			grant_type: 'authorization_code',
-            code_verifier: storedChallengeVerifier || '',
-            client_id: GOOGLE_APP_CLIENT_ID,
-		})
-	});
-    const responseJSON = await response.json();
-
-    if(responseJSON.error) {
-        throw error(400, responseJSON.error_description)
-    }
-    
-    cookies.delete('google_auth_state')
-    cookies.delete('google_auth_challenge_verifier')
-    cookies.set('access_token', responseJSON.access_token, { path: '/' });
-    cookies.set('id_token', responseJSON.id_token, {path: '/'})
-
-    throw redirect(303, '/');
-  
-    
+			response_type: 'code',
+			scope:
+				'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid',
+			state,
+			code_challenge_method: 'S256',
+			code_challenge: challenge.code_challenge
+		})}`
+	);
 };
