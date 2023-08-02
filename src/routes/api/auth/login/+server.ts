@@ -22,7 +22,7 @@ export const GET: RequestHandler = ({ cookies }) => {
 	cookies.set('google_auth_state', state, {path:'/'});
 	cookies.set('google_auth_challenge_verifier', challenge.code_verifier, {path: '/'});
 
-	console.log(cookies.getAll());
+	// console.log(cookies.getAll());
 	
 	throw redirect(
 		307,

@@ -12,7 +12,7 @@ export const GET: RequestHandler = async ({ url, cookies, fetch }) => {
 
 	const storedState = cookies.get('google_auth_state') || null;
 	const storedChallengeVerifier = cookies.get('google_auth_challenge_verifier') || null;
-	console.log(storedState, storedChallengeVerifier);
+	// console.log(storedState, storedChallengeVerifier);
 	
 	if (state === null || state !== storedState) {
 		throw error(400, 'State Mismatch!');
