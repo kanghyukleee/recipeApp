@@ -13,7 +13,7 @@ export const GET: RequestHandler = async ({ url, cookies, fetch }) => {
 	const storedState = cookies.get('google_auth_state') || null;
 	const storedChallengeVerifier = cookies.get('google_auth_challenge_verifier') || null;
 	// console.log(storedState, storedChallengeVerifier);
-	
+
 	if (state === null || state !== storedState) {
 		throw error(400, 'State Mismatch!');
 	}
@@ -30,26 +30,23 @@ export const GET: RequestHandler = async ({ url, cookies, fetch }) => {
 			code: code || '',
 			redirect_uri: GOOGLE_REDIRECTION_URI,
 			grant_type: 'authorization_code',
-            code_verifier: storedChallengeVerifier || '',
-            client_id: GOOGLE_APP_CLIENT_ID,
+			code_verifier: storedChallengeVerifier || '',
+			client_id: GOOGLE_APP_CLIENT_ID
 		})
 	});
-    const responseJSON = await response.json();
+	const responseJSON = await response.json();
 
-    if(responseJSON.error) {
-        throw error(400, responseJSON.error_description)
-    }
-    
-		console.log(responseJSON);
-		
-    cookies.delete('google_auth_state')
-    cookies.delete('google_auth_challenge_verifier')
-    cookies.set('access_token', responseJSON.access_token, { path: '/' });
-    cookies.set('refresh_token', responseJSON.refresh_token, {path: '/'});
-		cookies.set('id_token', responseJSON.id_token, {path: '/'})
+	if (responseJSON.error) {
+		throw error(400, responseJSON.error_description);
+	}
 
+	// console.log(responseJSON);
 
-    throw redirect(303, '/');
-  
-    
+	cookies.delete('google_auth_state', { path: '/' });
+	cookies.delete('google_auth_challenge_verifier', { path: '/' });
+	cookies.set('access_token', responseJSON.access_token, { path: '/' });
+	cookies.set('refresh_token', responseJSON.refresh_token, { path: '/' });
+	cookies.set('id_token', responseJSON.id_token, { path: '/' });
+
+	throw redirect(303, '/');
 };

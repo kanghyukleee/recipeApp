@@ -5,7 +5,16 @@ declare global {
 		// interface Error {}
 		// interface Locals {}
 		interface PageData {
-			user: object | null;
+			user: {
+				id: string;
+				email: string;
+				verified_email: boolean;
+				name: string;
+				given_name: string;
+				family_name: string;
+				picture: URL;
+				locale: string;
+			} | null;
 		}
 		// interface Platform {}
 	}
