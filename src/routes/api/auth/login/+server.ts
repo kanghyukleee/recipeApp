@@ -18,12 +18,11 @@ const state = generateRandomString(16);
 const challenge = pkce.create();
 
 export const GET: RequestHandler = ({ cookies }) => {
-	
-	cookies.set('google_auth_state', state, {path:'/'});
-	cookies.set('google_auth_challenge_verifier', challenge.code_verifier, {path: '/'});
+	cookies.set('google_auth_state', state, { path: '/' });
+	cookies.set('google_auth_challenge_verifier', challenge.code_verifier, { path: '/' });
 
 	// console.log(cookies.getAll());
-	
+
 	throw redirect(
 		307,
 		`https://accounts.google.com/o/oauth2/v2/auth?${new URLSearchParams({
@@ -34,7 +33,9 @@ export const GET: RequestHandler = ({ cookies }) => {
 				'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid',
 			state,
 			code_challenge_method: 'S256',
-			code_challenge: challenge.code_challenge
+			code_challenge: challenge.code_challenge,
+			access_type: 'offline',
+			// prompt:'consent'
 		})}`
 	);
 };
