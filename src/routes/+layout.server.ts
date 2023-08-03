@@ -1,4 +1,3 @@
-import { ProgramFiles } from '$env/static/private';
 import { redirect } from '@sveltejs/kit';
 import type { LayoutServerLoad } from './$types';
 

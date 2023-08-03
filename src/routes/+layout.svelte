@@ -6,6 +6,6 @@
     export let data: LayoutData
 </script>
 
-
+{data.user.name}
 
 <slot />
