@@ -19,6 +19,7 @@ export const load: LayoutServerLoad = async ({ cookies, fetch, url }) => {
 			user: profile
 		};
 	}
+	// access token denied
 	if (profileRes.status === 401 && refreshToken) {
 		// refresh token and try again
 		const refreshRes = await fetch('/api/auth/refresh');
@@ -31,6 +32,7 @@ export const load: LayoutServerLoad = async ({ cookies, fetch, url }) => {
 			user: null
 		};
 	} else {
+		// no refresh token
 		return {
 			user: null
 		};
