@@ -39,6 +39,7 @@
 		"@fontsource/poppins": "^5.0.5",
 		"@unsass/breakpoint": "^2.3.0",
 		"googleapis": "^123.0.0",
+		"lucide-svelte": "^0.263.0",
 		"modern-normalize": "^2.0.0",
 		"pkce-gen": "^1.1.0"
 	}
