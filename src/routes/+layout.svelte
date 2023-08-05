@@ -3,24 +3,30 @@
 	import '../styles/main.scss';
 	import type { LayoutData } from './$types';
 	import { LogoutForm, Button } from '$components';
-	import  logoNoBackground from '$assets/logo-no-background.png'
-
+	import logoNoBackground from '$assets/logo-no-background.png';
 
 	export let data: LayoutData;
 
 	$: user = data.user;
 </script>
-<img src="{logoNoBackground}" alt="The Recipe">
 
-{#if user}
-	<p>Hello, {data.user.given_name}</p>
-	<LogoutForm />
-{/if}
+<div id="main">
+	<div id="content">
+		<main id="main-content">
+			<slot />
+		</main>
+	</div>
+</div>
 
-<Button element='button'>Button</Button>
-<Button element='button' disabled>Button</Button>
-<Button element='button' varient='outline'>Button</Button>
-<Button element='button' varient='danger'>Button</Button>
-
-
-<slot />
+<style lang="scss">
+	#main {
+		#content {
+			main#main-content {
+				padding: 30px 15px 60px;
+				@include breakpoint.up('md') {
+					padding: 30px 30px 60px;
+				}
+			}
+		}
+	}
+</style>

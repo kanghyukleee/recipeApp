@@ -1,16 +1,12 @@
-<div class="test-bg">
-  <h1>
-    Test h1
-  </h1>
-  <p>
-    text
-    <a>anchor tag</a>
-    another text
-  </p>
-  <input />
-  <button>button</button>
-</div>
-<p>some random texts</p>
+
+<script lang="ts">
+	import { LogoutForm } from "$components";
+
+
+
+</script>
+Home
+<LogoutForm/>
 
 <style lang="scss">
   .test-bg {

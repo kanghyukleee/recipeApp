@@ -32,7 +32,6 @@
 		{ "loc": "src/assets/images/greekSalad.jpg", "alt": "greek salad" },
 		{ "loc": "src/assets/images/indianFood.jpg", "alt": "indian food" },
 		{ "loc": "src/assets/images/pancake.jpg", "alt": "pancake" },
-		{ "loc": "src/assets/images/pasta.jpg", "alt": "pasta" },
 		{ "loc": "src/assets/images/rice.jpg", "alt": "rice" }
 	]
 }
