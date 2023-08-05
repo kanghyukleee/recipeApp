@@ -1,0 +1,38 @@
+{
+	"h1": [
+		"Dive into Thousands of Recipes, Anytime, Anywhere!",
+		"Explore Thousands of Recipes at Your Fingertips!",
+		"Spread the Joy of Cooking, One Recipe at a Time.",
+		"Experience the Ultimate Recipe Exchange! Join Our Community of Food Enthusiasts Now!",
+		"Bring Your Food Adventures to Life! Share and Discover the Best Recipes with Us!",
+		"Foodies Unite! Explore and Share Unique Recipes on Our Platform. Taste the World Today!",
+		"Join Our Recipe Revolution! Share, Learn, and Taste the Wonders of Global Cuisine!",
+		"Discover a World of Flavors with Our Recipe Sharing App - Your Culinary Journey Starts Here!",
+		"A Trip Down Memory Lane, Your Childhood and Mom's Best Recipes Await!",
+		"Rediscover Childhood Favorites and Mom's Special Dishes, Right Here!",
+		"Tell Us Your Ingredients, We'll Craft a Recipe That Tastes Like Home!",
+		"Give Us Your Ingredients, We'll Help Bring Back the Taste of Home!",
+		"Share Your Kitchen Staples with Us, We'll Find Your Next Favorite Recipe!"
+	],
+	"p": [
+		"Experience the world's cuisine, recreate beloved memories, and discover recipes for your pantry staples!",
+		"Unearth nostalgic recipes, explore international dishes, and let your pantry ingredients surprise you!",
+		"Dive into a sea of global recipes, relive cherished flavors, and let your kitchen staples inspire you!",
+		"Rediscover age-old favorites, immerse in culinary exploration, and transform pantry ingredients into masterpieces!",
+		"Embark on a gastronomic adventure, relive comfort foods, and cook up a storm with what you've got!",
+		"Travel the globe with diverse recipes, revive heartwarming dishes, and whip up delicious meals with your pantry!",
+		"Celebrate the joy of cooking, relish nostalgic recipes, and find the perfect match for your ingredients!",
+		"Indulge in a culinary journey, find your childhood favorites, and let us match your pantry to a perfect recipe!",
+		"Turn ingredients into art, journey through the corridors of global cuisines, and find comfort in mom's special recipes!",
+		"Relive culinary memories, explore world flavors, and cook delightful meals with what's in your pantry!"
+	],
+	"images": [
+		{ "loc": "src/assets/images/fruitSalad.jpg", "alt": "fruit salad" },
+		{ "loc": "src/assets/images/gimbab.jpg", "alt": "gimbob" },
+		{ "loc": "src/assets/images/greekSalad.jpg", "alt": "greek salad" },
+		{ "loc": "src/assets/images/indianFood.jpg", "alt": "indian food" },
+		{ "loc": "src/assets/images/pancake.jpg", "alt": "pancake" },
+		{ "loc": "src/assets/images/pasta.jpg", "alt": "pasta" },
+		{ "loc": "src/assets/images/rice.jpg", "alt": "rice" }
+	]
+}
