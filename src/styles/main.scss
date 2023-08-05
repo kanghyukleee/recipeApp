@@ -13,7 +13,7 @@
 
 :root {
 	// main color
-	--accent-color: #ffb100;
+	--accent-color: #ba3b0a;
 	// dark theme color --default
 	--dark-bg-color: #202020;
 	--dark-text-color: #fff;
@@ -38,7 +38,7 @@ body {
 
 ::selection {
 	background-color: var(--accent-color);
-	color: var(--medium-gray);
+	color: white;
 }
 
 h1,
