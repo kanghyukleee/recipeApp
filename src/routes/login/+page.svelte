@@ -31,7 +31,6 @@
 		</div>
 	</div>
 	<div class="cover">
-		<!-- carousel images need to be adjusted and set to fixed size in any case -->
 		<div class="carousel">
 			<Carousel {autoplay} startIndex={Math.floor(Math.random() * loginData.images.length)}>
 				{#each loginData.images as image}

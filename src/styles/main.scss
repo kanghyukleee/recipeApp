@@ -17,9 +17,11 @@
 	// dark theme color --default
 	--dark-bg-color: #202020;
 	--dark-text-color: #fff;
+	--dark-nav-color: black;
 	// light theme color
 	--light-bg-color: #f6f1e9;
 	--light-text-color: #000;
+	--light-nav-color: white;
 	// etc
 	--light-gray: #b3b3b3;
 	--dark-gray: #222831;
@@ -27,6 +29,9 @@
 	--success: #33d69f;
 	--warning: #ff6900;
 	--error: #ff4242;
+	
+	--sidebar-width: 250px;
+	--topbar-height: 64px;
 }
 
 body {
