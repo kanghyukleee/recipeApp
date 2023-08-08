@@ -1,10 +1,20 @@
 <script lang="ts">
-	import type { ComponentType } from 'svelte';
+	import { tick, type ComponentType } from 'svelte';
 	import { Home, Search, UtensilsCrossed, type Icon } from 'lucide-svelte';
 	import logo from '$assets/logo-no-background.png';
 	import { page } from '$app/stores';
+	import { fade } from 'svelte/transition';
+	import { beforeNavigate } from '$app/navigation';
 
 	export let isDesktop: boolean;
+
+	let isMobileMenuOpen = false;
+	$: isMenuOpen = isDesktop || isMobileMenuOpen;
+
+	let openMenuButton: HTMLButtonElement;
+	let closeMenuButton: HTMLButtonElement;
+	// keep last list element(anchor) for keyboard control A11Y(tab, shift-tab)
+	let lastFocusableElement: HTMLAnchorElement;
 
 	const menuItems: {
 		path: string;
@@ -27,26 +37,108 @@
 			icon: UtensilsCrossed
 		}
 	];
+
+	const openMenu = async () => {
+		isMobileMenuOpen = true;
+		// DOM nodes must be updated before focusing on button
+		await tick();
+		closeMenuButton.focus();
+	};
+	const closeMenu = () => {
+		isMobileMenuOpen = false;
+		// open button is never been hidden, no need to update DOM nodes
+		openMenuButton.focus();
+	};
+
+	beforeNavigate(() => {
+		isMobileMenuOpen = false;
+	});
+
+	// A11Y on sidebar only
+	// function called shift-tab at top element
+	const moveFocusToBottom = (event: KeyboardEvent) => {
+		if (isDesktop) return;
+		if (event.key === 'Tab' && event.shiftKey) {
+			event.preventDefault();
+			lastFocusableElement.focus();
+		}
+	};
+
+	// function called tab at bottom element
+	const moveFocusToTop = (event: KeyboardEvent) => {
+		if (isDesktop) return;
+		if (event.key === 'Tab' && !event.shiftKey) {
+			event.preventDefault();
+			closeMenuButton.focus();
+		}
+	};
+
+	// common rule
+	const handleEscape = (event: KeyboardEvent) => {
+		if (event.key === 'Escape') {
+			closeMenu();
+		}
+	};
 </script>
 
+<svelte:head>
+	{#if !isDesktop && isMobileMenuOpen}
+		<style>
+			body {
+				overflow: hidden;
+			}
+		</style>
+	{/if}
+</svelte:head>
+
 <div class="nav-content" class:desktop={isDesktop} class:mobile={!isDesktop}>
+	{#if !isDesktop && isMobileMenuOpen}
+		<div
+			class="overlay"
+			on:click={closeMenu}
+			on:keyup={handleEscape}
+			transition:fade={{ duration: 200 }}
+		/>
+	{/if}
 	<nav aria-label="Main">
-		<div class="nav-content-inner">
+		{#if !isDesktop}
+			<button on:click={openMenu} aria-expanded={isMenuOpen} bind:this={openMenuButton}>Open</button
+			>
+		{/if}
+		<div
+			class="nav-content-inner"
+			class:is-hidden={!isMenuOpen}
+			style:visibility={isMenuOpen ? 'visible' : 'hidden'}
+			on:keyup={handleEscape}
+		>
+			{#if !isDesktop}
+				<button on:click={closeMenu} bind:this={closeMenuButton} on:keydown={moveFocusToBottom}
+					>Close</button
+				>
+			{/if}
 			<img class="logo" src={logo} alt="The Recipe" />
 			<ul>
-				{#each menuItems as item}
+				{#each menuItems as item, index}
+					{@const iconProps = {
+						focusable: 'false',
+						'aria-hidden': true,
+						// color depens on theme
+						color: 'white',
+						size: 26,
+						strokeWidth: 1
+					}}
 					<li class:active={item.path === $page.url.pathname}>
-						<a href={item.path}>
-							<svelte:component
-								this={item.icon}
-								focusable="false"
-								aria-hidden="true"
-								color="white"
-								size={26}
-								strokeWidth={1}
-							/>
-							{item.label}</a
-						>
+						{#if menuItems.length === index + 1}
+							<a bind:this={lastFocusableElement} href={item.path} on:keydown={moveFocusToTop}>
+								<svelte:component this={item.icon} {...iconProps} />
+								{item.label}</a
+							>
+						{:else}
+							<a href={item.path}>
+								<svelte:component this={item.icon} {...iconProps} />
+								{item.label}</a
+							>
+						{/if}
 					</li>
 				{/each}
 			</ul>
@@ -56,19 +148,33 @@
 
 <style lang="scss">
 	.nav-content {
-		.nav-content-inner {
-			.logo {
-				display: block;
-				margin: auto;
-				max-width: 100%;
-				width: 150px;
+		.overlay {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background-color: var(--dark-nav-color);
+			opacity: 0.75;
+			z-index: 999;
+			@include breakpoint.up('md') {
+				display: none;
 			}
+		}
+		.logo {
+			display: block;
+			margin: auto;
+			max-width: 100%;
+			width: 150px;
+		}
+		.nav-content-inner {
 			padding: 20px;
 			min-width: var(--sidebar-width);
 			background-color: var(--dark-nav-color);
 			height: 100vh;
 			overflow: auto;
 			display: none;
+
 			ul {
 				padding: 0;
 				margin: 20px 0 0;
@@ -108,6 +214,21 @@
 				@include breakpoint.up('md') {
 					display: block;
 				}
+			}
+		}
+		&.mobile .nav-content-inner {
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 999;
+			transition: transform 200ms, opacity 200ms;
+			&.is-hidden {
+				transition: transform 200ms, opacity 200ms, visibility 200ms;
+				transform: translateX(-100%);
+				opacity: 0;
+			}
+			@include breakpoint.down('md') {
+				display: block;
 			}
 		}
 	}

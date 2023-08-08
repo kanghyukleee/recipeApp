@@ -2,7 +2,7 @@
 	import 'modern-normalize/modern-normalize.css';
 	import '../styles/main.scss';
 	import type { LayoutData } from './$types';
-	import { LogoutForm, Button, Navigation, ToggleSwitch } from '$components';
+	import { LogoutForm, Button, Navigation, ToggleSwitch, Header } from '$components';
 
 	export let data: LayoutData;
 
@@ -30,7 +30,7 @@
 				style:background-color="var(--dark-nav-color)"
 				style:opacity={topbarOpacity}
 			/>
-			topbar
+			<Header />
 		</div>
 		<main id="main-content" class:logged-in={user}>
 			<slot />
