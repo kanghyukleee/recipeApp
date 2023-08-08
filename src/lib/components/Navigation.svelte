@@ -1,18 +1,19 @@
 <script lang="ts">
 	import { tick, type ComponentType } from 'svelte';
-	import { Home, Search, UtensilsCrossed, type Icon } from 'lucide-svelte';
+	import { Home, Search, UtensilsCrossed, Menu, X, type Icon } from 'lucide-svelte';
 	import logo from '$assets/logo-no-background.png';
 	import { page } from '$app/stores';
 	import { fade } from 'svelte/transition';
 	import { beforeNavigate } from '$app/navigation';
+	import { IconButton } from '$components';
 
 	export let isDesktop: boolean;
 
 	let isMobileMenuOpen = false;
 	$: isMenuOpen = isDesktop || isMobileMenuOpen;
 
-	let openMenuButton: HTMLButtonElement;
-	let closeMenuButton: HTMLButtonElement;
+	let openMenuButton: IconButton;
+	let closeMenuButton: IconButton;
 	// keep last list element(anchor) for keyboard control A11Y(tab, shift-tab)
 	let lastFocusableElement: HTMLAnchorElement;
 
@@ -42,12 +43,12 @@
 		isMobileMenuOpen = true;
 		// DOM nodes must be updated before focusing on button
 		await tick();
-		closeMenuButton.focus();
+		closeMenuButton.getButton().focus();
 	};
 	const closeMenu = () => {
 		isMobileMenuOpen = false;
 		// open button is never been hidden, no need to update DOM nodes
-		openMenuButton.focus();
+		openMenuButton.getButton().focus();
 	};
 
 	beforeNavigate(() => {
@@ -69,7 +70,7 @@
 		if (isDesktop) return;
 		if (event.key === 'Tab' && !event.shiftKey) {
 			event.preventDefault();
-			closeMenuButton.focus();
+			closeMenuButton.getButton().focus();
 		}
 	};
 
@@ -102,8 +103,14 @@
 	{/if}
 	<nav aria-label="Main">
 		{#if !isDesktop}
-			<button on:click={openMenu} aria-expanded={isMenuOpen} bind:this={openMenuButton}>Open</button
-			>
+			<IconButton
+				icon={Menu}
+				label="Open Menu"
+				on:click={openMenu}
+				aria-expanded={isMenuOpen}
+				bind:this={openMenuButton}
+				class="menu-button"
+			/>
 		{/if}
 		<div
 			class="nav-content-inner"
@@ -112,9 +119,14 @@
 			on:keyup={handleEscape}
 		>
 			{#if !isDesktop}
-				<button on:click={closeMenu} bind:this={closeMenuButton} on:keydown={moveFocusToBottom}
-					>Close</button
-				>
+				<IconButton
+					icon={X}
+					label="Close Menu"
+					on:click={closeMenu}
+					bind:this={closeMenuButton}
+					on:keydown={moveFocusToBottom}
+					class="close-menu-button"
+				/>
 			{/if}
 			<img class="logo" src={logo} alt="The Recipe" />
 			<ul>
@@ -163,7 +175,7 @@
 		}
 		.logo {
 			display: block;
-			margin: auto;
+			margin: 10px auto 0;
 			max-width: 100%;
 			width: 150px;
 		}
@@ -230,6 +242,17 @@
 			@include breakpoint.down('md') {
 				display: block;
 			}
+		}
+		:global(.menu-button) {
+			@include breakpoint.up('md') {
+				display: none;
+			}
+		}
+		:global(.close-menu-button) { 
+			position: absolute;
+			right: 3px;
+			top: 3px;
+			
 		}
 	}
 </style>

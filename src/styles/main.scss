@@ -95,3 +95,14 @@ select, input, button, a {
         border-radius: 3px;
     }
 }
+
+// apply to span. client can't see but browser can. improve SEO
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(100%);
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+}

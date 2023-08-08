@@ -28,7 +28,7 @@
 			<div
 				class="topbar-bg"
 				style:background-color="var(--dark-nav-color)"
-				style:opacity={topbarOpacity}
+				style:opacity={`${topbarOpacity}`}
 			/>
 			<Header />
 		</div>
