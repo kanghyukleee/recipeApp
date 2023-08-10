@@ -20,7 +20,16 @@
 	<div class="right">
 		<ToggleSwitch>Light Mode</ToggleSwitch>
 		<div id="profile-button">
-			<button class="profile-button" use:tippy={{ content: 'text' }}>
+			<button class="profile-button" use:tippy={{ content: document.getElementById('profile-menu') || undefined, onMount: ()=> {
+				const userMenuTemplate = document.getElementById('profile-menu')
+				if(userMenuTemplate) {
+					userMenuTemplate.style.display = 'block';
+				}
+			}, 
+			trigger: 'click',
+			placement: 'bottom-end',
+			interactive: true
+			}}>
 				{#if user?.picture}
 					<img src={user.picture} alt="" />
 				{:else}
@@ -31,7 +40,8 @@
 				<ChevronDown class="profile-arrow" size={22} />
 			</button>
 		</div>
-		<!-- tippy list contents -->
+		
+		<!-- tippy menu contents template -->
 		<div id="profile-menu" style="display: none;">
 			<div class="profile-menu-content">
 				<ul>
@@ -44,6 +54,8 @@
 				</ul>
 			</div>
 		</div>
+		<!-- tippy menu contents template -->
+
 	</div>
 </div>
 
