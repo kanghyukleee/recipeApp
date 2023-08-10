@@ -33,7 +33,7 @@
 			icon: Search
 		},
 		{
-			path: '/recipes/me',
+			path: '/recipe/me',
 			label: 'My Recipes',
 			icon: UtensilsCrossed
 		}
