@@ -12,7 +12,7 @@ declare global {
 				name: string;
 				given_name: string;
 				family_name: string;
-				picture: URL;
+				picture: string | null | undefined;
 				locale: string;
 			} | null;
 		}
