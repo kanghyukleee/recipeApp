@@ -44,6 +44,7 @@
 		"lucide-svelte": "^0.263.0",
 		"modern-normalize": "^2.0.0",
 		"pkce-gen": "^1.1.0",
-		"siema": "^1.5.1"
+		"siema": "^1.5.1",
+		"tippy.js": "^6.3.7"
 	}
 }
