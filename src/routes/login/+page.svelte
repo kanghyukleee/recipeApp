@@ -6,13 +6,15 @@
 
 	let headerRandomPhrase = loginData.h1[Math.floor(Math.random() * loginData.h1.length)];
 	let paragraphRandomPhrase = loginData.p[Math.floor(Math.random() * loginData.p.length)];
-	let carouselImages: string[] = [];
+
+	let loginImages: string[] = [];
+	let loginImage: string;
 
 	loginData.images.forEach((image) => {
-		carouselImages.push(image.loc);
+		loginImages.push(image.loc);
 	});
 
-	const autoplay: number = 3000;
+	loginImage = loginImages[Math.floor(Math.random() * loginImages.length)];
 </script>
 
 <div class="wrapper">
@@ -32,13 +34,7 @@
 	</div>
 	<div class="cover">
 		<div class="carousel">
-			<Carousel {autoplay} startIndex={Math.floor(Math.random() * loginData.images.length)}>
-				{#each loginData.images as image}
-					<div class="slide-item">
-						<img src={image.loc} alt={image.alt} />
-					</div>
-				{/each}
-			</Carousel>
+			<img src={loginImage} alt="login page food picture" />
 		</div>
 	</div>
 </div>
@@ -51,7 +47,7 @@
 	.wrapper {
 		display: flex;
 		width: 100%;
-		max-width: 1500px;
+		max-width: 1200px;
 		padding-top: 80px;
 		margin: 80px auto 0;
 		align-items: center;
@@ -63,20 +59,16 @@
 	.cover {
 		flex: 1;
 		margin-top: 40px;
-		overflow: hidden;
-    max-width: 100%;
-    img{
-      max-width: 100%;
-    }
-		
 		@include breakpoint.up('md') {
 			margin-top: 0;
 			margin-left: 20px;
-
+		}
+		img{
+			max-width: 100%;
 		}
 	}
 	.content {
-		flex: 1.5;
+		flex: 1.8;
 		h1 {
 			font-size: functions.toRem(40);
 		}
