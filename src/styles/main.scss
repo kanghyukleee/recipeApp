@@ -111,3 +111,7 @@ select, input, button, a {
 	position: absolute;
 	white-space: nowrap;
 }
+
+#nprogress .bar {
+	background: var(--accent-color) !important;
+}

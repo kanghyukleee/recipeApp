@@ -4,7 +4,11 @@
 	import type { LayoutData } from './$types';
 	import { Navigation, Header } from '$components';
 	import { page } from '$app/stores';
+	import NProgress from 'nprogress'
+	import 'nprogress/nprogress.css'
+	import { afterNavigate, beforeNavigate } from '$app/navigation';
 
+	NProgress.configure({showSpinner: false});
 
 	export let data: LayoutData;
 
@@ -17,6 +21,13 @@
 	}
 
 	$: user = data.user;
+	afterNavigate(() => {
+		NProgress.done();
+	})
+
+	beforeNavigate(() => {
+		NProgress.start();
+	})
 </script>
 
 <svelte:window bind:scrollY />
