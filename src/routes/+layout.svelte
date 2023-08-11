@@ -3,6 +3,8 @@
 	import '../styles/main.scss';
 	import type { LayoutData } from './$types';
 	import { Navigation, Header } from '$components';
+	import { page } from '$app/stores';
+
 
 	export let data: LayoutData;
 
@@ -18,6 +20,11 @@
 </script>
 
 <svelte:window bind:scrollY />
+
+<svelte:head>
+	<title>The Recipe{$page.data.title ? ` - ${$page.data.title}` : ''}</title>
+</svelte:head>
+
 
 <div id="main">
 	{#if user}

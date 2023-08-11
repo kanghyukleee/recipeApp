@@ -15,6 +15,7 @@ declare global {
 				picture: string | null | undefined;
 				locale: string;
 			} | null;
+			title?: string; 
 		}
 		// interface Platform {}
 	}
