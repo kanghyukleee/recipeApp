@@ -2,7 +2,7 @@
 	import 'modern-normalize/modern-normalize.css';
 	import '../styles/main.scss';
 	import type { LayoutData } from './$types';
-	import { LogoutForm, Button, Navigation, ToggleSwitch, Header } from '$components';
+	import { Navigation, Header } from '$components';
 
 	export let data: LayoutData;
 
@@ -23,19 +23,21 @@
 	{#if user}
 		<div id="sidebar"><Navigation isDesktop={true} /></div>
 	{/if}
+
 	<div id="content">
-		<div id="topbar" bind:this={topbar}>
-			<div
-				class="topbar-bg"
-				style:background-color="var(--dark-nav-color)"
-				style:opacity={`${topbarOpacity}`}
-			/>
-			<Header />
-		</div>
+		{#if user}
+			<div id="topbar" bind:this={topbar}>
+				<div
+					class="topbar-bg"
+					style:background-color="var(--dark-nav-color)"
+					style:opacity={`${topbarOpacity}`}
+				/>
+				<Header />
+			</div>
+		{/if}
+
 		<main id="main-content" class:logged-in={user}>
 			<slot />
-			<ToggleSwitch>Light Mode</ToggleSwitch>
-			<div class="test" style="height:3000px" />
 		</main>
 	</div>
 </div>
