@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
-	import { Navigation, ToggleSwitch } from '$components';
+	import { Navigation, ThemeToggleSwitch } from '$components';
 	import { User2, ChevronDown } from 'lucide-svelte';
 	import { tippy } from '$actions';
 	import LogoutForm from './LogoutForm.svelte';
 
 	$: user = $page.data.user;
+
 </script>
 
 <div class="content">
@@ -18,19 +19,26 @@
 		{/if}
 	</div>
 	<div class="right">
-		<ToggleSwitch>Light Mode</ToggleSwitch>
+		<ThemeToggleSwitch >Light Mode</ThemeToggleSwitch>
 		<div id="profile-button">
-			<button class="profile-button" use:tippy={{ content: document.getElementById('profile-menu') || undefined, onMount: ()=> {
-				const userMenuTemplate = document.getElementById('profile-menu')
-				if(userMenuTemplate) {
-					userMenuTemplate.style.display = 'block';
+			<button
+				class="profile-button"
+				use:tippy={{
+					content: document.getElementById('profile-menu') || undefined,
+					onMount: () => {
+						const userMenuTemplate = document.getElementById('profile-menu');
+						if (userMenuTemplate) {
+							userMenuTemplate.style.display = 'block';
+						}
+					},
+					trigger: 'click',
+					placement: 'bottom-end',
+					interactive: true,
+					// this is the part tippy theme change
+					theme: `userMenuDark`
 				}
-			}, 
-			trigger: 'click',
-			placement: 'bottom-end',
-			interactive: true,
-			theme: 'userMenu'
-			}}>
+				}
+			>
 				{#if user?.picture}
 					<img src={user.picture} alt="" />
 				{:else}
@@ -41,7 +49,7 @@
 				<ChevronDown class="profile-arrow" size={22} />
 			</button>
 		</div>
-		
+
 		<!-- tippy menu contents template -->
 		<div id="profile-menu" style="display: none;">
 			<div class="profile-menu-content">
@@ -56,7 +64,6 @@
 			</div>
 		</div>
 		<!-- tippy menu contents template -->
-
 	</div>
 </div>
 
@@ -77,7 +84,7 @@
 		border-radius: 25px;
 		display: flex;
 		align-items: center;
-		color: var(--dark-text-color);
+		color: var(--text-color);
 		cursor: pointer;
 		:global(.profile-arrow) {
 			margin-left: 3px;
@@ -99,7 +106,6 @@
 		&:hover {
 			background-color: var(--accent-color);
 		}
-
 	}
 	.profile-menu-content {
 		padding: 5px 0;
@@ -109,19 +115,25 @@
 			list-style: none;
 			li {
 				&:hover {
-					background-image: linear-gradient(rgba(255,255,255,0.07) 0 0);
+					background-image: linear-gradient(rgba(255, 255, 255, 0.07) 0 0);
 				}
-				a, :global(button) {
+				a,
+				:global(button) {
 					display: inline-block;
 					padding: 10px 15px;
 					background: none;
 					border: none;
 					text-decoration: none;
 					cursor: pointer;
-					color: var(--dark-text-color);
+					color: var(--text-color);
 					width: 100%;
 					text-align: left;
 					font-size: functions.toRem(14);
+					border-radius: 0;
+					font-weight: 400;
+					&:hover {
+						background-image: none;
+					}
 				}
 			}
 		}

@@ -8,7 +8,7 @@
 	import { IconButton } from '$components';
 
 	export let isDesktop: boolean;
-
+	
 	let isMobileMenuOpen = false;
 	$: isMenuOpen = isDesktop || isMobileMenuOpen;
 
@@ -166,7 +166,7 @@
 			height: 100%;
 			top: 0;
 			left: 0;
-			background-color: var(--dark-nav-color);
+			background-color: var(--nav-color);
 			opacity: 0.75;
 			z-index: 999;
 			@include breakpoint.up('md') {
@@ -182,7 +182,7 @@
 		.nav-content-inner {
 			padding: 20px;
 			min-width: var(--sidebar-width);
-			background-color: var(--dark-nav-color);
+			background-color: var(--nav-color);
 			height: 100vh;
 			overflow: auto;
 			display: none;

@@ -1,12 +1,10 @@
 
 <script lang="ts">
-	import { LogoutForm } from "$components";
-
-
-
 </script>
-Home
-<LogoutForm/>
+
+<h1>Home</h1>
+<h2>Featured recipes</h2>
+<h2>etc</h2>
 
 <style lang="scss">
   .test-bg {

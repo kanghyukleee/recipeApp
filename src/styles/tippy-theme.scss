@@ -1,27 +1,25 @@
-// TODO box bg color, arrow color 통일 후 색변경 할것 너무 진함
-
 .tippy-box[data-theme~='userMenu'] {
-  background-color: var(--dark-nav-color);
-  color: var(--dark-text-color);
-  border-radius: 3px;
-  box-shadow: 0 13px 20px rgba(0,0,0,0.3);;
+	background-color: var(--tooltip-color);
+	color: var(--text-color);
+	border-radius: 4px;
+	box-shadow: 0 13px 20px rgba(0, 0, 0, 0.3);
 }
 
 .tippy-box[data-theme~='userMenu'].tippy-content {
-  padding: 0;
-  width: 200px;
-  max-width: 100%;
+	padding: 0;
+	width: 200px;
+	max-width: 100%;
 }
 
 .tippy-box[data-theme~='userMenu'][data-placement^='top'] > .tippy-arrow::before {
-  border-top-color: var(--dark-nav-color);
+	border-top-color: var(--tooltip-color);
 }
 .tippy-box[data-theme~='userMenu'][data-placement^='bottom'] > .tippy-arrow::before {
-  border-bottom-color: var(--dark-nav-color);
+	border-bottom-color: var(--tooltip-color);
 }
 .tippy-box[data-theme~='userMenu'][data-placement^='left'] > .tippy-arrow::before {
-  border-left-color: var(--dark-nav-color);
+	border-left-color: var(--tooltip-color);
 }
 .tippy-box[data-theme~='userMenu'][data-placement^='right'] > .tippy-arrow::before {
-  border-right-color: var(--dark-nav-color);
+	border-right-color: var(--tooltip-color);
 }

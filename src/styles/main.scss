@@ -17,13 +17,17 @@
 	// main color
 	--accent-color: #ba3b0a;
 	// dark theme color --default
-	--dark-bg-color: #202020;
-	--dark-text-color: #fff;
-	--dark-nav-color: black;
+	--bg-color: #202020;
+	--text-color: #fff;
+	--nav-color: black;
+	--tooltip-color: #3a3c3f;
+
 	// light theme color
 	--light-bg-color: #f6f1e9;
 	--light-text-color: #000;
 	--light-nav-color: white;
+	--light-tooltip-color: #9ca0a7;
+
 	// etc
 	--light-gray: #b3b3b3;
 	--dark-gray: #222831;
@@ -31,10 +35,9 @@
 	--success: #33d69f;
 	--warning: #ff6900;
 	--error: #ff4242;
-	
+
 	--sidebar-width: 250px;
 	--topbar-height: 64px;
-
 
 	--border: rgba(255, 255, 255, 0.15);
 }
@@ -42,8 +45,15 @@
 body {
 	font-family: 'Poppins', sans-serif;
 	// dark default theme only ATM.
-	background-color: var(--dark-bg-color);
-	color: var(--dark-text-color);
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	.light-theme {
+		// light theme color
+		--bg-color: #f6f1e9;
+		--text-color: #000;
+		--nav-color: white;
+		--tooltip-color: #9ca0a7;
+	}
 }
 
 ::selection {
@@ -90,20 +100,23 @@ p {
 }
 
 a {
-    color: var(--accent-color);
+	color: var(--accent-color);
 }
 
-select, input, button, a {
-    &:focus-visible {
-        outline: 2px solid var(--accent-color);
-        outline-offset: 1px;
-        border-radius: 3px;
-    }
+select,
+input,
+button,
+a {
+	&:focus-visible {
+		outline: 2px solid var(--accent-color);
+		outline-offset: 1px;
+		border-radius: 3px;
+	}
 }
 
 // apply to span. client can't see but browser can. improve SEO
 .visually-hidden {
-	clip: rect(0 0 0 0);
+	clip: rect(0, 0, 0, 0);
 	clip-path: inset(100%);
 	width: 1px;
 	height: 1px;

@@ -1,5 +1,9 @@
+<script lang="ts">
+
+</script>
+
 <label class="switch">
-	<input class="switch-icon" type="checkbox" role="switch" aria-checked="false" />
+	<input id='theme-toggle' class="switch-icon" type="checkbox" role="switch"/>
 	<span id="switchLabel"><slot /></span>
 </label>
 

@@ -47,7 +47,7 @@
 			<div id="topbar" bind:this={topbar}>
 				<div
 					class="topbar-bg"
-					style:background-color="var(--dark-nav-color)"
+					style:background-color="var(--nav-color)"
 					style:opacity={`${topbarOpacity}`}
 				/>
 				<Header />

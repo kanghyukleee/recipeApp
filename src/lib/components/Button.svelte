@@ -43,12 +43,12 @@
 		&.button-filled {
 			background-color: var(--accent-color);
 			// if light color change text color
-			color: var(--dark-text-color);
+			color: var(--text-color);
 			border: 2px solid var(--accent-color);
 		}
 		&.button-outline {
 			background: transparent;
-			color: var(--dark-text-color);
+			color: var(--text-color);
 			border: 2px solid;
 		}
 		&.button-danger {
