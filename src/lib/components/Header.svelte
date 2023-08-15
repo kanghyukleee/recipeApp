@@ -5,14 +5,12 @@
 	import { User2, ChevronDown } from 'lucide-svelte';
 	import { tippy } from '$actions';
 	import LogoutForm from './LogoutForm.svelte';
-	import { tick } from 'svelte';
 
 	$: user = $page.data.user;
 
-	async function themeToggle () {
+	function themeToggle () {
 		let bodyElement = document.body;
 		bodyElement.classList.toggle('light-theme');
-		await tick();
 	}
 
 </script>
