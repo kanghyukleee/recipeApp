@@ -135,7 +135,7 @@
 						focusable: 'false',
 						'aria-hidden': true,
 						// color depens on theme
-						color: 'white',
+						color: 'var(--text-color)',
 						size: 26,
 						strokeWidth: 1
 					}}
@@ -201,7 +201,7 @@
 						display: flex;
 						align-items: center;
 						text-decoration: none;
-						color: white;
+						color: var(--text-color);
 						font-size: functions.toRem(14);
 						font-weight: 500;
 						padding: 5px;

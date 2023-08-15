@@ -16,19 +16,18 @@
 :root {
 	// main color
 	--accent-color: #ba3b0a;
-	// dark theme color --default
+	// dark theme color
 	--bg-color: #202020;
 	--text-color: #fff;
 	--nav-color: black;
 	--tooltip-color: #3a3c3f;
-
-	// light theme color
-	--light-bg-color: #f6f1e9;
-	--light-text-color: #000;
-	--light-nav-color: white;
-	--light-tooltip-color: #9ca0a7;
-
-	// etc
+	.light-theme {
+		// light theme color
+		--bg-color: #fff;
+		--text-color: #000;
+		--nav-color: #f6f1e9;
+		--tooltip-color: #9ca0a7;
+	}
 	--light-gray: #b3b3b3;
 	--dark-gray: #222831;
 	--medium-gray: #393e46;
@@ -47,13 +46,6 @@ body {
 	// dark default theme only ATM.
 	background-color: var(--bg-color);
 	color: var(--text-color);
-	.light-theme {
-		// light theme color
-		--bg-color: #f6f1e9;
-		--text-color: #000;
-		--nav-color: white;
-		--tooltip-color: #9ca0a7;
-	}
 }
 
 ::selection {

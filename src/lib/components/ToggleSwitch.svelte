@@ -3,7 +3,7 @@
 </script>
 
 <label class="switch">
-	<input id='theme-toggle' class="switch-icon" type="checkbox" role="switch"/>
+	<input id='theme-toggle' class="switch-icon" type="checkbox" role="switch" on:click />
 	<span id="switchLabel"><slot /></span>
 </label>
 
@@ -31,6 +31,14 @@
 			border-radius: 1.25em;
 			width: 2.25em;
 			height: 1.25em;
+
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+
 			&::before {
 				content: '';
 				position: absolute;

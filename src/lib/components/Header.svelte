@@ -1,12 +1,19 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
-	import { Navigation, ThemeToggleSwitch } from '$components';
+	import { Navigation, ToggleSwitch } from '$components';
 	import { User2, ChevronDown } from 'lucide-svelte';
 	import { tippy } from '$actions';
 	import LogoutForm from './LogoutForm.svelte';
+	import { tick } from 'svelte';
 
 	$: user = $page.data.user;
+
+	async function themeToggle () {
+		let bodyElement = document.body;
+		bodyElement.classList.toggle('light-theme');
+		await tick();
+	}
 
 </script>
 
@@ -19,7 +26,7 @@
 		{/if}
 	</div>
 	<div class="right">
-		<ThemeToggleSwitch >Light Mode</ThemeToggleSwitch>
+		<ToggleSwitch on:click={themeToggle} >Light Mode</ToggleSwitch>
 		<div id="profile-button">
 			<button
 				class="profile-button"
