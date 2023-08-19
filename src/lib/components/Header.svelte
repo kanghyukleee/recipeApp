@@ -1,18 +1,24 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
-	import { Navigation, ToggleSwitch } from '$components';
+	import { Navigation, ToggleSwitch, Button } from '$components';
 	import { User2, ChevronDown } from 'lucide-svelte';
 	import { tippy } from '$actions';
 	import LogoutForm from './LogoutForm.svelte';
+	import { invalidateAll } from '$app/navigation';
 
 	$: user = $page.data.user;
 
-	function themeToggle () {
+	function themeToggle() {
 		let bodyElement = document.body;
 		bodyElement.classList.toggle('light-theme');
 	}
 
+	function themeToggleNoJS() {
+		let bodyElement = document.body;
+		bodyElement.classList.toggle('light-theme');
+		invalidateAll();
+	}
 </script>
 
 <div class="content">
@@ -24,7 +30,9 @@
 		{/if}
 	</div>
 	<div class="right">
-		<ToggleSwitch on:click={themeToggle} >Light Mode</ToggleSwitch>
+		<div class="toggle-switch">
+			<ToggleSwitch on:click={themeToggle}>Light Mode</ToggleSwitch>
+		</div>
 		<div id="profile-button">
 			<button
 				class="profile-button"
@@ -40,9 +48,8 @@
 					placement: 'bottom-end',
 					interactive: true,
 					// this is the part tippy theme change
-					theme: `userMenuDark`
-				}
-				}
+					theme: 'userMenu'
+				}}
 			>
 				{#if user?.picture}
 					<img src={user.picture} alt="" />
@@ -78,8 +85,26 @@
 		justify-content: space-between;
 		align-items: center;
 		width: 100%;
+		:global(html.no-js) & {
+			@include breakpoint.down('md') {
+				justify-content: flex-start;
+			}
+		}
 		.right {
+			align-items: center;
 			display: flex;
+			:global(html.no-js) & {
+				.toggle-switch {
+					// remove this when no-js theme change success
+					display: none;
+				}
+				:global(#toggle):checked ~ :global(:root) {
+					--bg-color: #fff;
+					--text-color: #000;
+					--nav-color: #f6f1e9;
+					--tooltip-color: #f6f1e9;
+				}
+			}
 		}
 	}
 	.profile-button {
@@ -91,6 +116,9 @@
 		align-items: center;
 		color: var(--text-color);
 		cursor: pointer;
+		:global(html.no-js) & {
+			display: none;
+		}
 		:global(.profile-arrow) {
 			margin-left: 3px;
 		}
@@ -139,6 +167,18 @@
 					&:hover {
 						background-image: none;
 					}
+				}
+			}
+		}
+	}
+	:global(html.no-js) #profile-menu {
+		display: block !important;
+		.profile-menu-content {
+			ul {
+				padding: 0;
+				margin: 0;
+				li {
+					display: inline-block;
 				}
 			}
 		}

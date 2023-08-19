@@ -3,7 +3,7 @@
 </script>
 
 <label class="switch">
-	<input id='theme-toggle' class="switch-icon" type="checkbox" role="switch" on:click />
+	<input id='toggle' class="switch-icon" type="checkbox" role="switch" on:click />
 	<span id="switchLabel"><slot /></span>
 </label>
 

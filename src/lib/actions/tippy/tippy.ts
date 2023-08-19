@@ -4,7 +4,7 @@ import tippy, {
 	hideOnPopperBlur,
 	hideOthersOnOpen
 } from './tippy-plugins';
-import 'tippy.js/dist/tippy.css'; // optional for styling
+import 'tippy.js/dist/tippy.css';
 
 export default function (node: HTMLElement, options?: Partial<ExtendedProps>) {
 	const plugins = [hideOnEsc, hideOnPopperBlur, hideOthersOnOpen];

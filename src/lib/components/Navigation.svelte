@@ -171,6 +171,7 @@
 			z-index: 999;
 			@include breakpoint.up('md') {
 				display: none;
+				height: auto;
 			}
 		}
 		.logo {
@@ -186,7 +187,11 @@
 			height: 100vh;
 			overflow: auto;
 			display: none;
-
+			:global(html.no-js) & {
+				 @include breakpoint.down('md') {
+					display: block;
+				 }
+			}
 			ul {
 				padding: 0;
 				margin: 20px 0 0;

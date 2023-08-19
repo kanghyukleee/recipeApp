@@ -43,6 +43,7 @@
 	:global(body) {
 		background-image: linear-gradient(230deg, var(--dark-gray), var(--bg-color));
 		height: 100vh;
+		
 	}
 	.wrapper {
 		display: flex;
@@ -63,7 +64,7 @@
 			margin-top: 0;
 			margin-left: 20px;
 		}
-		img{
+		img {
 			max-width: 100%;
 		}
 	}
