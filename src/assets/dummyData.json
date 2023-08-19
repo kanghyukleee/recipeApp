@@ -1,0 +1,191 @@
+[
+  {
+    "recipe_id": 1,
+    "title": "Spaghetti Carbonara",
+    "description": "A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.",
+    "categories": ["Italian", "Pasta", "Main Course"],
+    "ingredients": [
+      { "name": "spaghetti", "quantity": "200g", "notes": "preferably whole wheat" },
+      { "name": "eggs", "quantity": "2" }
+    ],
+    "steps": [
+      { "step_number": 1, "instruction": "Boil the pasta until al dente.", "duration": "10 mins" },
+      { "step_number": 2, "instruction": "In a separate bowl, whisk the eggs.", "duration": "2 mins" }
+    ],
+    "prep_time": "15 mins",
+    "cook_time": "20 mins",
+    "yield": "2 servings",
+    "dietary_restrictions": ["gluten-free"],
+    "ratings": [
+      { "user_id": 101, "rating": 5, "comment": "Delicious!" }
+    ],
+    "images": [
+      { "url": "https://example.com/image1.jpg", "description": "Finished dish" }
+    ]
+  },
+  {
+    "recipe_id": 2,
+    "title": "Chicken Alfredo",
+    "description": "Creamy pasta with grilled chicken and parmesan cheese.",
+    "categories": ["Italian", "Pasta", "Main Course"],
+    "ingredients": [
+      { "name": "fettuccine", "quantity": "200g" },
+      { "name": "chicken breast", "quantity": "1", "notes": "grilled" }
+    ],
+    "steps": [
+      { "step_number": 1, "instruction": "Boil the pasta until al dente.", "duration": "12 mins" },
+      { "step_number": 2, "instruction": "Mix in the alfredo sauce and chicken.", "duration": "10 mins" }
+    ],
+    "prep_time": "15 mins",
+    "cook_time": "25 mins",
+    "yield": "2 servings",
+    "dietary_restrictions": ["gluten"],
+    "ratings": [
+      { "user_id": 102, "rating": 4.5, "comment": "Creamy and delicious." }
+    ],
+    "images": [
+      { "url": "https://example.com/image2.jpg", "description": "Creamy Chicken Alfredo" }
+    ]
+  },
+  {
+    "recipe_id": 3,
+    "title": "Vegan Pancakes",
+    "description": "Fluffy vegan pancakes topped with fresh fruits.",
+    "categories": ["Vegan", "Breakfast"],
+    "ingredients": [
+      { "name": "flour", "quantity": "200g" },
+      { "name": "almond milk", "quantity": "1 cup" }
+    ],
+    "steps": [
+      { "step_number": 1, "instruction": "Mix all ingredients in a bowl.", "duration": "5 mins" },
+      { "step_number": 2, "instruction": "Cook on a griddle until golden brown.", "duration": "15 mins" }
+    ],
+    "prep_time": "5 mins",
+    "cook_time": "15 mins",
+    "yield": "4 pancakes",
+    "dietary_restrictions": ["vegan"],
+    "ratings": [
+      { "user_id": 103, "rating": 4, "comment": "Light and tasty." }
+    ],
+    "images": [
+      { "url": "https://example.com/image3.jpg", "description": "Vegan pancakes with syrup" }
+    ]
+  },
+  {
+    "recipe_id": 4,
+    "title": "Beef Tacos",
+    "description": "Crispy tacos filled with spicy beef and fresh vegetables.",
+    "categories": ["Mexican", "Main Course"],
+    "ingredients": [
+      { "name": "ground beef", "quantity": "200g" },
+      { "name": "taco shells", "quantity": "4" }
+    ],
+    "steps": [
+      { "step_number": 1, "instruction": "Cook beef with spices until browned.", "duration": "15 mins" },
+      { "step_number": 2, "instruction": "Assemble tacos with beef and toppings.", "duration": "5 mins" }
+    ],
+    "prep_time": "10 mins",
+    "cook_time": "20 mins",
+    "yield": "4 tacos",
+    "ratings": [
+      { "user_id": 104, "rating": 4.8, "comment": "A family favorite!" }
+    ],
+    "images": [
+      { "url": "https://example.com/image4.jpg", "description": "Beef tacos with cheese" }
+    ]
+  },
+  {
+    "recipe_id": 5,
+    "title": "Veggie Stir-Fry",
+    "description": "A delightful mix of fresh vegetables stir-fried to perfection.",
+    "categories": ["Vegan", "Main Course", "Quick & Easy"],
+    "ingredients": [
+      { "name": "bell peppers", "quantity": "1 cup", "notes": "sliced" },
+      { "name": "broccoli", "quantity": "1 cup", "notes": "florets" }
+    ],
+    "steps": [
+      { "step_number": 1, "instruction": "Heat oil in a wok.", "duration": "2 mins" },
+      { "step_number": 2, "instruction": "Add vegetables and stir-fry.", "duration": "7 mins" }
+    ],
+    "prep_time": "10 mins",
+    "cook_time": "10 mins",
+    "yield": "2 servings",
+    "dietary_restrictions": ["vegan", "gluten-free"],
+    "ratings": [
+      { "user_id": 105, "rating": 4.2, "comment": "Very fresh and tasty." }
+    ],
+    "images": [
+      { "url": "https://example.com/image5.jpg", "description": "Bright and colorful stir-fry" }
+    ]
+  },
+  {
+    "recipe_id": 6,
+    "title": "Chocolate Chip Cookies",
+    "description": "Delicious and soft cookies filled with melty chocolate chips.",
+    "categories": ["Dessert", "Baking"],
+    "ingredients": [
+      { "name": "flour", "quantity": "2 cups" },
+      { "name": "chocolate chips", "quantity": "1 cup" }
+    ],
+    "steps": [
+      { "step_number": 1, "instruction": "Mix all ingredients in a bowl.", "duration": "10 mins" },
+      { "step_number": 2, "instruction": "Bake in a preheated oven at 180°C.", "duration": "12 mins" }
+    ],
+    "prep_time": "15 mins",
+    "cook_time": "12 mins",
+    "yield": "24 cookies",
+    "ratings": [
+      { "user_id": 106, "rating": 5, "comment": "The best cookies ever!" }
+    ],
+    "images": [
+      { "url": "https://example.com/image6.jpg", "description": "Golden cookies on a rack" }
+    ]
+  },
+  {
+    "recipe_id": 7,
+    "title": "Mushroom Risotto",
+    "description": "Creamy risotto with sautéed mushrooms and parmesan.",
+    "categories": ["Italian", "Main Course", "Vegetarian"],
+    "ingredients": [
+      { "name": "arborio rice", "quantity": "1 cup" },
+      { "name": "mushrooms", "quantity": "1 cup", "notes": "sliced" }
+    ],
+    "steps": [
+      { "step_number": 1, "instruction": "Sauté mushrooms until golden.", "duration": "5 mins" },
+      { "step_number": 2, "instruction": "Add rice and stock gradually, stirring continuously.", "duration": "25 mins" }
+    ],
+    "prep_time": "10 mins",
+    "cook_time": "30 mins",
+    "yield": "2 servings",
+    "ratings": [
+      { "user_id": 107, "rating": 4.7, "comment": "So creamy and flavorful!" }
+    ],
+    "images": [
+      { "url": "https://example.com/image7.jpg", "description": "Creamy mushroom risotto" }
+    ]
+  },
+  {
+    "recipe_id": 8,
+    "title": "Cheeseburger",
+    "description": "Juicy beef patty with cheese in a toasted bun.",
+    "categories": ["American", "Main Course"],
+    "ingredients": [
+      { "name": "beef patty", "quantity": "1" },
+      { "name": "cheese slice", "quantity": "1" },
+      { "name": "burger bun", "quantity": "1", "notes": "toasted" }
+    ],
+    "steps": [
+      { "step_number": 1, "instruction": "Grill the beef patty.", "duration": "10 mins" },
+      { "step_number": 2, "instruction": "Assemble the burger with toppings.", "duration": "5 mins" }
+    ],
+    "prep_time": "10 mins",
+    "cook_time": "15 mins",
+    "yield": "1 burger",
+    "ratings": [
+      { "user_id": 108, "rating": 4.9, "comment": "Tastes like a classic!" }
+    ],
+    "images": [
+      { "url": "https://example.com/image8.jpg", "description": "Cheeseburger with lettuce and tomato" }
+    ]
+  }
+]
