@@ -15,7 +15,34 @@ declare global {
 				picture: string | null | undefined;
 				locale: string;
 			} | null;
-			title?: string; 
+			title?: string;
+			recipe: {
+				recipe_id: number;
+				title: string;
+				image: URL | string;
+				rating: {
+					user_id: string;
+					rate: 0 | 1 | 2 | 3 | 4 | 5;
+					comment?: string;
+				}[];
+				categories: string[];
+				is_featured: boolean;
+				description: string;
+				prep_time: string | number;
+				cook_time: string | number;
+				yield: string | number;
+				ingredient: {
+					name: string;
+					quantity: string | number;
+					note?: string;
+				}[];
+				steps: {
+					step_number: number;
+					instruction: string;
+					duration: string | number;
+					image?: URL | string;
+				}[];
+			} | null;
 		}
 		// interface Platform {}
 	}
