@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Carousel } from '$components';
+	import { Button } from '$components';
 	import logo from '$assets/logo-no-background.png';
 	import googleLogo from '$assets/google-icon.png';
 	import loginData from '$assets/loginData.json';
