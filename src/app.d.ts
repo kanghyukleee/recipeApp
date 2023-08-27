@@ -6,7 +6,7 @@ declare global {
 		// interface Locals {}
 		interface PageData {
 			user: {
-				id: string;
+				id: string | number;
 				email: string;
 				verified_email: boolean;
 				name: string;
@@ -17,6 +17,7 @@ declare global {
 			} | null;
 			title?: string;
 			recipe: {
+				type: 'recipe';
 				recipe_id: number;
 				title: string;
 				image: URL | string;
@@ -42,6 +43,20 @@ declare global {
 					duration: string | number;
 					image?: URL | string;
 				}[];
+			} | null;
+			profile: {
+				type: 'profile';
+
+				user_id: string | number;
+				email: string;
+				name: string;
+				given_name: string;
+				family_name: string;
+				picture: string | null | undefined;
+
+				// owned_recipe contains recipe_id
+				owned_recipe: [] | null;
+				followers: 0 | number;
 			} | null;
 		}
 		// interface Platform {}
