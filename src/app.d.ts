@@ -16,7 +16,7 @@ declare global {
 				locale: string;
 			} | null;
 			title?: string;
-			recipe: {
+			recipes: {
 				type: 'recipe';
 				recipe_id: number;
 				title: string;
@@ -44,11 +44,11 @@ declare global {
 					image?: URL | string;
 				}[];
 			} | null;
-			profile: {
+			profiles: {
 				type: 'profile';
-
 				user_id: string | number;
-				email: string;
+				user_image: string;
+				// email: string;
 				name: string;
 				given_name: string;
 				family_name: string;
