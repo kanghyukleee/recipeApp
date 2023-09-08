@@ -1,92 +1,325 @@
 <script lang="ts">
-	import { UtensilsCrossed, Star } from 'lucide-svelte';
+	import { rateResult } from '$helpers';
+	import { UtensilsCrossed, Star, StarHalf } from 'lucide-svelte';
 
-	export let item; // define type of item later
+	type RecipeType = {
+		type: 'recipe';
+		recipe_id: number;
+		owner_id: number;
+		title: string;
+		image: string;
+		rating: {
+			user_id: string;
+			rate: 0 | 1 | 2 | 3 | 4 | 5;
+			comment?: string;
+		}[];
+		categories: string[];
+		is_featured: boolean;
+		description: string;
+		prep_time: string | number;
+		cook_time: string | number;
+		yield: string | number;
+		ingredient: {
+			name: string;
+			quantity: string | number;
+			note?: string;
+		}[];
+		steps: {
+			step_number: number;
+			instruction: string;
+			duration: string | number;
+			image?: URL | string;
+		}[];
+	};
+	type ProfileType = {
+		type: 'profile';
+		user_id: number;
+		user_image: string;
+		name: string;
+		recipe_ids: [];
+		followers: number;
+	};
+
+	export let item: RecipeType | ProfileType;
+
+	let totalRate = 0;
+	let averageRate = 0;
+	let zeroToOne: string;
+	let oneToTwo: string;
+	let twoToThree: string;
+	let threeToFour: string;
+	let fourToFive: string;
+
+	let ratingResult = ['fill', 'outline', 'off', 'off', 'off'];
+
+	if (item.type === 'recipe') {
+		if (item.rating.length > 0) {
+			item.rating.forEach((eachRate) => {
+				totalRate += eachRate.rate;
+			});
+			averageRate = totalRate / item.rating.length;
+			ratingResult = rateResult(averageRate);
+			[zeroToOne, oneToTwo, twoToThree, threeToFour, fourToFive] = ratingResult;
+		}
+	}
 </script>
 
-<div class="card {item.type}">
-	<div class="cover">
+<div class="{item.type}-card">
+	{#if item.type === 'recipe'}
+		<!-- recipe card -->
 		{#if item.image}
-			<img loading="lazy" src={item.image} alt="{item.type} image for {item.title}" />
+			<div class="{item.type}-cover">
+				<img loading="lazy" src={item.image} alt="{item.type} cover for {item.title}" />
+			</div>
 		{:else}
-			<div class="cover-placeholder">
+			<div class="{item.type}-cover-placeholder">
+				<!-- TODO: color setup required -->
 				<UtensilsCrossed aria-hidden="true" focusable="false" color="var(--light-gray)" />
 			</div>
 		{/if}
-	</div>
-	<div class="recipe-info">
-		<div class="tags">
-			<p class="tag">tag</p>
+		<div class="{item.type}-info">
+			<p class="truncate-1">{item.categories.map((tag) => tag).join(', ')}</p>
+			<h4 class="truncate-1">{item.title}</h4>
+			<div class="{item.type}-rating">
+				{#if item.rating.length > 0}
+					<div class={zeroToOne}>
+						<Star aria-hidden="true" focusable="false" />
+					</div>
+					<div class={oneToTwo}>
+						<Star aria-hidden="true" focusable="false" />
+					</div>
+					<div class={twoToThree}>
+						<Star aria-hidden="true" focusable="false" />
+					</div>
+					<div class={threeToFour}>
+						<Star aria-hidden="true" focusable="false" />
+					</div>
+					<div class={fourToFive}>
+						<Star aria-hidden="true" focusable="false" />
+					</div>
+				{:else}
+					<p>No ratings yet</p>
+				{/if}
+			</div>
 		</div>
-		<h2 class="title">{item.title}</h2>
-		<div class="rating">
-			<Star />
+	{:else}
+		<!-- profile card -->
+		{#if item.user_image}
+			<div class="{item.type}-cover">
+				<img loading="lazy" src={item.user_image} alt="{item.type} cover for {item.name}" />
+			</div>
+		{:else}
+			<div class="{item.type}-cover-placeholder">
+				<!-- TODO: color setup required -->
+				<UtensilsCrossed aria-hidden="true" focusable="false" color="var(--light-gray)" />
+			</div>
+		{/if}
+		<div class="{item.type}-info">
+			<h4 class="truncate-1">name</h4>
+			<p class="truncate-1">number of recipes uploaded</p>
+			<p class="truncate-1">number of followers</p>
 		</div>
-	</div>
+	{/if}
 </div>
 
-
 <style lang="scss">
-	.card {
+	.recipe-card {
 		background-color: var(--dark-gray);
-		padding: 10px;
+		padding: 0;
 		box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
-		border-radius: 4px;
 		transition: background 0.3s;
-    // display: flex; @breakpoint down sm
+		position: relative;
 		&:hover {
 			background-color: var(--medium-gray);
-      .image{
-        .cover-placeholder {
-          background-color: var(--dark-gray);
-        }
-      }
+			.recipe-cover-placeholder {
+				background-color: var(--dark-gray);
+			}
 		}
-    .cover{
-      img {
-        width: 100%;
-        // 이미지가 정사각형에 딱 맞게 들어가도록 하는 코드
-        aspect-ratio: 1;  // ratio 1.5 or 0.6 test require
-        object-fit: cover;
-        // 이미지가 정사각형에 딱 맞게 들어가도록 하는 코드
-        margin: 0 0 20px;
+		.recipe-info {
+			padding: 20px;
+			h4 {
+				margin: 0 0 0px;
+				font-size: functions.toRem(28);
+				font-weight: 600;
+				line-height: 1;
 
-        // @breakpoint down sm
-        // height: 100%;
-				// max-height: 190px;
-      }
-      .cover-placeholder {
-        width: 100%;
-        aspect-ratio: 1; // ratio 1.5 or 0.6 test require
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: var(--medium-gray);
-        margin: 0 0 20px;
-        transition: background 0.3s;
+				line-height: 1.7;
+				a {
+					text-decoration: none;
+					color: var(--text-color);
+					&:focus-visible {
+						outline: none;
+						&:after {
+							outline: 2px solid var(--accent-color);
+						}
+					}
+					&:after {
+						content: '';
+						position: absolute;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						border-radius: 4px;
+					}
+				}
+			}
+			p {
+				position: relative;
+				margin: 0;
+				color: var(--light-gray);
+				font-size: functions.toRem(14);
+			}
+			.recipe-rating {
+				align-items: center;
+				display: flex;
+				:global(svg) {
+					width: 7%;
+					height: 7%;
+					min-width: 15px;
+					min-height: 15px;
+					
+				}
+				.fill {
+					:global(svg) {
+						color: var(--accent-color);
+						fill: var(--accent-color);
+					}
+				}
+				.outline {
+					:global(svg) {
+						color: var(--accent-color);
+						fill: none;
+					}
+				}
+				.off {
+					:global(svg) {
+						color: var(--text-color);
+						fill: none;
+					}
+				}
+			}
+		}
+		img {
+			width: 100%;
+			aspect-ratio: 1.5;
+			object-fit: cover;
+			margin: 0 0 20px;
+		}
+		.recipe-cover-placeholder {
+			width: 100%;
+			aspect-ratio: 1.5;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: var(--medium-gray);
+			margin: 0 0 20px;
+			transition: background 0.3s;
+			:global(svg) {
+				width: 40%;
+				height: 40%;
+			}
+		}
+		@include breakpoint.down('md') {
+			display: flex;
+			height: 200px;
+			.recipe-cover,
+			.recipe-cover-placeholder {
+				aspect-ratio: 1.5;
+				object-fit: cover;
+				max-width: 300px;
+				padding: 0;
+				img {
+					margin: 0;
+				}
+			}
+			.recipe-info {
+				width: 100%;
+			}
+		}
+	}
 
-        // @breakpoint down sm
-        // height: 100%;
-				// max-height: 190px;
+	.profile-card {
+		background-color: var(--dark-gray);
+		padding: 0;
+		box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+		transition: background 0.3s;
+		position: relative;
 
-        :global(svg) {
-          width: 40%;
-          height: 40%;
-        }
-      }
-    }
-    .recipe-info {
-      .tags {
-        .tag {
-          // or p
-        }
-      }
-      .title {
-        // or h2
-      }
-      .rating {
-        
-      }
+		text-align: center;
+		padding: 30px 20px;
+		img,
+		.profile-cover-placeholder {
+			width: 150px;
+			max-width: 100%;
+			border-radius: 100%;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+		}
+		.profile-info {
+			padding: 20px;
+			h4 {
+				margin: 0;
+				text-align: center;
+				font-size: functions.toRem(28);
+				margin-bottom: 0.5em;
+			}
+			&:hover {
+				background-color: var(--medium-gray);
+				.profile-cover-placeholder {
+					background-color: var(--dark-gray);
+				}
+			}
+			h4 {
+				margin: 0 0 10px;
+				font-size: functions.toRem(16);
+				font-weight: 600;
+				line-height: 1;
+				a {
+					text-decoration: none;
+					color: var(--text-color);
+					&:focus-visible {
+						outline: none;
+						&:after {
+							outline: 2px solid var(--accent-color);
+						}
+					}
+					&:after {
+						content: '';
+						position: absolute;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						border-radius: 4px;
+					}
+				}
+			}
+			p {
+				position: relative;
+				margin: 0;
+				color: var(--light-gray);
+				font-size: functions.toRem(14);
+			}
+		}
+		img {
+			width: 100%;
+			aspect-ratio: 1;
+			object-fit: cover;
+			margin: 0 0 20px;
+		}
+		.profile-cover-placeholder {
+			width: 100%;
+			aspect-ratio: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: var(--medium-gray);
+			margin: 0 0 20px;
+			transition: background 0.3s;
+			:global(svg) {
+				width: 40%;
+				height: 40%;
+			}
 		}
 	}
 </style>
