@@ -3,6 +3,7 @@
 		{
 			"type": "recipe",
 			"recipe_id": 1,
+			"owner_id": 1,
 			"title": "Chicken Alfredo",
 			"image": "https://www.budgetbytes.com/wp-content/uploads/2022/07/Chicken-Alfredo-bowl.jpg",
 			"rating": [
@@ -33,6 +34,7 @@
 		{
 			"type": "recipe",
 			"recipe_id": 2,
+			"owner_id": 1,
 			"title": "Vegan Burger",
 			"image": "https://nikkivegan.com/wp-content/uploads/2021/03/IMG_4810-500x500.jpg",
 			"rating": [
@@ -57,6 +59,7 @@
 		{
 			"type": "recipe",
 			"recipe_id": 3,
+			"owner_id": 1,
 			"title": "Chocolate Cake",
 			"image": "https://www.hersheyland.com/content/dam/hersheyland/en-us/recipes/recipe-images/2_Hersheys_Perfectly_Chocolate_Cake_11-18.jpeg",
 			"rating": [],
@@ -79,6 +82,7 @@
 		{
 			"type": "recipe",
 			"recipe_id": 4,
+			"owner_id": 1,
 			"title": "Caesar Salad",
 			"image": "https://assets.bonappetit.com/photos/624215f8a76f02a99b29518f/1:1/w_2800,h_2800,c_limit/0328-ceasar-salad-lede.jpg",
 			"rating": [
@@ -103,6 +107,7 @@
 		{
 			"type": "recipe",
 			"recipe_id": 5,
+			"owner_id": 2,
 			"title": "Spaghetti Carbonara",
 			"image": "https://images.services.kitchenstories.io/6glN_4JhpVS9aUiBS7JnGsuDULA=/3840x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2568-photo-final-_0.jpg",
 			"rating": [
@@ -136,6 +141,7 @@
 		{
 			"type": "recipe",
 			"recipe_id": 6,
+			"owner_id": 2,
 			"title": "Tofu Stir Fry",
 			"image": "https://hips.hearstapps.com/hmg-prod/images/190130-tofu-stir-fry-horizontal-150-1549302524.jpg",
 			"rating": [
@@ -173,6 +179,7 @@
 		{
 			"type": "recipe",
 			"recipe_id": 7,
+			"owner_id": 2,
 			"title": "Creamy Tomato Soup",
 			"image": "https://www.rawblend.com.au/wp-content/uploads/2021/06/Creamy-Tomato-Soup-1920x1080-1.jpg",
 			"rating": [
@@ -214,6 +221,7 @@
 		{
 			"type": "recipe",
 			"recipe_id": 8,
+			"owner_id": 2,
 			"title": "Lemon Garlic Shrimp Pasta",
 			"image": "https://img.buzzfeed.com/video-api-prod/assets/9ee2dadcbfcb4095872e6cdbaa24ff14/Thumb_A_FB.jpg",
 			"rating": [
@@ -257,6 +265,7 @@
 		{
 			"type": "recipe",
 			"recipe_id": 9,
+			"owner_id": 3,
 			"title": "Classic Beef Tacos",
 			"image": "https://hispanickitchen.com/wp-content/uploads/2017/01/classic-ground-beef-hardshell-tacos-3-2.jpg",
 			"rating": [
@@ -300,6 +309,7 @@
 		{
 			"type": "recipe",
 			"recipe_id": 10,
+			"owner_id": 3,
 			"title": "Mango Lassi",
 			"image": "https://www.cuisinart.com/globalassets/catalog/appliances/food-processors/complete-chef-cooking-food-processor/mangolassi_653475121.jpg",
 			"rating": [
@@ -337,6 +347,7 @@
 		{
 			"type": "recipe",
 			"recipe_id": 11,
+			"owner_id": 3,
 			"title": "Chocolate Chip Cookies",
 			"image": "https://www.allrecipes.com/thmb/8xwaWAHtl_QLij6D-G0Z4B1HDVA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/10813-best-chocolate-chip-cookies-mfs-146-4x3-b108aceffa6043a1ac81c3c5a9b034c8.jpg",
 			"rating": [
@@ -384,6 +395,7 @@
 		{
 			"type": "recipe",
 			"recipe_id": 12,
+			"owner_id": 3,
 			"title": "Avocado Toast with Poached Egg",
 			"image": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/avocado-6b1cf76.jpg?quality=90&resize=440,400",
 			"rating": [
@@ -432,6 +444,7 @@
 		{
 			"type": "recipe",
 			"recipe_id": 13,
+			"owner_id": 4,
 			"title": "Stuffed Bell Peppers",
 			"image": "https://www.foodnetwork.com/content/dam/images/food/fullset/2016/2/26/2/WU1307H_stuffed-peppers_s4x3.jpg",
 			"rating": [
@@ -484,6 +497,7 @@
 		{
 			"type": "recipe",
 			"recipe_id": 14,
+			"owner_id": 4,
 			"title": "Lemon Meringue Pie",
 			"image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2019/9/3/0/FNK_the-best-lemon-meringue-pie-reshoot_H_s4x3.jpg.rend.hgtvcom.616.462.suffix/1567536793798.jpeg",
 			"rating": [
@@ -541,6 +555,7 @@
 		{
 			"type": "recipe",
 			"recipe_id": 15,
+			"owner_id": 4,
 			"title": "Quinoa and Roasted Vegetable Salad",
 			"image": "https://heatherchristo.com/wp-content/uploads/2017/03/Spicy-Vegan-Roasted-Vegetable-Quinoa-Salad-from-HeatherChristo.com_.jpg",
 			"rating": [
@@ -593,6 +608,7 @@
 		{
 			"type": "recipe",
 			"recipe_id": 16,
+			"owner_id": 4,
 			"title": "Bruschetta with Tomato and Basil",
 			"image": "https://img.taste.com.au/rcvJGXmk/taste/2016/11/tomato-and-basil-bruschetta-75254-1.jpeg",
 			"rating": [
@@ -638,6 +654,7 @@
 		{
 			"type": "recipe",
 			"recipe_id": 17,
+			"owner_id": 5,
 			"title": "Blueberry Lemon Cheesecake Bars",
 			"image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2013/6/19/0/CCTUL301_lemon-blueberry-cheesecake-bars-recipe_s4x3.jpg.rend.hgtvcom.616.462.suffix/1375577663555.jpeg",
 			"rating": [
@@ -692,6 +709,7 @@
 		{
 			"type": "recipe",
 			"recipe_id": 18,
+			"owner_id": 5,
 			"title": "Mango Mint Iced Tea",
 			"image": "https://suwanneerose.com/wp-content/uploads/2015/06/fresh-mango-and-mint-tea.jpg",
 			"rating": [
@@ -744,6 +762,7 @@
 		{
 			"type": "recipe",
 			"recipe_id": 19,
+			"owner_id": 5,
 			"title": "Chocolate Chip Pancakes",
 			"image": "https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_4:3/k%2FPhoto%2FSeries%2F2021-07-how-to-chocolate-chip-pancakes%2F2021-07-20_ATK-7932",
 			"rating": [
@@ -789,6 +808,7 @@
 		{
 			"type": "recipe",
 			"recipe_id": 20,
+			"owner_id": 5,
 			"title": "Creamy Butternut Squash Soup",
 			"image": "https://chefshamy-media.s3.us-west-2.amazonaws.com/wp-content/uploads/2019/11/17153412/butternut-squash-soup-09.jpg",
 			"rating": [
@@ -850,6 +870,7 @@
 		{
 			"type": "recipe",
 			"recipe_id": 21,
+			"owner_id": 6,
 			"title": "Black Bean Tacos",
 			"image": "https://playswellwithbutter.com/wp-content/uploads/2019/08/Quinoa-Black-Bean-Tacos-13-e1610577176314.jpg",
 			"rating": [
@@ -906,6 +927,7 @@
 		{
 			"type": "recipe",
 			"recipe_id": 22,
+			"owner_id": 6,
 			"title": "Spaghetti Aglio e Olio",
 			"image": "https://www.foodandwine.com/thmb/c-MBu_vMHq3EcoN_KPxwg-oZjKo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Pasta-Aglio-E-Olio-2-FT-RECIPE0123-38cd2045646a4635a80e8166f085fc7e.jpg",
 			"rating": [
@@ -965,6 +987,7 @@
 		{
 			"type": "recipe",
 			"recipe_id": 23,
+			"owner_id": 6,
 			"title": "Vegetable Thai Green Curry",
 			"image": "https://media.vogue.in/wp-content/uploads/2020/10/Thai-curry-new-WP1-1920x1080.jpg",
 			"rating": [
@@ -1018,6 +1041,7 @@
 		{
 			"type": "recipe",
 			"recipe_id": 24,
+			"owner_id": 6,
 			"title": "Lemon Blueberry Pound Cake",
 			"image": "https://www.theanthonykitchen.com/wp-content/uploads/2020/03/Blueberry-Pound-Cake-8.jpg",
 			"rating": [
