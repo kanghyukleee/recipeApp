@@ -8,7 +8,8 @@
 			"image": "https://www.budgetbytes.com/wp-content/uploads/2022/07/Chicken-Alfredo-bowl.jpg",
 			"rating": [
 				{ "user_id": "user1", "rate": 5, "comment": "Delicious!" },
-				{ "user_id": "user2", "rate": 4 }
+				{ "user_id": "user2", "rate": 4 },
+				{ "user_id": "user3", "rate": 4 }
 			],
 			"categories": ["Italian", "Pasta"],
 			"is_featured": true,
@@ -184,7 +185,8 @@
 			"image": "https://www.rawblend.com.au/wp-content/uploads/2021/06/Creamy-Tomato-Soup-1920x1080-1.jpg",
 			"rating": [
 				{ "user_id": "user11", "rate": 5, "comment": "Perfect for a cold day!" },
-				{ "user_id": "user12", "rate": 4, "comment": "Could use a bit more spice." }
+				{ "user_id": "user12", "rate": 4, "comment": "Could use a bit more spice." },
+				{ "user_id": "user13", "rate": 4 }
 			],
 			"categories": ["Soup", "Comfort Food"],
 			"is_featured": true,
@@ -352,7 +354,8 @@
 			"image": "https://www.allrecipes.com/thmb/8xwaWAHtl_QLij6D-G0Z4B1HDVA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/10813-best-chocolate-chip-cookies-mfs-146-4x3-b108aceffa6043a1ac81c3c5a9b034c8.jpg",
 			"rating": [
 				{ "user_id": "user19", "rate": 5, "comment": "Simply the best!" },
-				{ "user_id": "user20", "rate": 4, "comment": "Sweet and soft." }
+				{ "user_id": "user20", "rate": 4, "comment": "Sweet and soft." },
+				{ "user_id": "user13", "rate": 4 }
 			],
 			"categories": ["Dessert", "Baking"],
 			"is_featured": true,
@@ -502,7 +505,8 @@
 			"image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2019/9/3/0/FNK_the-best-lemon-meringue-pie-reshoot_H_s4x3.jpg.rend.hgtvcom.616.462.suffix/1567536793798.jpeg",
 			"rating": [
 				{ "user_id": "user25", "rate": 5, "comment": "Tart and sweet, the perfect balance!" },
-				{ "user_id": "user26", "rate": 4, "comment": "A hit at the family gathering!" }
+				{ "user_id": "user26", "rate": 4, "comment": "A hit at the family gathering!" },
+				{ "user_id": "user13", "rate": 5 }
 			],
 			"categories": ["Dessert", "Baking"],
 			"is_featured": false,

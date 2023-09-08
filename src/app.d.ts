@@ -19,11 +19,12 @@ declare global {
 			recipes: {
 				type: 'recipe';
 				recipe_id: number;
+				owner_id: number;
 				title: string;
-				image: URL | string;
+				image: string;
 				rating: {
 					user_id: string;
-					rate: 0 | 1 | 2 | 3 | 4 | 5;
+					rate: 1 | 2 | 3 | 4 | 5;
 					comment?: string;
 				}[];
 				categories: string[];
@@ -41,22 +42,16 @@ declare global {
 					step_number: number;
 					instruction: string;
 					duration: string | number;
-					image?: URL | string;
+					image?: string;
 				}[];
 			} | null;
 			profiles: {
 				type: 'profile';
-				user_id: string | number;
+				user_id: number;
 				user_image: string;
-				// email: string;
 				name: string;
-				given_name: string;
-				family_name: string;
-				picture: string | null | undefined;
-
-				// owned_recipe contains recipe_id
-				owned_recipe: [] | null;
-				followers: 0 | number;
+				recipe_ids: [];
+				followers: number;
 			} | null;
 		}
 		// interface Platform {}
