@@ -6,7 +6,9 @@ import RECIPE_DATA from '$assets/dummyRecipeData.json';
 
 export const GET: RequestHandler = async ({ url }) => {
 	const recipe = await RECIPE_DATA.recipe;
+
 	// log of url
+
 	// URL {
 	// 	href: 'http://localhost:5173/api/recipe?limit=4',
 	// 	origin: 'http://localhost:5173',
@@ -22,15 +24,8 @@ export const GET: RequestHandler = async ({ url }) => {
 	// 	hash: ''
 	// }
 
-	// ?limit 의 처리
 	const limit = url.searchParams.get('limit') ? Number(url.searchParams.get('limit')) : undefined;
-	// let filteredRecipe = [];
-	// if (limit) {
-	// 	const shuffled = recipe.sort(() => 0.5 - Math.random());
-	// 	filteredRecipe = [...shuffled.slice(0, limit)];
-	// } else {
-	// 	filteredRecipe = [...recipe];
-	// }
+
 
 	if (limit) {
 		const shuffled = recipe.sort(() => 0.5 - Math.random());
@@ -40,16 +35,6 @@ export const GET: RequestHandler = async ({ url }) => {
 			}
 		});
 	} else {
-		return new Response(JSON.stringify({ some: 'message' }));
+		return new Response(JSON.stringify(recipe));
 	}
-
-	// return type should be Response form
-	// return new Response(
-	// 	JSON.stringify({
-	// 		filteredRecipe
-	// 	}),
-	// 	{headers: {
-	// 		'Content-Type': 'application/json'
-	// 	}}
-	// );
 };
