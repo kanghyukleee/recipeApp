@@ -21,7 +21,7 @@
 <!-- pre-declare directives -->
 <button bind:this={button} on:click on:mouseover on:focus on:keydown {...$$restProps}>
 	<!-- render icon by svelte:component, color depends on theme -->
-	<svelte:component this={icon} color="white" aria-hidden="true" focusable="false" />
+	<svelte:component this={icon} aria-hidden="true" focusable="false" />
   <span class="visually-hidden">{label}</span>
 </button>
 
@@ -35,13 +35,14 @@
 		height: 38px;
 		:global(svg) {
 			vertical-align: middle;
+			color: var(--text-color);
 		}
 		&:disabled {
 			opacity: 0.6;
 			cursor: not-allowed;
 		}
 		&:active {
-			background-color: var(--medium-gray);
+			background-color: var(--item-hover-color);
 		}
 	}
 </style>

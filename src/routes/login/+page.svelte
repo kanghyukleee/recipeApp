@@ -41,7 +41,7 @@
 
 <style lang="scss">
 	:global(body) {
-		background-image: linear-gradient(230deg, var(--dark-gray), var(--bg-color));
+		background-image: linear-gradient(230deg, var(--bg-gradient-color), var(--bg-color));
 		height: 100vh;
 		
 	}

@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { rateResult } from '$helpers';
-	import { UtensilsCrossed, Star, StarHalf } from 'lucide-svelte';
+	import { UtensilsCrossed, Star } from 'lucide-svelte';
 
 	type RecipeType = {
 		type: 'recipe';
 		recipe_id: number;
 		owner_id: number;
 		title: string;
-		image: string;
+		image?: string;
 		rating: {
 			user_id: string;
 			rate: 0 | 1 | 2 | 3 | 4 | 5;
@@ -62,6 +62,8 @@
 			[zeroToOne, oneToTwo, twoToThree, threeToFour, fourToFive] = ratingResult;
 		}
 	}
+
+	const followersFormat = Intl.NumberFormat('en', {notation: 'compact'})
 </script>
 
 <div class="{item.type}-card">
@@ -111,28 +113,28 @@
 		{:else}
 			<div class="{item.type}-cover-placeholder">
 				<!-- TODO: color setup required -->
-				<UtensilsCrossed aria-hidden="true" focusable="false" color="var(--light-gray)" />
+				<UtensilsCrossed aria-hidden="true" focusable="false" color="var(--subTxt-color)" />
 			</div>
 		{/if}
 		<div class="{item.type}-info">
-			<h4 class="truncate-1">name</h4>
-			<p class="truncate-1">number of recipes uploaded</p>
-			<p class="truncate-1">number of followers</p>
+			<h4 class="truncate-1">{item.name}</h4>
+			<p class="truncate-1">{item.recipe_ids.length} recipes</p>
+			<p class="truncate-1">{followersFormat.format(item.followers)} followers</p>
 		</div>
 	{/if}
 </div>
 
 <style lang="scss">
 	.recipe-card {
-		background-color: var(--dark-gray);
+		background-color: var(--item-color);
 		padding: 0;
-		box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+		box-shadow: var(--shadow-value);
 		transition: background 0.3s;
 		position: relative;
 		&:hover {
-			background-color: var(--medium-gray);
+			background-color: var(--item-hover-color);
 			.recipe-cover-placeholder {
-				background-color: var(--dark-gray);
+				background-color: var(--item-color);
 			}
 		}
 		.recipe-info {
@@ -167,18 +169,15 @@
 			p {
 				position: relative;
 				margin: 0;
-				color: var(--light-gray);
+				color: var(--subTxt-color);
 				font-size: functions.toRem(14);
 			}
 			.recipe-rating {
 				align-items: center;
 				display: flex;
 				:global(svg) {
-					width: 7%;
-					height: 7%;
-					min-width: 15px;
-					min-height: 15px;
-					
+					width: 80%;
+					height: 80%;				
 				}
 				.fill {
 					:global(svg) {
@@ -212,7 +211,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			background-color: var(--medium-gray);
+			background-color: var(--placeholder-color);
 			margin: 0 0 20px;
 			transition: background 0.3s;
 			:global(svg) {
@@ -240,9 +239,9 @@
 	}
 
 	.profile-card {
-		background-color: var(--dark-gray);
+		background-color: var(--item-color);
 		padding: 0;
-		box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+		box-shadow: var(--shadow-value);
 		transition: background 0.3s;
 		position: relative;
 
@@ -253,7 +252,6 @@
 			width: 150px;
 			max-width: 100%;
 			border-radius: 100%;
-			box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 		}
 		.profile-info {
 			padding: 20px;
@@ -264,9 +262,9 @@
 				margin-bottom: 0.5em;
 			}
 			&:hover {
-				background-color: var(--medium-gray);
+				background-color: var(--item-hover-color);
 				.profile-cover-placeholder {
-					background-color: var(--dark-gray);
+					background-color: var(--item-color);
 				}
 			}
 			h4 {
@@ -297,7 +295,7 @@
 			p {
 				position: relative;
 				margin: 0;
-				color: var(--light-gray);
+				color: var(--subTxt-color);
 				font-size: functions.toRem(14);
 			}
 		}
@@ -313,7 +311,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			background-color: var(--medium-gray);
+			background-color: var(--placeholer-color);
 			margin: 0 0 20px;
 			transition: background 0.3s;
 			:global(svg) {

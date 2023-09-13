@@ -19,15 +19,32 @@
 	--accent-color: #ba3b0a;
 	// dark theme color
 	--bg-color: #202020;
+	--bg-gradient-color: #222831;
 	--text-color: #fff;
-	--nav-color: black;
+	--sidebar-color: #000;
+	--nav-color: #000;
 	--tooltip-color: #2e2e2e;
+	--subTxt-color: #b3b3b3;
+	--item-color: #222831;
+	--item-hover-color: #393e46;
+	--placeholder-color: #393e46;
+	--active-color: #b3b3b3;
+	--shadow-value: 0 0 40px rgba(0, 0, 0, 0.4);
+
 	.light-theme {
 		// light theme color
 		--bg-color: #fff;
+		--bg-gradient-color: #dac0a3;
 		--text-color: #000;
+		--sidebar-color:#f6f1e9;
 		--nav-color: #f6f1e9;
 		--tooltip-color: #f6f1e9;
+		--subTxt-color: #222831;
+		--item-color: #f6f1e9;
+		--item-hover-color: #dac0a3;
+		--placeholder-color: #F1F0E8;
+		--active-color: #dac0a3;
+		--shadow-value: 0 0 10px rgba(0, 0, 0, 0.4);
 	}
 
 	// redefine color scales for dark/light mode

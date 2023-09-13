@@ -27,7 +27,7 @@
 		.switch-icon {
 			appearance: none;
 			position: relative;
-			border: max(2px, 0.1em) solid gray;
+			border: max(2px, 0.1em) solid var(--tooltip-color);
 			border-radius: 1.25em;
 			width: 2.25em;
 			height: 1.25em;
@@ -61,7 +61,7 @@
 
 			&:disabled {
 				&:hover {
-					border-color: var(--light-gray);
+					border-color: var(--active-color);
 					opacity: 0.7;
 					cursor: not-allowed;
 				}
@@ -76,7 +76,7 @@
 				}
 			}
 			&:enabled:hover {
-				box-shadow: 0 0 0 max(3px, 0.2em) var(--light-gray);
+				box-shadow: 0 0 0 max(3px, 0.2em) var(--active-color);
 			}
 		}
 	}

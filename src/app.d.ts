@@ -21,7 +21,7 @@ declare global {
 				recipe_id: number;
 				owner_id: number;
 				title: string;
-				image: string;
+				image?: string;
 				rating: {
 					user_id: string;
 					rate: 1 | 2 | 3 | 4 | 5;

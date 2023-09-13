@@ -1,4 +1,7 @@
 <script lang="ts">
+// ADD IntersectionObserver!, https://www.youtube.com/watch?v=iZhq7I42uaI
+
+
 	import { Card } from '$components';
 	import type { PageData } from './$types';
 
@@ -42,6 +45,8 @@
 
 	export let data: PageData;
 
+
+	//
 	let sections: {
 		title: string;
 		path: string;
@@ -57,6 +62,8 @@
 			});
 		}
 	}
+
+// content row header 없애거나 변경
 </script>
 
 {#each sections as section}

@@ -4,8 +4,7 @@
 			"type": "recipe",
 			"recipe_id": 1,
 			"owner_id": 1,
-			"title": "Chicken Alfredo",
-			"image": "https://www.budgetbytes.com/wp-content/uploads/2022/07/Chicken-Alfredo-bowl.jpg",
+			"title": "Chicken Alfredo",			
 			"rating": [
 				{ "user_id": "user1", "rate": 5, "comment": "Delicious!" },
 				{ "user_id": "user2", "rate": 4 },
@@ -112,7 +111,7 @@
 			"title": "Spaghetti Carbonara",
 			"image": "https://images.services.kitchenstories.io/6glN_4JhpVS9aUiBS7JnGsuDULA=/3840x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2568-photo-final-_0.jpg",
 			"rating": [
-				{ "user_id": "user7", "rate": 5, "comment": "Authentic taste!" },
+				{ "user_id": "user7", "rate": 2, "comment": "Authentic taste!" },
 				{ "user_id": "user8", "rate": 4, "comment": "Reminds me of Italy!" }
 			],
 			"categories": ["Italian", "Pasta"],
@@ -228,7 +227,7 @@
 			"image": "https://img.buzzfeed.com/video-api-prod/assets/9ee2dadcbfcb4095872e6cdbaa24ff14/Thumb_A_FB.jpg",
 			"rating": [
 				{ "user_id": "user13", "rate": 4, "comment": "Light and flavorful!" },
-				{ "user_id": "user14", "rate": 5, "comment": "My family loved it!" }
+				{ "user_id": "user14", "rate": 3, "comment": "My family loved it!" }
 			],
 			"categories": ["Seafood", "Pasta"],
 			"is_featured": false,
@@ -272,7 +271,7 @@
 			"image": "https://hispanickitchen.com/wp-content/uploads/2017/01/classic-ground-beef-hardshell-tacos-3-2.jpg",
 			"rating": [
 				{ "user_id": "user15", "rate": 5, "comment": "Best tacos ever!" },
-				{ "user_id": "user16", "rate": 4, "comment": "Great for taco night!" }
+				{ "user_id": "user16", "rate": 2, "comment": "Great for taco night!" }
 			],
 			"categories": ["Mexican", "Street Food"],
 			"is_featured": true,
@@ -403,7 +402,7 @@
 			"image": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/avocado-6b1cf76.jpg?quality=90&resize=440,400",
 			"rating": [
 				{ "user_id": "user21", "rate": 5, "comment": "Perfect for breakfast!" },
-				{ "user_id": "user22", "rate": 4, "comment": "Loved the creamy avocado." }
+				{ "user_id": "user22", "rate": 1, "comment": "Loved the creamy avocado." }
 			],
 			"categories": ["Breakfast", "Healthy"],
 			"is_featured": false,
@@ -452,7 +451,7 @@
 			"image": "https://www.foodnetwork.com/content/dam/images/food/fullset/2016/2/26/2/WU1307H_stuffed-peppers_s4x3.jpg",
 			"rating": [
 				{ "user_id": "user23", "rate": 5, "comment": "A delightful veggie main course!" },
-				{ "user_id": "user24", "rate": 4, "comment": "Healthy and delicious." }
+				{ "user_id": "user24", "rate": 2, "comment": "Healthy and delicious." }
 			],
 			"categories": ["Vegetarian", "Main Course"],
 			"is_featured": true,
@@ -614,7 +613,6 @@
 			"recipe_id": 16,
 			"owner_id": 4,
 			"title": "Bruschetta with Tomato and Basil",
-			"image": "https://img.taste.com.au/rcvJGXmk/taste/2016/11/tomato-and-basil-bruschetta-75254-1.jpeg",
 			"rating": [
 				{ "user_id": "user35", "rate": 5, "comment": "Crispy, fresh, and full of flavor!" },
 				{ "user_id": "user36", "rate": 4, "comment": "A perfect start to our meal." }
@@ -993,7 +991,6 @@
 			"recipe_id": 23,
 			"owner_id": 6,
 			"title": "Vegetable Thai Green Curry",
-			"image": "https://media.vogue.in/wp-content/uploads/2020/10/Thai-curry-new-WP1-1920x1080.jpg",
 			"rating": [
 				{ "user_id": "user53", "rate": 5, "comment": "Perfectly spiced and creamy!" },
 				{ "user_id": "user54", "rate": 4, "comment": "Felt like I was in Thailand." }
