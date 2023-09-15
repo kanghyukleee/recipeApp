@@ -8,7 +8,9 @@
 	import { IconButton } from '$components';
 
 	export let isDesktop: boolean;
-	
+
+	$: user = $page.data.user ? $page.data.user : null;
+
 	let isMobileMenuOpen = false;
 	$: isMenuOpen = isDesktop || isMobileMenuOpen;
 
@@ -20,21 +22,25 @@
 	const menuItems: {
 		path: string;
 		label: string;
+		loginRequired: boolean;
 		icon: ComponentType<Icon>;
 	}[] = [
 		{
 			path: '/',
 			label: 'Home',
+			loginRequired: false,
 			icon: Home
 		},
 		{
 			path: '/search',
 			label: 'Search',
+			loginRequired: false,
 			icon: Search
 		},
 		{
 			path: '/recipe/me',
 			label: 'My Recipes',
+			loginRequired: true,
 			icon: UtensilsCrossed
 		}
 	];
@@ -131,27 +137,29 @@
 			<img class="logo" src={logo} alt="The Recipe" />
 			<ul>
 				{#each menuItems as item, index}
-					{@const iconProps = {
-						focusable: 'false',
-						'aria-hidden': true,
-						// color depens on theme
-						color: 'var(--text-color)',
-						size: 26,
-						strokeWidth: 1
-					}}
-					<li class:active={item.path === $page.url.pathname}>
-						{#if menuItems.length === index + 1}
-							<a bind:this={lastFocusableElement} href={item.path} on:keydown={moveFocusToTop}>
-								<svelte:component this={item.icon} {...iconProps} />
-								{item.label}</a
-							>
-						{:else}
-							<a href={item.path}>
-								<svelte:component this={item.icon} {...iconProps} />
-								{item.label}</a
-							>
-						{/if}
-					</li>
+					{#if !item.loginRequired || user}
+						{@const iconProps = {
+							focusable: 'false',
+							'aria-hidden': true,
+							// color depens on theme
+							color: 'var(--text-color)',
+							size: 26,
+							strokeWidth: 1
+						}}
+						<li class:active={item.path === $page.url.pathname}>
+							{#if menuItems.length === index + 1}
+								<a bind:this={lastFocusableElement} href={item.path} on:keydown={moveFocusToTop}>
+									<svelte:component this={item.icon} {...iconProps} />
+									{item.label}</a
+								>
+							{:else}
+								<a href={item.path}>
+									<svelte:component this={item.icon} {...iconProps} />
+									{item.label}</a
+								>
+							{/if}
+						</li>
+					{/if}
 				{/each}
 			</ul>
 		</div>
@@ -188,9 +196,9 @@
 			overflow: auto;
 			display: none;
 			:global(html.no-js) & {
-				 @include breakpoint.down('md') {
+				@include breakpoint.down('md') {
 					display: block;
-				 }
+				}
 			}
 			ul {
 				padding: 0;
@@ -253,11 +261,10 @@
 				display: none;
 			}
 		}
-		:global(.close-menu-button) { 
+		:global(.close-menu-button) {
 			position: absolute;
 			right: 3px;
 			top: 3px;
-			
 		}
 	}
 </style>

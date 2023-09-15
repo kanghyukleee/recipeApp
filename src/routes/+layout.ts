@@ -9,9 +9,9 @@ export const load: LayoutLoad = ({ data, url }) => {
 	}
   // if user not logged in, redirect to /login route only
   // TODO. allow not logged in user with restricted access to service. 
-	if (!user && url.pathname !== '/login') {
-		throw redirect(307, '/login');
-	}
+	// if (!user && url.pathname !== '/login') {
+	// 	throw redirect(307, '/login');
+	// }
 
   return {
     user

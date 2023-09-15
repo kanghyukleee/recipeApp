@@ -40,8 +40,6 @@ export const GET: RequestHandler = async ({ url, cookies, fetch }) => {
 		throw error(400, responseJSON.error_description);
 	}
 
-	// console.log(responseJSON);
-
 	cookies.delete('google_auth_state', { path: '/' });
 	cookies.delete('google_auth_challenge_verifier', { path: '/' });
 	cookies.set('access_token', responseJSON.access_token, { path: '/' });

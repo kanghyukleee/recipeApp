@@ -7,7 +7,7 @@
 	import LogoutForm from './LogoutForm.svelte';
 	import { invalidateAll } from '$app/navigation';
 
-	$: user = $page.data.user;
+	$: user = $page.data.user ? $page.data.user : null;
 
 	function themeToggle() {
 		let bodyElement = document.body;
@@ -33,49 +33,54 @@
 		<div class="toggle-switch">
 			<ToggleSwitch on:click={themeToggle}>Light Mode</ToggleSwitch>
 		</div>
-		<div id="profile-button">
-			<button
-				class="profile-button"
-				use:tippy={{
-					content: document.getElementById('profile-menu') || undefined,
-					onMount: () => {
-						const userMenuTemplate = document.getElementById('profile-menu');
-						if (userMenuTemplate) {
-							userMenuTemplate.style.display = 'block';
-						}
-					},
-					trigger: 'click',
-					placement: 'bottom-end',
-					interactive: true,
-					// this is the part tippy theme change
-					theme: 'userMenu'
-				}}
-			>
-				{#if user?.picture}
-					<img src={user.picture} alt="" />
-				{:else}
-					<div class="no-picture"><User2 /></div>
-				{/if}
-				{user?.given_name}
-				<span class="visually-hidden">Profile menu</span>
-				<ChevronDown class="profile-arrow" size={22} />
-			</button>
-		</div>
-
-		<!-- tippy menu contents template -->
-		<div id="profile-menu" style="display: none;">
-			<div class="profile-menu-content">
-				<ul>
-					<li>
-						<a href="/profile">User Profile</a>
-					</li>
-					<li>
-						<LogoutForm />
-					</li>
-				</ul>
+		{#if user}
+			<!-- user tooltip -->
+			<div id="profile-button">
+				<button
+					class="profile-button"
+					use:tippy={{
+						content: document.getElementById('profile-menu') || undefined,
+						onMount: () => {
+							const userMenuTemplate = document.getElementById('profile-menu');
+							if (userMenuTemplate) {
+								userMenuTemplate.style.display = 'block';
+							}
+						},
+						trigger: 'click',
+						placement: 'bottom-end',
+						interactive: true,
+						// this is the part tippy theme change
+						theme: 'userMenu'
+					}}
+				>
+					{#if user?.picture}
+						<img src={user.picture} alt="" />
+					{:else}
+						<div class="no-picture"><User2 /></div>
+					{/if}
+					{user?.given_name}
+					<span class="visually-hidden">Profile menu</span>
+					<ChevronDown class="profile-arrow" size={22} />
+				</button>
 			</div>
-		</div>
-		<!-- tippy menu contents template -->
+
+			<!-- tippy menu contents template -->
+			<div id="profile-menu" style="display: none;">
+				<div class="profile-menu-content">
+					<ul>
+						<li>
+							<a href="/profile">User Profile</a>
+						</li>
+						<li>
+							<LogoutForm />
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- tippy menu contents template -->
+		{:else}
+		<Button element='a' href='/login'>LOGIN</Button>
+		{/if}
 	</div>
 </div>
 

@@ -14,7 +14,7 @@
 		loginImages.push(image.loc);
 	});
 
-	loginImage = loginImages[Math.floor(Math.random() * loginImages.length)];
+	loginImage = loginImages[Math.floor(Math.random() * loginImages.length)];	
 </script>
 
 <div class="wrapper">

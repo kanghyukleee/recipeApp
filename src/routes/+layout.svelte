@@ -38,12 +38,12 @@
 
 
 <div id="main">
-	{#if user}
+	{#if $page.url.pathname !== '/login'}
 		<div id="sidebar"><Navigation isDesktop={true} /></div>
 	{/if}
 
 	<div id="content">
-		{#if user}
+		{#if $page.url.pathname !== '/login'}
 			<div id="topbar" bind:this={topbar}>
 				<div
 					class="topbar-bg"
@@ -102,6 +102,7 @@
 				}
 			}
 			main#main-content {
+				margin-top: var(--topbar-height);
 				padding: 30px 15px 60px;
 				@include breakpoint.up('md') {
 					padding: 30px 30px 60px;
