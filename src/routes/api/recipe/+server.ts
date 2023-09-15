@@ -37,4 +37,5 @@ export const GET: RequestHandler = async ({ url }) => {
 	} else {
 		return new Response(JSON.stringify(recipe));
 	}
+	
 };

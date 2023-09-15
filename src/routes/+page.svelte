@@ -1,9 +1,12 @@
 <script lang="ts">
-// ADD IntersectionObserver!, https://www.youtube.com/watch?v=iZhq7I42uaI
+	// ADD IntersectionObserver!, https://www.youtube.com/watch?v=iZhq7I42uaI
 
-
+	// option 1, svelte version: https://www.npmjs.com/package/svelte-inview
+	// option 2, original : https://www.npmjs.com/package/intersection-observer
 	import { Card } from '$components';
 	import type { PageData } from './$types';
+
+	
 
 	type RecipeType = {
 		type: 'recipe';
@@ -45,7 +48,6 @@
 
 	export let data: PageData;
 
-
 	//
 	let sections: {
 		title: string;
@@ -63,7 +65,7 @@
 		}
 	}
 
-// content row header 없애거나 변경
+	// content row header 없애거나 변경
 </script>
 
 {#each sections as section}
@@ -82,21 +84,24 @@
 			{/each}
 		</div>
 	</section>
+
+	
 {/each}
 
 <style lang="scss">
-  .content-row {
-    margin-bottom: 40px;
-    .content-row-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 20px;
-      .section-title{
-        font-size: functions.toRem(22);
-        font-weight: 600;
-        margin: 0;
-      }
-    }
-  }
+	.content-row {
+		margin-bottom: 40px;
+		.content-row-header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-bottom: 20px;
+			.section-title {
+				font-size: functions.toRem(22);
+				font-weight: 600;
+				margin: 0;
+			}
+		}
+	}
+	
 </style>

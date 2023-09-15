@@ -4,30 +4,43 @@
 	import type { LayoutData } from './$types';
 	import { Navigation, Header } from '$components';
 	import { page } from '$app/stores';
-	import NProgress from 'nprogress'
-	import 'nprogress/nprogress.css'
+	import NProgress from 'nprogress';
+	import 'nprogress/nprogress.css';
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
 
-	NProgress.configure({showSpinner: false});
+	import { browser } from '$app/environment';
+
+	NProgress.configure({ showSpinner: false });
 
 	export let data: LayoutData;
 
 	let topbar: HTMLElement;
 	let scrollY: number;
 	let topbarOpacity = 0;
-
 	$: if (topbar) {
 		topbarOpacity = scrollY / topbar.offsetHeight < 1 ? scrollY / topbar.offsetHeight : 1;
+	}
+
+	let loadingSpinner: HTMLElement;
+	let spinnerOpacity = 0;
+	$: if (loadingSpinner) {
+		if (browser) {
+			spinnerOpacity =
+				document.body.offsetHeight - (scrollY + window.innerHeight) < 214
+					? 1 - (document.body.offsetHeight - (scrollY + window.innerHeight)) / 213
+					: 0;
+			console.log(spinnerOpacity);
+		}
 	}
 
 	$: user = data.user;
 	afterNavigate(() => {
 		NProgress.done();
-	})
+	});
 
 	beforeNavigate(() => {
 		NProgress.start();
-	})
+	});
 </script>
 
 <svelte:window bind:scrollY />
@@ -35,7 +48,6 @@
 <svelte:head>
 	<title>The Recipe{$page.data.title ? ` - ${$page.data.title}` : ''}</title>
 </svelte:head>
-
 
 <div id="main">
 	{#if $page.url.pathname !== '/login'}
@@ -56,6 +68,16 @@
 
 		<main id="main-content" class:logged-in={user}>
 			<slot />
+
+			<div class="loader-content">
+				<!-- only when there is fetch works route -->
+				<span
+					bind:this={loadingSpinner}
+					class="loader"
+					id="loading"
+					style:opacity={`${spinnerOpacity}`}
+				/>
+			</div>
 		</main>
 	</div>
 </div>
@@ -80,11 +102,11 @@
 				z-index: 999;
 				:global(html.no-js) & {
 					position: sticky;
-					top:0;
+					top: 0;
 					background-color: var(--nav-color);
 					height: auto;
 					padding: 10px 20px;
-					@include breakpoint.up('md'){
+					@include breakpoint.up('md') {
 						position: fixed;
 					}
 				}
@@ -104,6 +126,9 @@
 			main#main-content {
 				margin-top: var(--topbar-height);
 				padding: 30px 15px 60px;
+
+				overscroll-behavior: auto;	//don't know this work as I expected...
+				
 				@include breakpoint.up('md') {
 					padding: 30px 30px 60px;
 				}
@@ -114,6 +139,30 @@
 							padding-top: 30px;
 						}
 					}
+				}
+			}
+		}
+		.loader-content {
+			align-items: center;
+			text-align: center;
+			margin-top: 150px;
+			margin-bottom: 100px;
+			.loader {
+				width: 48px;
+				height: 48px;
+				border: 5px solid;
+				border-color: var(--accent-color) transparent;
+				border-radius: 50%;
+				display: inline-block;
+				box-sizing: border-box;
+				animation: rotation 1s linear infinite;
+			}
+			@keyframes rotation {
+				0% {
+					transform: rotate(0deg);
+				}
+				100% {
+					transform: rotate(360deg);
 				}
 			}
 		}
