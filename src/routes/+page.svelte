@@ -1,12 +1,12 @@
 <script lang="ts">
 	// ADD IntersectionObserver!, https://www.youtube.com/watch?v=iZhq7I42uaI
 
-	// option 1, svelte version: https://www.npmjs.com/package/svelte-inview
 	// option 2, original : https://www.npmjs.com/package/intersection-observer
 	import { Card } from '$components';
 	import type { PageData } from './$types';
 
-	
+	// option 1, svelte version: https://www.npmjs.com/package/svelte-inview
+	import { inview } from 'svelte-inview';
 
 	type RecipeType = {
 		type: 'recipe';
@@ -70,12 +70,12 @@
 
 {#each sections as section}
 	<section class="content-row">
-		<div class="content-row-header">
+		<!-- <div class="content-row-header">
 			<div class="left">
 				<h2 class="section-title">{section.title}</h2>
 			</div>
 			<div class="right">See All</div>
-		</div>
+		</div> -->
 		<div class="grid-items">
 			{#each section.items as item}
 				<div class="grid-item">
@@ -84,9 +84,19 @@
 			{/each}
 		</div>
 	</section>
-
-	
 {/each}
+
+<!-- intersection observer -->
+<div
+	class="content-loader"
+	use:inview
+	on:inview_enter={async () => {
+		const recipe = await fetch('/api/recipe?limit=4');
+		const recipeRes = await recipe.json();
+		sections[0].items = [...recipeRes];
+	}}
+	aria-hidden="true"
+/>
 
 <style lang="scss">
 	.content-row {
@@ -103,5 +113,4 @@
 			}
 		}
 	}
-	
 </style>
