@@ -1,12 +1,7 @@
 <script lang="ts">
-	// ADD IntersectionObserver!, https://www.youtube.com/watch?v=iZhq7I42uaI
-
-	// option 2, original : https://www.npmjs.com/package/intersection-observer
 	import { Card } from '$components';
 	import type { PageData } from './$types';
-
-	// option 1, svelte version: https://www.npmjs.com/package/svelte-inview
-	import { inview } from 'svelte-inview';
+	import { inview } from 'svelte-inview';	// intersection observer
 
 	type RecipeType = {
 		type: 'recipe';
@@ -48,7 +43,7 @@
 
 	export let data: PageData;
 
-	//
+	// 나중에 sections를 그냥 section으로 변경. 
 	let sections: {
 		title: string;
 		path: string;
@@ -64,18 +59,14 @@
 			});
 		}
 	}
-
-	// content row header 없애거나 변경
 </script>
+
+<div class="section-header">
+	<h2 class="section-title">{sections[0].title}</h2>
+</div>
 
 {#each sections as section}
 	<section class="content-row">
-		<!-- <div class="content-row-header">
-			<div class="left">
-				<h2 class="section-title">{section.title}</h2>
-			</div>
-			<div class="right">See All</div>
-		</div> -->
 		<div class="grid-items">
 			{#each section.items as item}
 				<div class="grid-item">
@@ -101,16 +92,14 @@
 <style lang="scss">
 	.content-row {
 		margin-bottom: 40px;
-		.content-row-header {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			margin-bottom: 20px;
-			.section-title {
-				font-size: functions.toRem(22);
-				font-weight: 600;
-				margin: 0;
-			}
+	}
+	.section-header {
+		align-items: center;
+		margin-bottom: 20px;
+		.section-title {
+			font-size: functions.toRem(22);
+			font-weight: 600;
+			margin: 0;
 		}
 	}
 </style>
