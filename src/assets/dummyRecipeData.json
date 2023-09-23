@@ -1,420 +1,552 @@
 {
 	"recipe": [
 		{
+			"_id": "650d9fd0f3b114329b0504f0",
 			"type": "recipe",
-			"recipe_id": 1,
-			"owner_id": 1,
-			"title": "Chicken Alfredo",			
+			"owner_id": "650d9e7ff3b114329b03ee23",
+			"title": "Chicken Alfredo",
 			"rating": [
-				{ "user_id": "user1", "rate": 5, "comment": "Delicious!" },
-				{ "user_id": "user2", "rate": 4 },
-				{ "user_id": "user3", "rate": 4 }
+				{
+					"user_id": "650d9ebff3b114329b042725",
+					"rate": 5,
+					"comment": "Delicious!"
+				},
+				{ "user_id": "650d9f4bf3b114329b0495af", "rate": 4 },
+				{ "user_id": "650d9f60f3b114329b04a6df", "rate": 4 }
 			],
 			"categories": ["Italian", "Pasta"],
-			"is_featured": true,
 			"description": "Creamy pasta with grilled chicken.",
-			"prep_time": 20,
-			"cook_time": 30,
-			"yield": 4,
+			"prep_time": "20",
+			"cook_time": "30",
+			"yield": "4",
 			"ingredient": [
-				{ "name": "Chicken breast", "quantity": 2 },
-				{ "name": "Pasta", "quantity": "500g" },
-				{ "name": "Cream", "quantity": "200ml" }
+				{ "name": "Chicken breast", "quantity": "2" },
+				{ "name": "Pasta", "quantity": "500", "unit": "g" },
+				{ "name": "Cream", "quantity": "200", "unit": "ml" }
 			],
 			"steps": [
-				{ "step_number": 1, "instruction": "Cook the pasta.", "duration": 10 },
+				{
+					"step_number": 1,
+					"instruction": "Cook the pasta.",
+					"duration": "10"
+				},
 				{
 					"step_number": 2,
 					"instruction": "Grill the chicken.",
-					"duration": 15,
+					"duration": "15",
 					"image": "https://sipbitego.com/wp-content/uploads/2022/05/BBQ-Grilled-Chicken-Thighs-Sip-Bite-Go.jpg"
 				}
 			]
 		},
 		{
+			"_id": "650da028f3b114329b054c22",
 			"type": "recipe",
-			"recipe_id": 2,
-			"owner_id": 1,
+			"owner_id": "650d9e7ff3b114329b03ee23",
 			"title": "Vegan Burger",
 			"image": "https://nikkivegan.com/wp-content/uploads/2021/03/IMG_4810-500x500.jpg",
 			"rating": [
-				{ "user_id": "user3", "rate": 3, "comment": "Not bad." },
-				{ "user_id": "user4", "rate": 5 }
+				{
+					"user_id": "650d9ecff3b114329b043388",
+					"rate": 3,
+					"comment": "Not bad."
+				},
+				{ "user_id": "650d9f56f3b114329b049e92", "rate": 5 }
 			],
 			"categories": ["Vegan", "Main Course"],
-			"is_featured": false,
+
 			"description": "A burger made from plant-based ingredients.",
-			"prep_time": "30 minutes",
-			"cook_time": "10 minutes",
-			"yield": 2,
+			"prep_time": "30",
+			"cook_time": "10",
+			"yield": "2",
 			"ingredient": [
-				{ "name": "Plant-based patty", "quantity": 2 },
-				{ "name": "Lettuce", "quantity": "2 leaves" }
+				{ "name": "Plant-based patty", "quantity": "2" },
+				{ "name": "Lettuce", "quantity": "2", "unit": "leaves" }
 			],
 			"steps": [
-				{ "step_number": 1, "instruction": "Toast the buns.", "duration": 5 },
-				{ "step_number": 2, "instruction": "Grill the patty.", "duration": 5 }
+				{
+					"step_number": 1,
+					"instruction": "Toast the buns.",
+					"duration": "5"
+				},
+				{
+					"step_number": 2,
+					"instruction": "Grill the patty.",
+					"duration": "5"
+				}
 			]
 		},
 		{
+			"_id": "650da041f3b114329b055de6",
 			"type": "recipe",
-			"recipe_id": 3,
-			"owner_id": 1,
+			"owner_id": "650d9e7ff3b114329b03ee23",
 			"title": "Chocolate Cake",
 			"image": "https://www.hersheyland.com/content/dam/hersheyland/en-us/recipes/recipe-images/2_Hersheys_Perfectly_Chocolate_Cake_11-18.jpeg",
 			"rating": [],
 			"categories": ["Dessert", "Cake"],
-			"is_featured": false,
+
 			"description": "A simple yet delicious chocolate cake.",
-			"prep_time": 15,
-			"cook_time": 45,
-			"yield": 8,
+			"prep_time": "15",
+			"cook_time": "45",
+			"yield": "8",
 			"ingredient": [
-				{ "name": "All-purpose flour", "quantity": "1.5 cups" },
-				{ "name": "Cocoa powder", "quantity": "1 cup" },
-				{ "name": "Sugar", "quantity": "1 cup" }
+				{ "name": "All-purpose flour", "quantity": "1.5", "unit": "cups" },
+				{ "name": "Cocoa powder", "quantity": "1", "unit": "cup" },
+				{ "name": "Sugar", "quantity": "1", "unit": "cup" }
 			],
 			"steps": [
-				{ "step_number": 1, "instruction": "Mix the dry ingredients.", "duration": 5 },
-				{ "step_number": 2, "instruction": "Add in wet ingredients and mix.", "duration": 10 }
+				{
+					"step_number": 1,
+					"instruction": "Mix the dry ingredients.",
+					"duration": "5"
+				},
+				{
+					"step_number": 2,
+					"instruction": "Add in wet ingredients and mix.",
+					"duration": "10"
+				}
 			]
 		},
+
 		{
+			"_id": "650da066f3b114329b058092",
 			"type": "recipe",
-			"recipe_id": 4,
-			"owner_id": 1,
+			"owner_id": "650d9e7ff3b114329b03ee23",
 			"title": "Caesar Salad",
 			"image": "https://assets.bonappetit.com/photos/624215f8a76f02a99b29518f/1:1/w_2800,h_2800,c_limit/0328-ceasar-salad-lede.jpg",
 			"rating": [
-				{ "user_id": "user5", "rate": 4, "comment": "Healthy and tasty!" },
-				{ "user_id": "user6", "rate": 3 }
+				{
+					"user_id": "650d9ebff3b114329b042725",
+					"rate": 4,
+					"comment": "Healthy and tasty!"
+				},
+				{ "user_id": "650d9ecff3b114329b043388", "rate": 3 }
 			],
 			"categories": ["Salad", "Healthy"],
-			"is_featured": true,
+
 			"description": "A classic Caesar salad with crisp lettuce and parmesan.",
-			"prep_time": 10,
+			"prep_time": "10",
 			"cook_time": "None",
-			"yield": 2,
+			"yield": "2",
 			"ingredient": [
-				{ "name": "Romaine lettuce", "quantity": "1 head" },
-				{ "name": "Parmesan cheese", "quantity": "1/4 cup" }
+				{ "name": "Romaine lettuce", "quantity": "1", "unit": "head" },
+				{ "name": "Parmesan cheese", "quantity": "1/4", "unit": "cup" }
 			],
 			"steps": [
-				{ "step_number": 1, "instruction": "Chop the lettuce.", "duration": 5 },
-				{ "step_number": 2, "instruction": "Mix with dressing and cheese.", "duration": 5 }
+				{
+					"step_number": 1,
+					"instruction": "Chop the lettuce.",
+					"duration": "5"
+				},
+				{
+					"step_number": 2,
+					"instruction": "Mix with dressing and cheese.",
+					"duration": "5"
+				}
 			]
 		},
 		{
+			"_id": "650da076f3b114329b058e67",
 			"type": "recipe",
-			"recipe_id": 5,
-			"owner_id": 2,
+			"owner_id": "650d9ebff3b114329b042725",
 			"title": "Spaghetti Carbonara",
 			"image": "https://images.services.kitchenstories.io/6glN_4JhpVS9aUiBS7JnGsuDULA=/3840x0/filters:quality(80)/images.kitchenstories.io/wagtailOriginalImages/R2568-photo-final-_0.jpg",
 			"rating": [
-				{ "user_id": "user7", "rate": 2, "comment": "Authentic taste!" },
-				{ "user_id": "user8", "rate": 4, "comment": "Reminds me of Italy!" }
+				{
+					"user_id": "650d9e7ff3b114329b03ee23",
+					"rate": 2,
+					"comment": "Authentic taste!"
+				},
+				{
+					"user_id": "650d9f56f3b114329b049e92",
+					"rate": 2,
+					"comment": "Reminds me of Italy!"
+				}
 			],
 			"categories": ["Italian", "Pasta"],
-			"is_featured": true,
+
 			"description": "A classic Roman dish made with egg, cheese, pancetta, and pepper.",
-			"prep_time": "10 minutes",
-			"cook_time": "15 minutes",
-			"yield": 4,
+			"prep_time": "10",
+			"cook_time": "15",
+			"yield": "4",
 			"ingredient": [
-				{ "name": "Spaghetti", "quantity": "400g" },
-				{ "name": "Pancetta", "quantity": "200g", "note": "Diced" },
-				{ "name": "Pecorino cheese", "quantity": "100g", "note": "Grated" },
-				{ "name": "Eggs", "quantity": 3 },
+				{ "name": "Spaghetti", "quantity": "400", "unit": "g" },
+				{ "name": "Pancetta", "quantity": "200", "unit": "g", "note": "Diced" },
+				{ "name": "Pecorino cheese", "quantity": "100", "unit": "g", "note": "Grated" },
+				{ "name": "Eggs", "quantity": "3" },
 				{ "name": "Black pepper", "quantity": "To taste" }
 			],
 			"steps": [
-				{ "step_number": 1, "instruction": "Boil the spaghetti.", "duration": 10 },
-				{ "step_number": 2, "instruction": "Fry the pancetta until it's crisp.", "duration": 5 },
+				{
+					"step_number": 1,
+					"instruction": "Boil the spaghetti.",
+					"duration": "10"
+				},
+				{
+					"step_number": 2,
+					"instruction": "Fry the pancetta until it's crisp.",
+					"duration": "5"
+				},
 				{
 					"step_number": 3,
 					"instruction": "Whisk together the eggs and cheese. Combine with the pasta and pancetta.",
-					"duration": 10,
+					"duration": "10",
 					"image": "https://hips.hearstapps.com/hmg-prod/images/carbonara-index-6476367f40c39.jpg?crop=0.888888888888889xw:1xh;center,top&resize=1200:*"
 				}
 			]
 		},
 		{
+			"_id": "650da1d2f3b114329b06ac6f",
 			"type": "recipe",
-			"recipe_id": 6,
-			"owner_id": 2,
+			"owner_id": "650d9ebff3b114329b042725",
 			"title": "Tofu Stir Fry",
 			"image": "https://hips.hearstapps.com/hmg-prod/images/190130-tofu-stir-fry-horizontal-150-1549302524.jpg",
 			"rating": [
-				{ "user_id": "user9", "rate": 4, "comment": "Delicious and nutritious!" },
-				{ "user_id": "user10", "rate": 3, "comment": "Good, would have liked more sauce." }
+				{
+					"user_id": "650d9f56f3b114329b049e92",
+					"rate": 4,
+					"comment": "Delicious and nutritious!"
+				},
+				{
+					"user_id": "650d9f60f3b114329b04a6df",
+					"rate": 3,
+					"comment": "Good, would have liked more sauce."
+				}
 			],
 			"categories": ["Asian", "Vegan"],
-			"is_featured": false,
+
 			"description": "Crispy tofu stir-fried with colorful vegetables in a savory sauce.",
-			"prep_time": "15 minutes",
-			"cook_time": "20 minutes",
-			"yield": 4,
+			"prep_time": "15",
+			"cook_time": "20",
+			"yield": "4",
 			"ingredient": [
-				{ "name": "Firm tofu", "quantity": "200g", "note": "Cubed" },
-				{ "name": "Bell peppers", "quantity": 2, "note": "Sliced" },
-				{ "name": "Soy sauce", "quantity": "3 tbsp" },
-				{ "name": "Broccoli", "quantity": "1 cup", "note": "Florets" },
-				{ "name": "Sesame oil", "quantity": "2 tbsp" }
+				{ "name": "Firm tofu", "quantity": "200", "unit": "g", "note": "Cubed" },
+				{ "name": "Bell peppers", "quantity": "2", "note": "Sliced" },
+				{ "name": "Soy sauce", "quantity": "3", "unit": "tbsp" },
+				{ "name": "Broccoli", "quantity": "1", "unit": "cup", "note": "Florets" },
+				{ "name": "Sesame oil", "quantity": "2", "unit": "tbsp" }
 			],
 			"steps": [
-				{ "step_number": 1, "instruction": "Marinate tofu in soy sauce.", "duration": 10 },
+				{
+					"step_number": 1,
+					"instruction": "Marinate tofu in soy sauce.",
+					"duration": "10"
+				},
 				{
 					"step_number": 2,
 					"instruction": "Heat oil and fry tofu until golden.",
-					"duration": 7,
+					"duration": "7",
 					"image": "https://assets.bonappetit.com/photos/601d62ea43d8360a0f73bf9f/16:9/w_5216,h_2934,c_limit/Basically-CrispyTofu.jpg"
 				},
 				{
 					"step_number": 3,
 					"instruction": "Add vegetables and stir-fry until cooked but still crisp.",
-					"duration": 13
+					"duration": "13"
 				}
 			]
 		},
 		{
+			"_id": "650da1ddf3b114329b06b498",
 			"type": "recipe",
-			"recipe_id": 7,
-			"owner_id": 2,
+			"owner_id": "650d9ebff3b114329b042725",
 			"title": "Creamy Tomato Soup",
 			"image": "https://www.rawblend.com.au/wp-content/uploads/2021/06/Creamy-Tomato-Soup-1920x1080-1.jpg",
 			"rating": [
-				{ "user_id": "user11", "rate": 5, "comment": "Perfect for a cold day!" },
-				{ "user_id": "user12", "rate": 4, "comment": "Could use a bit more spice." },
-				{ "user_id": "user13", "rate": 4 }
+				{
+					"user_id": "650d9ecff3b114329b043388",
+					"rate": 5,
+					"comment": "Perfect for a cold day!"
+				},
+				{
+					"user_id": "650d9f4bf3b114329b0495af",
+					"rate": 4,
+					"comment": "Could use a bit more spice."
+				},
+				{ "user_id": "650d9f60f3b114329b04a6df", "rate": 4 }
 			],
 			"categories": ["Soup", "Comfort Food"],
-			"is_featured": true,
+
 			"description": "A velvety, rich tomato soup paired best with a toasted cheese sandwich.",
-			"prep_time": "10 minutes",
-			"cook_time": "30 minutes",
-			"yield": 4,
+			"prep_time": "10",
+			"cook_time": "30",
+			"yield": "4",
 			"ingredient": [
-				{ "name": "Tomatoes", "quantity": "500g", "note": "Diced" },
-				{ "name": "Onions", "quantity": 1, "note": "Chopped" },
-				{ "name": "Garlic", "quantity": "3 cloves", "note": "Minced" },
-				{ "name": "Heavy cream", "quantity": "200ml" },
-				{ "name": "Basil", "quantity": "5 leaves", "note": "Fresh" }
+				{ "name": "Tomatoes", "quantity": "500", "unit": "g" , "note": "Diced" },
+				{ "name": "Onions", "quantity": "1", "note": "Chopped" },
+				{ "name": "Garlic", "quantity": "3", "unit": "cloves" , "note": "Minced" },
+				{ "name": "Heavy cream", "quantity": "200", "unit": "ml"  },
+				{ "name": "Basil", "quantity": "5", "unit": "leaves" , "note": "Fresh" }
 			],
 			"steps": [
 				{
 					"step_number": 1,
 					"instruction": "Sauté onions and garlic until translucent.",
-					"duration": 5
+					"duration": "5"
 				},
 				{
 					"step_number": 2,
 					"instruction": "Add tomatoes and cook until they break down.",
-					"duration": 15,
+					"duration": "15",
 					"image": "https://delightfulplate.com/wp-content/uploads/2020/05/Saute-tomato-and-onion.jpg"
 				},
 				{
 					"step_number": 3,
 					"instruction": "Blend the mixture until smooth, return to pot, add cream and heat.",
-					"duration": 10
+					"duration": "10"
 				}
 			]
 		},
 		{
+			"_id": "650da1f2f3b114329b06c512",
 			"type": "recipe",
-			"recipe_id": 8,
-			"owner_id": 2,
+			"owner_id": "650d9ebff3b114329b042725",
 			"title": "Lemon Garlic Shrimp Pasta",
 			"image": "https://img.buzzfeed.com/video-api-prod/assets/9ee2dadcbfcb4095872e6cdbaa24ff14/Thumb_A_FB.jpg",
 			"rating": [
-				{ "user_id": "user13", "rate": 4, "comment": "Light and flavorful!" },
-				{ "user_id": "user14", "rate": 3, "comment": "My family loved it!" }
+				{
+					"user_id": "650d9f4bf3b114329b0495af",
+					"rate": 4,
+					"comment": "Light and flavorful!"
+				},
+				{
+					"user_id": "650d9e7ff3b114329b03ee23",
+					"rate": 3,
+					"comment": "My family loved it!"
+				}
 			],
 			"categories": ["Seafood", "Pasta"],
-			"is_featured": false,
+
 			"description": "A zesty pasta dish with succulent shrimps flavored with garlic and lemon.",
-			"prep_time": "15 minutes",
-			"cook_time": "20 minutes",
-			"yield": 4,
+			"prep_time": "15",
+			"cook_time": "20",
+			"yield": "4",
 			"ingredient": [
-				{ "name": "Shrimps", "quantity": "500g", "note": "Peeled and deveined" },
-				{ "name": "Spaghetti", "quantity": "400g" },
-				{ "name": "Garlic", "quantity": "4 cloves", "note": "Minced" },
-				{ "name": "Lemon", "quantity": 1, "note": "Zest and juice" },
-				{ "name": "Olive oil", "quantity": "3 tbsp" },
-				{ "name": "Red pepper flakes", "quantity": "1 tsp" }
+				{ "name": "Shrimps", "quantity": "500", "unit": "g" , "note": "Peeled and deveined" },
+				{ "name": "Spaghetti", "quantity": "400", "unit": "g"  },
+				{ "name": "Garlic", "quantity": "4", "unit": "cloves" , "note": "Minced" },
+				{ "name": "Lemon", "quantity": "1", "note": "Zest and juice" },
+				{ "name": "Olive oil", "quantity": "3", "unit": "tbsp"  },
+				{ "name": "Red pepper flakes", "quantity": "1", "unit": "tsp"  }
 			],
 			"steps": [
-				{ "step_number": 1, "instruction": "Cook spaghetti until al dente.", "duration": 10 },
+				{
+					"step_number": 1,
+					"instruction": "Cook spaghetti until al dente.",
+					"duration": "10"
+				},
 				{
 					"step_number": 2,
 					"instruction": "In a pan, sauté garlic in olive oil until fragrant.",
-					"duration": 3,
+					"duration": "3",
 					"image": "https://cookingchew.com/wp-content/uploads/2019/07/How-to-Saute-Garlic-CO197-SW.jpg"
 				},
 				{
 					"step_number": 3,
 					"instruction": "Add shrimps and cook until pink. Add lemon zest, juice, and red pepper flakes.",
-					"duration": 7
+					"duration": "7"
 				},
 				{
 					"step_number": 4,
 					"instruction": "Toss in the cooked spaghetti and mix well.",
-					"duration": 5
+					"duration": "5"
 				}
 			]
 		},
 		{
+			"_id": "650da3e3f3b114329b085c62",
 			"type": "recipe",
-			"recipe_id": 9,
-			"owner_id": 3,
+			"owner_id": "650d9ecff3b114329b043388",
 			"title": "Classic Beef Tacos",
 			"image": "https://hispanickitchen.com/wp-content/uploads/2017/01/classic-ground-beef-hardshell-tacos-3-2.jpg",
 			"rating": [
-				{ "user_id": "user15", "rate": 5, "comment": "Best tacos ever!" },
-				{ "user_id": "user16", "rate": 2, "comment": "Great for taco night!" }
+				{
+					"user_id": "650d9ebff3b114329b042725",
+					"rate": 5,
+					"comment": "Best tacos ever!"
+				},
+				{
+					"user_id": "650d9e7ff3b114329b03ee23",
+					"rate": 2,
+					"comment": "Great for taco night!"
+				}
 			],
 			"categories": ["Mexican", "Street Food"],
-			"is_featured": true,
+
 			"description": "Crispy taco shells filled with spiced beef and topped with fresh veggies and cheese.",
-			"prep_time": "20 minutes",
-			"cook_time": "15 minutes",
-			"yield": 6,
+			"prep_time": "20",
+			"cook_time": "15",
+			"yield": "6",
 			"ingredient": [
-				{ "name": "Ground beef", "quantity": "500g" },
-				{ "name": "Taco seasoning", "quantity": "1 packet" },
-				{ "name": "Taco shells", "quantity": 6 },
-				{ "name": "Lettuce", "quantity": "1 cup", "note": "Shredded" },
-				{ "name": "Tomato", "quantity": 1, "note": "Diced" },
-				{ "name": "Cheddar cheese", "quantity": "1 cup", "note": "Grated" }
+				{ "name": "Ground beef", "quantity": "500", "unit": "g"  },
+				{ "name": "Taco seasoning", "quantity": "1", "unit": "packet"  },
+				{ "name": "Taco shells", "quantity": "6" },
+				{ "name": "Lettuce", "quantity": "1", "unit": "cup" , "note": "Shredded" },
+				{ "name": "Tomato", "quantity": "1", "note": "Diced" },
+				{ "name": "Cheddar cheese", "quantity": "1", "unit": "cup" , "note": "Grated" }
 			],
 			"steps": [
 				{
 					"step_number": 1,
 					"instruction": "Brown the beef in a skillet and drain excess fat.",
-					"duration": 8,
+					"duration": "8",
 					"image": "https://www.tasteofhome.com/wp-content/uploads/2021/07/How-To-Brown-Ground-Beef.Taste-of-Home.Nancy-Mock-7.jpg"
 				},
 				{
 					"step_number": 2,
 					"instruction": "Add taco seasoning and cook as per packet instructions.",
-					"duration": 7
+					"duration": "7"
 				},
-				{ "step_number": 3, "instruction": "Heat the taco shells in the oven.", "duration": 5 },
+				{
+					"step_number": 3,
+					"instruction": "Heat the taco shells in the oven.",
+					"duration": "5"
+				},
 				{
 					"step_number": 4,
 					"instruction": "Fill shells with beef, top with lettuce, tomato, and cheese.",
-					"duration": 5
+					"duration": "5"
 				}
 			]
 		},
 		{
+			"_id": "650da3eff3b114329b08666e",
 			"type": "recipe",
-			"recipe_id": 10,
-			"owner_id": 3,
+			"owner_id": "650d9ecff3b114329b043388",
 			"title": "Mango Lassi",
 			"image": "https://www.cuisinart.com/globalassets/catalog/appliances/food-processors/complete-chef-cooking-food-processor/mangolassi_653475121.jpg",
 			"rating": [
-				{ "user_id": "user17", "rate": 5, "comment": "Refreshing!" },
-				{ "user_id": "user18", "rate": 4, "comment": "Just like I remember from my travels." }
+				{
+					"user_id": "650d9e7ff3b114329b03ee23",
+					"rate": 5,
+					"comment": "Refreshing!"
+				},
+				{
+					"user_id": "650d9f56f3b114329b049e92",
+					"rate": 4,
+					"comment": "Just like I remember from my travels."
+				}
 			],
 			"categories": ["Drink", "Indian"],
-			"is_featured": false,
+
 			"description": "A creamy and sweet traditional Indian drink made from ripe mangoes and yogurt.",
-			"prep_time": "10 minutes",
-			"cook_time": "0 minutes",
-			"yield": 2,
+			"prep_time": "10",
+			"cook_time": "0",
+			"yield": "2",
 			"ingredient": [
-				{ "name": "Ripe mangoes", "quantity": 2, "note": "Peeled and pitted" },
-				{ "name": "Yogurt", "quantity": "1 cup" },
-				{ "name": "Milk", "quantity": "1/2 cup" },
-				{ "name": "Sugar", "quantity": "2 tbsp" },
-				{ "name": "Cardamom", "quantity": "1/2 tsp", "note": "Ground" }
+				{ "name": "Ripe mangoes", "quantity": "2", "note": "Peeled and pitted" },
+				{ "name": "Yogurt", "quantity": "1", "unit": "cup"  },
+				{ "name": "Milk", "quantity": "1/2", "unit": "cup"  },
+				{ "name": "Sugar", "quantity": "2", "unit": "tbsp"  },
+				{ "name": "Cardamom", "quantity": "1/2", "unit": "tsp" , "note": "Ground" }
 			],
 			"steps": [
 				{
 					"step_number": 1,
 					"instruction": "Combine mangoes, yogurt, milk, sugar, and cardamom in a blender.",
-					"duration": 5,
+					"duration": "5",
 					"image": "https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2022/02/Mango-Smoothie-12.jpg"
 				},
-				{ "step_number": 2, "instruction": "Blend until smooth and creamy.", "duration": 5 },
+				{
+					"step_number": 2,
+					"instruction": "Blend until smooth and creamy.",
+					"duration": "5"
+				},
 				{
 					"step_number": 3,
 					"instruction": "Serve chilled, garnished with a sprinkle of cardamom or a slice of mango.",
-					"duration": 2
+					"duration": "2"
 				}
 			]
 		},
 		{
+			"_id": "650da43ff3b114329b08adc1",
 			"type": "recipe",
-			"recipe_id": 11,
-			"owner_id": 3,
+			"owner_id": "650d9ecff3b114329b043388",
 			"title": "Chocolate Chip Cookies",
 			"image": "https://www.allrecipes.com/thmb/8xwaWAHtl_QLij6D-G0Z4B1HDVA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/10813-best-chocolate-chip-cookies-mfs-146-4x3-b108aceffa6043a1ac81c3c5a9b034c8.jpg",
 			"rating": [
-				{ "user_id": "user19", "rate": 5, "comment": "Simply the best!" },
-				{ "user_id": "user20", "rate": 4, "comment": "Sweet and soft." },
-				{ "user_id": "user13", "rate": 4 }
+				{
+					"user_id": "650d9f56f3b114329b049e92",
+					"rate": 5,
+					"comment": "Simply the best!"
+				},
+				{
+					"user_id": "650d9f60f3b114329b04a6df",
+					"rate": 4,
+					"comment": "Sweet and soft."
+				},
+				{ "user_id": "650d9f4bf3b114329b0495af", "rate": 4 }
 			],
 			"categories": ["Dessert", "Baking"],
-			"is_featured": true,
+
 			"description": "Soft, chewy, and filled with chocolate chips, these cookies are a timeless treat.",
-			"prep_time": "15 minutes",
-			"cook_time": "12 minutes",
-			"yield": 24,
+			"prep_time": "15",
+			"cook_time": "12",
+			"yield": "24",
 			"ingredient": [
-				{ "name": "Butter", "quantity": "1 cup", "note": "Softened" },
-				{ "name": "White sugar", "quantity": "3/4 cup" },
-				{ "name": "Brown sugar", "quantity": "3/4 cup" },
-				{ "name": "Eggs", "quantity": 2 },
-				{ "name": "Vanilla extract", "quantity": "1 tsp" },
-				{ "name": "Baking soda", "quantity": "1 tsp" },
-				{ "name": "Hot water", "quantity": "2 tsp" },
-				{ "name": "Salt", "quantity": "1/2 tsp" },
-				{ "name": "Flour", "quantity": "3 cups" },
-				{ "name": "Chocolate chips", "quantity": "2 cups" }
+				{ "name": "Butter", "quantity": "1", "unit": "cup" , "note": "Softened" },
+				{ "name": "White sugar", "quantity": "3/4", "unit": "cup"  },
+				{ "name": "Brown sugar", "quantity": "3/4", "unit": "cup"  },
+				{ "name": "Eggs", "quantity": "2" },
+				{ "name": "Vanilla extract", "quantity": "1", "unit": "tsp"  },
+				{ "name": "Baking soda", "quantity": "1", "unit": "tsp" },
+				{ "name": "Hot water", "quantity": "2", "unit": "tsp" },
+				{ "name": "Salt", "quantity": "1/2", "unit": "tsp" },
+				{ "name": "Flour", "quantity": "3", "unit": "cups" },
+				{ "name": "Chocolate chips", "quantity": "2", "unit": "tsp" }
 			],
 			"steps": [
-				{ "step_number": 1, "instruction": "Preheat oven to 350°F (175°C).", "duration": 5 },
+				{
+					"step_number": 1,
+					"instruction": "Preheat oven to 350°F (175°C).",
+					"duration": "5"
+				},
 				{
 					"step_number": 2,
 					"instruction": "Cream together the butter, white sugar, and brown sugar until smooth.",
-					"duration": 7,
+					"duration": "7",
 					"image": "https://stordflolretailpd.blob.core.windows.net/df-us/lolretail/media/lolr-media/article_images/2018_best-buttercream-frosting-2621_steps_blending-v2-977x400.jpg?ext=.jpg"
 				},
 				{
 					"step_number": 3,
 					"instruction": "Beat in the eggs one at a time, then stir in the vanilla. Dissolve baking soda in hot water and add to the batter, along with salt. Finally, mix in the flour and chocolate chips.",
-					"duration": 10
+					"duration": "10"
 				},
 				{
 					"step_number": 4,
 					"instruction": "Drop dough with a spoon onto ungreased pans and bake.",
-					"duration": 12
+					"duration": "12"
 				}
 			]
 		},
 		{
+			"_id": "650da44bf3b114329b08b8ae",
 			"type": "recipe",
-			"recipe_id": 12,
-			"owner_id": 3,
+			"owner_id": "650d9ecff3b114329b043388",
 			"title": "Avocado Toast with Poached Egg",
 			"image": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/avocado-6b1cf76.jpg?quality=90&resize=440,400",
 			"rating": [
-				{ "user_id": "user21", "rate": 5, "comment": "Perfect for breakfast!" },
-				{ "user_id": "user22", "rate": 1, "comment": "Loved the creamy avocado." }
+				{
+					"user_id": "650d9e7ff3b114329b03ee23",
+					"rate": 5,
+					"comment": "Perfect for breakfast!"
+				},
+				{
+					"user_id": "650d9ebff3b114329b042725",
+					"rate": 1,
+					"comment": "Loved the creamy avocado."
+				}
 			],
 			"categories": ["Breakfast", "Healthy"],
-			"is_featured": false,
+
 			"description": "A trendy and nutritious breakfast option, topped with a runny poached egg.",
-			"prep_time": "10 minutes",
-			"cook_time": "5 minutes",
-			"yield": 2,
+			"prep_time": "10",
+			"cook_time": "5",
+			"yield": "2",
 			"ingredient": [
-				{ "name": "Ripe avocado", "quantity": 1 },
-				{ "name": "Eggs", "quantity": 2 },
-				{ "name": "Whole grain bread", "quantity": 2, "note": "Slices" },
-				{ "name": "Lemon juice", "quantity": "1 tsp" },
+				{ "name": "Ripe avocado", "quantity": "1" },
+				{ "name": "Eggs", "quantity": "2" },
+				{ "name": "Whole grain bread", "quantity": "2", "note": "Slices" },
+				{ "name": "Lemon juice", "quantity": "1", "unit": "tsp" },
 				{ "name": "Red pepper flakes", "quantity": "A pinch" },
 				{ "name": "Salt", "quantity": "To taste" },
 				{ "name": "Black pepper", "quantity": "To taste" }
@@ -423,414 +555,506 @@
 				{
 					"step_number": 1,
 					"instruction": "Toast the bread slices until golden and crispy.",
-					"duration": 5
+					"duration": "5"
 				},
 				{
 					"step_number": 2,
 					"instruction": "In a bowl, mash the avocado and mix with lemon juice, salt, and red pepper flakes.",
-					"duration": 5,
+					"duration": "5",
 					"image": "https://media.istockphoto.com/id/480536820/photo/mashed-avocado.jpg?s=612x612&w=0&k=20&c=mcIswQV0JvB-v0XLS3HPSC3K-wKdUFsQbAamXzqtJUk="
 				},
 				{
 					"step_number": 3,
 					"instruction": "Poach the eggs in simmering water until the whites are set but the yolk remains runny.",
-					"duration": 4
+					"duration": "4"
 				},
 				{
 					"step_number": 4,
 					"instruction": "Spread the mashed avocado on toast and top with a poached egg. Sprinkle with black pepper.",
-					"duration": 2
+					"duration": "2"
 				}
 			]
 		},
 		{
+			"_id": "650da473f3b114329b08ddc1",
 			"type": "recipe",
-			"recipe_id": 13,
-			"owner_id": 4,
+			"owner_id": "650d9f4bf3b114329b0495af",
 			"title": "Stuffed Bell Peppers",
 			"image": "https://www.foodnetwork.com/content/dam/images/food/fullset/2016/2/26/2/WU1307H_stuffed-peppers_s4x3.jpg",
 			"rating": [
-				{ "user_id": "user23", "rate": 5, "comment": "A delightful veggie main course!" },
-				{ "user_id": "user24", "rate": 2, "comment": "Healthy and delicious." }
+				{
+					"user_id": "650d9e7ff3b114329b03ee23",
+					"rate": 5,
+					"comment": "A delightful veggie main course!"
+				},
+				{
+					"user_id": "650d9ecff3b114329b043388",
+					"rate": 2,
+					"comment": "Healthy and delicious."
+				}
 			],
 			"categories": ["Vegetarian", "Main Course"],
-			"is_featured": true,
+
 			"description": "Colorful bell peppers generously filled with a hearty rice and vegetable mixture.",
-			"prep_time": "20 minutes",
-			"cook_time": "35 minutes",
-			"yield": 4,
+			"prep_time": "20",
+			"cook_time": "35",
+			"yield": "4",
 			"ingredient": [
-				{ "name": "Bell peppers", "quantity": 4, "note": "Assorted colors" },
-				{ "name": "Cooked rice", "quantity": "2 cups" },
-				{ "name": "Onion", "quantity": 1, "note": "Finely chopped" },
-				{ "name": "Tomato", "quantity": 2, "note": "Diced" },
-				{ "name": "Black beans", "quantity": "1 cup", "note": "Cooked or canned" },
-				{ "name": "Cheese", "quantity": "1 cup", "note": "Grated" },
-				{ "name": "Cumin powder", "quantity": "1 tsp" },
-				{ "name": "Olive oil", "quantity": "2 tbsp" },
+				{ "name": "Bell peppers", "quantity": "4", "note": "Assorted colors" },
+				{ "name": "Cooked rice", "quantity": "2", "unit": "cups" },
+				{ "name": "Onion", "quantity": "1", "note": "Finely chopped" },
+				{ "name": "Tomato", "quantity": "2", "note": "Diced" },
+				{ "name": "Black beans", "quantity": "1", "unit": "cup", "note": "Cooked or canned" },
+				{ "name": "Cheese", "quantity": "1", "unit": "cup", "note": "Grated" },
+				{ "name": "Cumin powder", "quantity": "1", "unit": "tsp" },
+				{ "name": "Olive oil", "quantity": "2", "unit": "tbsp" },
 				{ "name": "Salt", "quantity": "To taste" },
 				{ "name": "Black pepper", "quantity": "To taste" }
 			],
 			"steps": [
-				{ "step_number": 1, "instruction": "Preheat oven to 375°F (190°C).", "duration": 10 },
+				{
+					"step_number": 1,
+					"instruction": "Preheat oven to 375°F (190°C).",
+					"duration": "10"
+				},
 				{
 					"step_number": 2,
 					"instruction": "In a skillet, heat olive oil and sauté onions until translucent.",
-					"duration": 5,
+					"duration": "5",
 					"image": "https://www.simplyrecipes.com/thmb/8K56ZTTzR2XxI2fLXuNFXxdySBw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Caramelized-Onions-Lead-8-b2aaaa8da106404d8ead7bdab02d5cbc.jpg"
 				},
 				{
 					"step_number": 3,
 					"instruction": "Add tomatoes, black beans, cumin, salt, and pepper. Cook for another 5 minutes.",
-					"duration": 5
+					"duration": "5"
 				},
 				{
 					"step_number": 4,
 					"instruction": "Mix the sautéed vegetables with cooked rice. Stuff each bell pepper with this mixture and top with grated cheese.",
-					"duration": 10
+					"duration": "10"
 				},
 				{
 					"step_number": 5,
 					"instruction": "Place the stuffed peppers in a baking dish and bake until the peppers are tender and the cheese is melted and slightly browned.",
-					"duration": 25
+					"duration": "25"
 				}
 			]
 		},
 		{
+			"_id": "650da480f3b114329b08e833",
 			"type": "recipe",
-			"recipe_id": 14,
-			"owner_id": 4,
+			"owner_id": "650d9f4bf3b114329b0495af",
 			"title": "Lemon Meringue Pie",
 			"image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2019/9/3/0/FNK_the-best-lemon-meringue-pie-reshoot_H_s4x3.jpg.rend.hgtvcom.616.462.suffix/1567536793798.jpeg",
 			"rating": [
-				{ "user_id": "user25", "rate": 5, "comment": "Tart and sweet, the perfect balance!" },
-				{ "user_id": "user26", "rate": 4, "comment": "A hit at the family gathering!" },
-				{ "user_id": "user13", "rate": 5 }
+				{
+					"user_id": "650d9f56f3b114329b049e92",
+					"rate": 5,
+					"comment": "Tart and sweet, the perfect balance!"
+				},
+				{
+					"user_id": "650d9ecff3b114329b043388",
+					"rate": 4,
+					"comment": "A hit at the family gathering!"
+				},
+				{ "user_id": "650d9f56f3b114329b049e92", "rate": 5 }
 			],
 			"categories": ["Dessert", "Baking"],
-			"is_featured": false,
+
 			"description": "A classic pie with a flaky crust, tangy lemon filling, and a fluffy meringue topping.",
-			"prep_time": "30 minutes",
-			"cook_time": "25 minutes",
-			"yield": 8,
+			"prep_time": "30",
+			"cook_time": "25",
+			"yield": "8",
 			"ingredient": [
-				{ "name": "Pie crust", "quantity": 1 },
-				{ "name": "Lemon juice", "quantity": "1/2 cup" },
-				{ "name": "Lemon zest", "quantity": "2 tsp" },
-				{ "name": "Granulated sugar", "quantity": "1 1/4 cups" },
-				{ "name": "Cornstarch", "quantity": "1/4 cup" },
-				{ "name": "Water", "quantity": "1 1/2 cups" },
-				{ "name": "Butter", "quantity": "2 tbsp" },
-				{ "name": "Egg yolks", "quantity": 4 },
-				{ "name": "Egg whites", "quantity": 4 },
-				{ "name": "Cream of tartar", "quantity": "1/4 tsp" }
+				{ "name": "Pie crust", "quantity": "1" },
+				{ "name": "Lemon juice", "quantity": "1/2", "unit": "cup" },
+				{ "name": "Lemon zest", "quantity": "2", "unit": "tsp" },
+				{ "name": "Granulated sugar", "quantity": "1 1/4", "unit": "cups" },
+				{ "name": "Cornstarch", "quantity": "1/4", "unit": "cup" },
+				{ "name": "Water", "quantity": "1 1/2", "unit": "cups" },
+				{ "name": "Butter", "quantity": "2", "unit": "tbsp" },
+				{ "name": "Egg yolks", "quantity": "4" },
+				{ "name": "Egg whites", "quantity": "4" },
+				{ "name": "Cream of tartar", "quantity": "1/4", "unit": "tsp" }
 			],
 			"steps": [
-				{ "step_number": 1, "instruction": "Preheat oven to 375°F (190°C).", "duration": 10 },
+				{
+					"step_number": 1,
+					"instruction": "Preheat oven to 375°F (190°C).",
+					"duration": "10"
+				},
 				{
 					"step_number": 2,
 					"instruction": "Place the pie crust in a pie dish, prick with a fork, and bake until slightly golden.",
-					"duration": 10,
+					"duration": "10",
 					"image": "https://images-gmi-pmc.edge-generalmills.com/2baa8b57-d500-4a7f-8eeb-26634931a8fa.jpg"
 				},
 				{
 					"step_number": 3,
 					"instruction": "In a saucepan, combine sugar, cornstarch, water, lemon juice, and lemon zest. Cook over medium heat until thick and bubbly, then remove from heat and stir in butter.",
-					"duration": 10
+					"duration": "10"
 				},
 				{
 					"step_number": 4,
 					"instruction": "Beat egg yolks in a separate bowl, and slowly whisk in half of the hot lemon mixture to temper. Return the combined mixture to the saucepan and bring to a gentle boil. Cook for 2 more minutes, then pour into the baked pie crust.",
-					"duration": 10
+					"duration": "10"
 				},
 				{
 					"step_number": 5,
 					"instruction": "Beat egg whites with cream of tartar until soft peaks form. Gradually add sugar, continuing to beat until stiff peaks form. Spread meringue over lemon filling.",
-					"duration": 8
+					"duration": "8"
 				},
 				{
 					"step_number": 6,
 					"instruction": "Bake pie until meringue is golden brown, about 15 minutes.",
-					"duration": 15
+					"duration": "15"
 				}
 			]
 		},
 		{
+			"_id": "650da48df3b114329b08f206",
 			"type": "recipe",
-			"recipe_id": 15,
-			"owner_id": 4,
+			"owner_id": "650d9f4bf3b114329b0495af",
 			"title": "Quinoa and Roasted Vegetable Salad",
 			"image": "https://heatherchristo.com/wp-content/uploads/2017/03/Spicy-Vegan-Roasted-Vegetable-Quinoa-Salad-from-HeatherChristo.com_.jpg",
 			"rating": [
-				{ "user_id": "user31", "rate": 5, "comment": "Healthy and so delicious!" },
-				{ "user_id": "user32", "rate": 4, "comment": "Loved the combination of flavors." }
+				{
+					"user_id": "650d9ebff3b114329b042725",
+					"rate": 5,
+					"comment": "Healthy and so delicious!"
+				},
+				{
+					"user_id": "650d9f60f3b114329b04a6df",
+					"rate": 4,
+					"comment": "Loved the combination of flavors."
+				}
 			],
 			"categories": ["Lunch", "Vegetarian", "Salad"],
-			"is_featured": true,
+
 			"description": "A wholesome salad packed with protein-rich quinoa and a medley of colorful roasted veggies.",
-			"prep_time": "15 minutes",
-			"cook_time": "25 minutes",
-			"yield": 4,
+			"prep_time": "15",
+			"cook_time": "25",
+			"yield": "4",
 			"ingredient": [
-				{ "name": "Quinoa", "quantity": "1 cup", "note": "Rinsed and drained" },
-				{ "name": "Red bell pepper", "quantity": 1, "note": "Chopped" },
-				{ "name": "Zucchini", "quantity": 1, "note": "Chopped" },
-				{ "name": "Eggplant", "quantity": 1, "note": "Chopped" },
-				{ "name": "Olive oil", "quantity": "2 tbsp" },
-				{ "name": "Lemon juice", "quantity": "2 tbsp" },
-				{ "name": "Fresh basil", "quantity": "1/4 cup", "note": "Chopped" },
-				{ "name": "Feta cheese", "quantity": "1/2 cup", "note": "Crumbled" },
+				{ "name": "Quinoa", "quantity": "1", "unit": "cup", "note": "Rinsed and drained" },
+				{ "name": "Red bell pepper", "quantity": "1", "note": "Chopped" },
+				{ "name": "Zucchini", "quantity": "1", "note": "Chopped" },
+				{ "name": "Eggplant", "quantity": "1", "note": "Chopped" },
+				{ "name": "Olive oil", "quantity": "2", "unit": "tbsp" },
+				{ "name": "Lemon juice", "quantity": "2", "unit": "tbsp" },
+				{ "name": "Fresh basil", "quantity": "1/4", "unit": "cup", "note": "Chopped" },
+				{ "name": "Feta cheese", "quantity": "1/2", "unit": "cup", "note": "Crumbled" },
 				{ "name": "Salt", "quantity": "To taste" },
 				{ "name": "Black pepper", "quantity": "To taste" }
 			],
 			"steps": [
-				{ "step_number": 1, "instruction": "Preheat oven to 400°F (200°C).", "duration": 5 },
+				{
+					"step_number": 1,
+					"instruction": "Preheat oven to 400°F (200°C).",
+					"duration": "5"
+				},
 				{
 					"step_number": 2,
 					"instruction": "Toss bell pepper, zucchini, and eggplant in olive oil, salt, and pepper. Spread on a baking sheet.",
-					"duration": 7,
+					"duration": "7",
 					"image": "https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_4:3/k%2FPhoto%2FRecipes%2F2019-10-recipe-easy-classic-roasted-root-vegetables%2F190921-the-kitchn-christine-han-photography-109"
 				},
 				{
 					"step_number": 3,
 					"instruction": "Roast the vegetables in the oven until tender and slightly browned, about 20 minutes.",
-					"duration": 20
+					"duration": "20"
 				},
 				{
 					"step_number": 4,
 					"instruction": "While vegetables are roasting, cook quinoa according to package directions.",
-					"duration": 15
+					"duration": "15"
 				},
 				{
 					"step_number": 5,
 					"instruction": "In a large bowl, combine roasted vegetables, cooked quinoa, lemon juice, basil, and feta. Toss to combine. Season with more salt and pepper if needed.",
-					"duration": 5
+					"duration": "5"
 				}
 			]
 		},
 		{
+			"_id": "650da49af3b114329b08fcbd",
 			"type": "recipe",
-			"recipe_id": 16,
-			"owner_id": 4,
+			"owner_id": "650d9f4bf3b114329b0495af",
 			"title": "Bruschetta with Tomato and Basil",
 			"rating": [
-				{ "user_id": "user35", "rate": 5, "comment": "Crispy, fresh, and full of flavor!" },
-				{ "user_id": "user36", "rate": 4, "comment": "A perfect start to our meal." }
+				{
+					"user_id": "650d9f56f3b114329b049e92",
+					"rate": 5,
+					"comment": "Crispy, fresh, and full of flavor!"
+				},
+				{
+					"user_id": "650d9ecff3b114329b043388",
+					"rate": 4,
+					"comment": "A perfect start to our meal."
+				}
 			],
 			"categories": ["Appetizer", "Vegetarian"],
-			"is_featured": false,
+
 			"description": "Crunchy toasted bread topped with a mix of juicy tomatoes, fresh basil, garlic, and olive oil.",
-			"prep_time": "10 minutes",
-			"cook_time": "5 minutes",
-			"yield": 6,
+			"prep_time": "10",
+			"cook_time": "5",
+			"yield": "6",
 			"ingredient": [
-				{ "name": "French baguette", "quantity": 1, "note": "Sliced into 1/2 inch thick pieces" },
-				{ "name": "Ripe tomatoes", "quantity": 3, "note": "Diced" },
-				{ "name": "Fresh basil leaves", "quantity": "1/4 cup", "note": "Chopped" },
-				{ "name": "Garlic", "quantity": 2, "note": "Cloves, minced" },
-				{ "name": "Olive oil", "quantity": "3 tbsp" },
-				{ "name": "Balsamic vinegar", "quantity": "1 tbsp" },
+				{
+					"name": "French baguette",
+					"quantity": "1",
+					"note": "Sliced into 1/2 inch thick pieces"
+				},
+				{ "name": "Ripe tomatoes", "quantity": "3", "note": "Diced" },
+				{ "name": "Fresh basil leaves", "quantity": "1/4", "unit": "cup", "note": "Chopped" },
+				{ "name": "Garlic", "quantity": "2", "note": "Cloves, minced" },
+				{ "name": "Olive oil", "quantity": "3", "unit": "tbsp" },
+				{ "name": "Balsamic vinegar", "quantity": "1", "unit": "tbsp" },
 				{ "name": "Salt", "quantity": "To taste" },
 				{ "name": "Black pepper", "quantity": "To taste" }
 			],
 			"steps": [
-				{ "step_number": 1, "instruction": "Preheat the oven to 400°F (200°C).", "duration": 5 },
+				{
+					"step_number": 1,
+					"instruction": "Preheat the oven to 400°F (200°C).",
+					"duration": "5"
+				},
 				{
 					"step_number": 2,
 					"instruction": "Arrange the baguette slices on a baking sheet, and brush one side of each with olive oil. Toast in the oven until golden brown, about 5 minutes.",
-					"duration": 5,
+					"duration": "5",
 					"image": "https://www.seriouseats.com/thmb/bsnWyGU0cnChwdy_p1hTBKABtiI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__10__20151006-toast-crackers-vicky-wasik-5-f00d5811f28a4772aaefb3af61bce6b8.jpg"
 				},
 				{
 					"step_number": 3,
 					"instruction": "In a bowl, combine diced tomatoes, chopped basil, minced garlic, olive oil, balsamic vinegar, salt, and pepper. Mix well.",
-					"duration": 7
+					"duration": "7"
 				},
 				{
 					"step_number": 4,
 					"instruction": "Top each toasted baguette slice with the tomato mixture. Serve immediately.",
-					"duration": 3
+					"duration": "3"
 				}
 			]
 		},
 		{
+			"_id": "650da4a5f3b114329b0905fe",
 			"type": "recipe",
-			"recipe_id": 17,
-			"owner_id": 5,
+			"owner_id": "650d9f56f3b114329b049e92",
 			"title": "Blueberry Lemon Cheesecake Bars",
 			"image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2013/6/19/0/CCTUL301_lemon-blueberry-cheesecake-bars-recipe_s4x3.jpg.rend.hgtvcom.616.462.suffix/1375577663555.jpeg",
 			"rating": [
-				{ "user_id": "user37", "rate": 5, "comment": "The perfect balance of tart and sweet!" },
-				{ "user_id": "user38", "rate": 5, "comment": "Absolutely delicious. Will make again!" }
+				{
+					"user_id": "650d9ebff3b114329b042725",
+					"rate": 5,
+					"comment": "The perfect balance of tart and sweet!"
+				},
+				{
+					"user_id": "650d9ecff3b114329b043388",
+					"rate": 5,
+					"comment": "Absolutely delicious. Will make again!"
+				}
 			],
 			"categories": ["Dessert", "Vegetarian"],
-			"is_featured": true,
+
 			"description": "Creamy cheesecake bars swirled with blueberry jam and zesty lemon. A refreshing treat!",
-			"prep_time": "20 minutes",
-			"cook_time": "40 minutes",
-			"yield": 12,
+			"prep_time": "20",
+			"cook_time": "40",
+			"yield": "12",
 			"ingredient": [
-				{ "name": "Graham cracker crumbs", "quantity": "1 1/2 cups" },
-				{ "name": "Unsalted butter", "quantity": "1/2 cup", "note": "Melted" },
-				{ "name": "Cream cheese", "quantity": "16 oz", "note": "Softened" },
-				{ "name": "Granulated sugar", "quantity": "1 cup" },
-				{ "name": "Eggs", "quantity": 2 },
-				{ "name": "Lemon zest", "quantity": "1 tbsp" },
-				{ "name": "Lemon juice", "quantity": "2 tbsp" },
-				{ "name": "Blueberry jam", "quantity": "1/2 cup" }
+				{ "name": "Graham cracker crumbs", "quantity": "1 1/2", "unit": "cups" },
+				{ "name": "Unsalted butter", "quantity": "1/2", "unit": "cup", "note": "Melted" },
+				{ "name": "Cream cheese", "quantity": "16", "unit": "oz", "note": "Softened" },
+				{ "name": "Granulated sugar", "quantity": "1", "unit": "cup" },
+				{ "name": "Eggs", "quantity": "2" },
+				{ "name": "Lemon zest", "quantity": "1", "unit": "tbsp" },
+				{ "name": "Lemon juice", "quantity": "2", "unit": "tbsp" },
+				{ "name": "Blueberry jam", "quantity": "1/2", "unit": "cup" }
 			],
 			"steps": [
 				{
 					"step_number": 1,
 					"instruction": "Preheat oven to 325°F (165°C). Line an 8x8-inch baking dish with parchment paper.",
-					"duration": 5
+					"duration": "5"
 				},
 				{
 					"step_number": 2,
 					"instruction": "Mix graham cracker crumbs and melted butter in a bowl. Press firmly into the bottom of the prepared baking dish.",
-					"duration": 5,
+					"duration": "5",
 					"image": "https://www.allrecipes.com/thmb/Vr3lWUmxb29PmfeDtersVueyLnA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/3181898-graham-cracker-crust-i-photo-by-bonnie-northup-cropped-a14eb7230ca541b48be156783fa30c94.jpg"
 				},
 				{
 					"step_number": 3,
 					"instruction": "In a large mixing bowl, beat the softened cream cheese and sugar until smooth. Add eggs one at a time, beating well after each addition. Stir in lemon zest and lemon juice.",
-					"duration": 10
+					"duration": "10"
 				},
 				{
 					"step_number": 4,
 					"instruction": "Pour the cream cheese mixture over the crust. Drop spoonfuls of blueberry jam on top and swirl using a knife.",
-					"duration": 5
+					"duration": "5"
 				},
 				{
 					"step_number": 5,
 					"instruction": "Bake in the preheated oven until set and edges are lightly browned, about 40 minutes. Allow to cool completely before cutting into bars.",
-					"duration": 40
+					"duration": "40"
 				}
 			]
 		},
 		{
+			"_id": "650da4b3f3b114329b09108e",
 			"type": "recipe",
-			"recipe_id": 18,
-			"owner_id": 5,
+			"owner_id": "650d9f56f3b114329b049e92",
 			"title": "Mango Mint Iced Tea",
 			"image": "https://suwanneerose.com/wp-content/uploads/2015/06/fresh-mango-and-mint-tea.jpg",
 			"rating": [
-				{ "user_id": "user39", "rate": 5, "comment": "So refreshing for a hot day!" },
-				{ "user_id": "user40", "rate": 4, "comment": "The mango flavor really comes through." }
+				{
+					"user_id": "650d9f4bf3b114329b0495af",
+					"rate": 5,
+					"comment": "So refreshing for a hot day!"
+				},
+				{
+					"user_id": "650d9f60f3b114329b04a6df",
+					"rate": 4,
+					"comment": "The mango flavor really comes through."
+				}
 			],
 			"categories": ["Beverage", "Vegetarian"],
-			"is_featured": false,
+
 			"description": "A tropical twist on classic iced tea, infused with ripe mango and fresh mint leaves.",
 			"prep_time": "10 minutes",
 			"cook_time": "5 minutes",
-			"yield": 4,
+			"yield": "4",
 			"ingredient": [
-				{ "name": "Black tea bags", "quantity": 4 },
-				{ "name": "Ripe mango", "quantity": 1, "note": "Peeled and pitted" },
-				{ "name": "Fresh mint leaves", "quantity": "1/4 cup" },
-				{ "name": "Sugar", "quantity": "2-3 tbsp", "note": "Adjust to taste" },
-				{ "name": "Water", "quantity": "4 cups" },
+				{ "name": "Black tea bags", "quantity": "4" },
+				{ "name": "Ripe mango", "quantity": "1", "note": "Peeled and pitted" },
+				{ "name": "Fresh mint leaves", "quantity": "1/4", "unit": "cup" },
+				{ "name": "Sugar", "quantity": "2-3", "unit": "tbsp", "note": "Adjust to taste" },
+				{ "name": "Water", "quantity": "4", "unit": "cups"},
 				{ "name": "Ice cubes", "quantity": "As needed" }
 			],
 			"steps": [
 				{
 					"step_number": 1,
 					"instruction": "Boil the water in a kettle or pot. Once boiled, pour over the tea bags in a pitcher and steep for 5 minutes.",
-					"duration": 5
+					"duration": "5"
 				},
 				{
 					"step_number": 2,
 					"instruction": "While the tea is steeping, blend the mango in a blender until smooth.",
-					"duration": 5,
+					"duration": "5",
 					"image": "https://veggiedesserts.com/wp-content/uploads/2022/05/mango-puree-2sq-500x375.jpg"
 				},
 				{
 					"step_number": 3,
 					"instruction": "Remove the tea bags from the pitcher and add the sugar. Stir until dissolved.",
-					"duration": 3
+					"duration": "3"
 				},
 				{
 					"step_number": 4,
 					"instruction": "Pour the mango puree into the pitcher and mix well.",
-					"duration": 2
+					"duration": "2"
 				},
 				{
 					"step_number": 5,
 					"instruction": "Serve the tea in glasses filled with ice cubes, garnishing with fresh mint leaves.",
-					"duration": 5
+					"duration": "5"
 				}
 			]
 		},
 		{
+			"_id": "650da4c2f3b114329b091c78",
 			"type": "recipe",
-			"recipe_id": 19,
-			"owner_id": 5,
+			"owner_id": "650d9f56f3b114329b049e92",
 			"title": "Chocolate Chip Pancakes",
 			"image": "https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_4:3/k%2FPhoto%2FSeries%2F2021-07-how-to-chocolate-chip-pancakes%2F2021-07-20_ATK-7932",
 			"rating": [
-				{ "user_id": "user41", "rate": 5, "comment": "A treat for breakfast!" },
-				{ "user_id": "user42", "rate": 4, "comment": "Kids loved them!" }
+				{
+					"user_id": "650d9e7ff3b114329b03ee23",
+					"rate": 5,
+					"comment": "A treat for breakfast!"
+				},
+				{
+					"user_id": "650d9ecff3b114329b043388",
+					"rate": 4,
+					"comment": "Kids loved them!"
+				}
 			],
 			"categories": ["Breakfast", "Vegetarian"],
-			"is_featured": true,
+
 			"description": "Fluffy pancakes studded with gooey chocolate chips and topped with maple syrup. A delightful start to the day!",
-			"prep_time": "10 minutes",
-			"cook_time": "15 minutes",
-			"yield": 8,
+			"prep_time": "10",
+			"cook_time": "15",
+			"yield": "8",
 			"ingredient": [
-				{ "name": "All-purpose flour", "quantity": "1 1/2 cups" },
-				{ "name": "Baking powder", "quantity": "3 1/2 tsp" },
-				{ "name": "Salt", "quantity": "1/2 tsp" },
-				{ "name": "White sugar", "quantity": "1 tbsp" },
-				{ "name": "Milk", "quantity": "1 1/4 cups" },
-				{ "name": "Egg", "quantity": 1 },
-				{ "name": "Melted butter", "quantity": "3 tbsp" },
-				{ "name": "Chocolate chips", "quantity": "1/2 cup" }
+				{ "name": "All-purpose flour", "quantity": "1 1/2", "unit": "cups"},
+				{ "name": "Baking powder", "quantity": "3 1/2", "unit": "tsp" },
+				{ "name": "Salt", "quantity": "1/2", "unit": "tsp" },
+				{ "name": "White sugar", "quantity": "1", "unit": "tbsp" },
+				{ "name": "Milk", "quantity": "1 1/4", "unit": "cups" },
+				{ "name": "Egg", "quantity": "1" },
+				{ "name": "Melted butter", "quantity": "3", "unit": "tbsp" },
+				{ "name": "Chocolate chips", "quantity": "1/2", "unit": "cup" }
 			],
 			"steps": [
 				{
 					"step_number": 1,
 					"instruction": "In a large bowl, sift together flour, baking powder, salt, and sugar. Make a well in the center and pour in the milk, egg, and melted butter. Mix until smooth.",
-					"duration": 5
+					"duration": "5"
 				},
-				{ "step_number": 2, "instruction": "Fold in the chocolate chips.", "duration": 2 },
+				{
+					"step_number": 2,
+					"instruction": "Fold in the chocolate chips.",
+					"duration": "2"
+				},
 				{
 					"step_number": 3,
 					"instruction": "Heat a lightly oiled griddle or frying pan over medium-high heat. Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each pancake.",
-					"duration": 5,
+					"duration": "5",
 					"image": "https://carolthecook.com/wp-content/uploads/2021/07/Chocolate-Chip-Pancake-Batter-2-1024x683.jpg"
 				},
 				{
 					"step_number": 4,
 					"instruction": "Brown on both sides and serve hot with your favorite syrup.",
-					"duration": 3
+					"duration": "3"
 				}
 			]
 		},
 		{
+			"_id": "650da4cff3b114329b0926fe",
 			"type": "recipe",
-			"recipe_id": 20,
-			"owner_id": 5,
+			"owner_id": "650d9f56f3b114329b049e92",
 			"title": "Creamy Butternut Squash Soup",
 			"image": "https://chefshamy-media.s3.us-west-2.amazonaws.com/wp-content/uploads/2019/11/17153412/butternut-squash-soup-09.jpg",
 			"rating": [
-				{ "user_id": "user45", "rate": 5, "comment": "Warm and comforting!" },
-				{ "user_id": "user46", "rate": 4, "comment": "Love the creamy texture." }
+				{
+					"user_id": "650d9f4bf3b114329b0495af",
+					"rate": 5,
+					"comment": "Warm and comforting!"
+				},
+				{
+					"user_id": "650d9f60f3b114329b04a6df",
+					"rate": 4,
+					"comment": "Love the creamy texture."
+				}
 			],
 			"categories": ["Soup", "Vegetarian", "Winter"],
-			"is_featured": true,
+
 			"description": "A velvety smooth soup, perfectly balanced with sweetness of the butternut squash and a hint of spice. Ideal for colder days.",
-			"prep_time": "15 minutes",
-			"cook_time": "40 minutes",
-			"yield": 6,
+			"prep_time": "15",
+			"cook_time": "40",
+			"yield": "6",
 			"ingredient": [
-				{ "name": "Butternut squash", "quantity": 1, "note": "Medium-sized, peeled and chopped" },
-				{ "name": "Onion", "quantity": 1, "note": "Diced" },
-				{ "name": "Garlic cloves", "quantity": 3, "note": "Minced" },
-				{ "name": "Olive oil", "quantity": "2 tbsp" },
-				{ "name": "Vegetable broth", "quantity": "4 cups" },
-				{ "name": "Heavy cream", "quantity": "1/2 cup" },
-				{ "name": "Nutmeg", "quantity": "1/2 tsp" },
+				{
+					"name": "Butternut squash",
+					"quantity": "1",
+					"note": "Medium-sized, peeled and chopped"
+				},
+				{ "name": "Onion", "quantity": "1", "note": "Diced" },
+				{ "name": "Garlic cloves", "quantity": "3", "note": "Minced" },
+				{ "name": "Olive oil", "quantity": "2", "unit": "tbsp" },
+				{ "name": "Vegetable broth", "quantity": "4", "unit": "cups" },
+				{ "name": "Heavy cream", "quantity": "1/2", "unit": "cup" },
+				{ "name": "Nutmeg", "quantity": "1/2", "unit": "tsp" },
 				{ "name": "Salt", "quantity": "to taste" },
 				{ "name": "Black pepper", "quantity": "to taste" },
 				{ "name": "Chopped parsley", "quantity": "for garnish" }
@@ -839,115 +1063,131 @@
 				{
 					"step_number": 1,
 					"instruction": "In a large pot, heat olive oil over medium heat. Add the diced onions and sauté until translucent.",
-					"duration": 5
+					"duration": "5"
 				},
 				{
 					"step_number": 2,
 					"instruction": "Add the minced garlic and chopped butternut squash to the pot. Cook for a few minutes until the squash begins to soften.",
-					"duration": 10,
+					"duration": "10",
 					"image": "https://lh3.googleusercontent.com/pRNjDfn5wan7glVZ96ycj2qSlXlk_M3ZhVvILawhL0mJB_P3M5pAvORUt6J_lfbm_Tq59A_0kzkuGGU8ombrkg54bB4jg3dd76XrZWKVvzg7E1A2z2hqDA"
 				},
 				{
 					"step_number": 3,
 					"instruction": "Pour in the vegetable broth and bring the mixture to a boil. Reduce heat and let it simmer for 20 minutes, or until the squash is fully tender.",
-					"duration": 20
+					"duration": "20"
 				},
 				{
 					"step_number": 4,
 					"instruction": "Use an immersion blender (or transfer the soup to a blender in batches) to blend the soup until it’s smooth and creamy.",
-					"duration": 10
+					"duration": "10"
 				},
 				{
 					"step_number": 5,
 					"instruction": "Stir in the heavy cream, nutmeg, salt, and pepper. Let it cook for another 5 minutes.",
-					"duration": 5
+					"duration": "5"
 				},
 				{
 					"step_number": 6,
 					"instruction": "Serve hot, garnished with chopped parsley.",
-					"duration": 5
+					"duration": "5"
 				}
 			]
 		},
 		{
+			"_id": "650da4daf3b114329b093022",
 			"type": "recipe",
-			"recipe_id": 21,
-			"owner_id": 6,
+			"owner_id": "650d9f60f3b114329b04a6df",
 			"title": "Black Bean Tacos",
 			"image": "https://playswellwithbutter.com/wp-content/uploads/2019/08/Quinoa-Black-Bean-Tacos-13-e1610577176314.jpg",
 			"rating": [
-				{ "user_id": "user51", "rate": 4, "comment": "Hearty and satisfying!" },
-				{ "user_id": "user52", "rate": 5, "comment": "Love the zesty flavors!" }
+				{
+					"user_id": "650d9e7ff3b114329b03ee23",
+					"rate": 4,
+					"comment": "Hearty and satisfying!"
+				},
+				{
+					"user_id": "650d9ecff3b114329b043388",
+					"rate": 5,
+					"comment": "Love the zesty flavors!"
+				}
 			],
 			"categories": ["Mexican", "Vegetarian", "Quick Meals"],
-			"is_featured": false,
+
 			"description": "Delicious and quick to make, these black bean tacos are filled with spicy beans, fresh vegetables, and topped with creamy avocado. A perfect weekday dinner!",
-			"prep_time": "10 minutes",
-			"cook_time": "15 minutes",
-			"yield": 4,
+			"prep_time": "10",
+			"cook_time": "15",
+			"yield": "4",
 			"ingredient": [
-				{ "name": "Black beans", "quantity": "1 can", "note": "Rinsed and drained" },
-				{ "name": "Taco seasoning", "quantity": "1 packet" },
-				{ "name": "Olive oil", "quantity": "1 tbsp" },
-				{ "name": "Taco shells", "quantity": 8 },
-				{ "name": "Red bell pepper", "quantity": 1, "note": "Sliced" },
-				{ "name": "Onion", "quantity": 1, "note": "Sliced" },
-				{ "name": "Avocado", "quantity": 1, "note": "Sliced" },
+				{ "name": "Black beans", "quantity": "1", "unit": "can", "note": "Rinsed and drained" },
+				{ "name": "Taco seasoning", "quantity": "1", "unit": "packet" },
+				{ "name": "Olive oil", "quantity": "1", "unit": "tbsp" },
+				{ "name": "Taco shells", "quantity": "8" },
+				{ "name": "Red bell pepper", "quantity": "1", "note": "Sliced" },
+				{ "name": "Onion", "quantity": "1", "note": "Sliced" },
+				{ "name": "Avocado", "quantity": "1", "note": "Sliced" },
 				{ "name": "Salsa", "quantity": "to taste" },
-				{ "name": "Shredded lettuce", "quantity": "1 cup" },
-				{ "name": "Shredded cheese", "quantity": "1 cup", "note": "Optional" }
+				{ "name": "Shredded lettuce", "quantity": "1", "unit": "cup" },
+				{ "name": "Shredded cheese", "quantity": "1", "unit": "cup", "note": "Optional" }
 			],
 			"steps": [
 				{
 					"step_number": 1,
 					"instruction": "In a pan, heat the olive oil over medium heat. Add the sliced onions and bell pepper and sauté until soft.",
-					"duration": 5
+					"duration": "5"
 				},
 				{
 					"step_number": 2,
 					"instruction": "Add the black beans and taco seasoning to the pan. Stir well and cook for another 5 minutes.",
-					"duration": 5,
+					"duration": "5",
 					"image": "https://hips.hearstapps.com/hmg-prod/images/delish-how-to-make-black-beans-horizontalprocess-1545408463.png?crop=1xw:0.843328335832084xh;center,top"
 				},
 				{
 					"step_number": 3,
 					"instruction": "Warm the taco shells as per the package instructions.",
-					"duration": 3
+					"duration": "3"
 				},
 				{
 					"step_number": 4,
 					"instruction": "Assemble the tacos by filling each shell with the bean mixture, followed by lettuce, salsa, avocado slices, and cheese.",
-					"duration": 5
+					"duration": "5"
 				},
 				{
 					"step_number": 5,
 					"instruction": "Serve immediately with your favorite sides or dips.",
-					"duration": 2
+					"duration": "2"
 				}
 			]
 		},
 		{
+			"_id": "650da4e6f3b114329b0939b4",
 			"type": "recipe",
-			"recipe_id": 22,
-			"owner_id": 6,
+			"owner_id": "650d9f60f3b114329b04a6df",
 			"title": "Spaghetti Aglio e Olio",
 			"image": "https://www.foodandwine.com/thmb/c-MBu_vMHq3EcoN_KPxwg-oZjKo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Pasta-Aglio-E-Olio-2-FT-RECIPE0123-38cd2045646a4635a80e8166f085fc7e.jpg",
 			"rating": [
-				{ "user_id": "user47", "rate": 5, "comment": "Simple and full of flavor!" },
-				{ "user_id": "user48", "rate": 4, "comment": "Classic Italian, delicious!" }
+				{
+					"user_id": "650d9ebff3b114329b042725",
+					"rate": 5,
+					"comment": "Simple and full of flavor!"
+				},
+				{
+					"user_id": "650d9f56f3b114329b049e92",
+					"rate": 4,
+					"comment": "Classic Italian, delicious!"
+				}
 			],
 			"categories": ["Pasta", "Italian", "Vegetarian"],
-			"is_featured": false,
+
 			"description": "A classic Italian dish with just a few ingredients but bursting with rich flavor. Garlic and red chili flakes sautéed in olive oil provide this spaghetti dish with its characteristically bold taste.",
-			"prep_time": "5 minutes",
-			"cook_time": "20 minutes",
-			"yield": 4,
+			"prep_time": "5",
+			"cook_time": "20",
+			"yield": "4",
 			"ingredient": [
-				{ "name": "Spaghetti", "quantity": "400 grams" },
-				{ "name": "Olive oil", "quantity": "1/2 cup" },
-				{ "name": "Garlic", "quantity": 6, "note": "Thinly sliced" },
-				{ "name": "Red chili flakes", "quantity": "1 tsp" },
-				{ "name": "Parsley", "quantity": "1/4 cup", "note": "Chopped" },
+				{ "name": "Spaghetti", "quantity": "400", "unit": "g" },
+				{ "name": "Olive oil", "quantity": "1/2", "unit": "cup" },
+				{ "name": "Garlic", "quantity": "6", "note": "Thinly sliced" },
+				{ "name": "Red chili flakes", "quantity": "1", "unit": "tsp" },
+				{ "name": "Parsley", "quantity": "1/4", "unit": "cup", "note": "Chopped" },
 				{ "name": "Salt", "quantity": "to taste" },
 				{ "name": "Black pepper", "quantity": "to taste" },
 				{ "name": "Grated Parmesan cheese", "quantity": "for serving", "note": "Optional" }
@@ -956,149 +1196,165 @@
 				{
 					"step_number": 1,
 					"instruction": "Bring a large pot of salted water to boil. Cook the spaghetti according to the package instructions until al dente.",
-					"duration": 10
+					"duration": "10"
 				},
 				{
 					"step_number": 2,
 					"instruction": "In a large skillet, heat the olive oil over medium heat. Add the sliced garlic and sauté until it’s golden brown.",
-					"duration": 5,
+					"duration": "5",
 					"image": "https://dirtygourmet.com/wp-content/uploads/2014/03/onions-garlic-saute.jpg"
 				},
 				{
 					"step_number": 3,
 					"instruction": "Add the red chili flakes to the skillet and stir for about 30 seconds.",
-					"duration": 1
+					"duration": "1"
 				},
 				{
 					"step_number": 4,
 					"instruction": "Using tongs, transfer the cooked spaghetti directly into the skillet, adding a bit of pasta water to create a sauce. Toss well to coat the pasta.",
-					"duration": 3
+					"duration": "3"
 				},
 				{
 					"step_number": 5,
 					"instruction": "Season with salt and pepper. Stir in the chopped parsley.",
-					"duration": 2
+					"duration": "2"
 				},
 				{
 					"step_number": 6,
 					"instruction": "Serve immediately, garnished with grated Parmesan cheese if desired.",
-					"duration": 2
+					"duration": "2"
 				}
 			]
 		},
 		{
+			"_id": "650da4f0f3b114329b09419e",
 			"type": "recipe",
-			"recipe_id": 23,
-			"owner_id": 6,
+			"owner_id": "650d9f60f3b114329b04a6df",
 			"title": "Vegetable Thai Green Curry",
 			"rating": [
-				{ "user_id": "user53", "rate": 5, "comment": "Perfectly spiced and creamy!" },
-				{ "user_id": "user54", "rate": 4, "comment": "Felt like I was in Thailand." }
+				{
+					"user_id": "650d9ebff3b114329b042725",
+					"rate": 5,
+					"comment": "Perfectly spiced and creamy!"
+				},
+				{
+					"user_id": "650d9f56f3b114329b049e92",
+					"rate": 4,
+					"comment": "Felt like I was in Thailand."
+				}
 			],
 			"categories": ["Thai", "Vegetarian", "Main Course"],
-			"is_featured": true,
+
 			"description": "A creamy and aromatic curry made with fresh vegetables and rich coconut milk, infused with the flavors of green curry paste.",
-			"prep_time": "15 minutes",
-			"cook_time": "25 minutes",
-			"yield": 4,
+			"prep_time": "15",
+			"cook_time": "25",
+			"yield": "4",
 			"ingredient": [
-				{ "name": "Green curry paste", "quantity": "2 tbsp" },
-				{ "name": "Coconut milk", "quantity": "400 ml" },
+				{ "name": "Green curry paste", "quantity": "2", "unit": "tbsp" },
+				{ "name": "Coconut milk", "quantity": "400", "unit": "ml" },
 				{
 					"name": "Mixed vegetables",
-					"quantity": "2 cups",
+					"quantity": "2", "unit": "cups",
 					"note": "like bell peppers, carrots, broccoli"
 				},
-				{ "name": "Tofu", "quantity": "200 grams", "note": "Cubed" },
-				{ "name": "Fish sauce or soy sauce", "quantity": "1 tbsp" },
-				{ "name": "Brown sugar", "quantity": "1 tbsp" },
+				{ "name": "Tofu", "quantity": "200", "unit": "g", "note": "Cubed" },
+				{ "name": "Fish sauce or soy sauce", "quantity": "1", "unit": "tbsp" },
+				{ "name": "Brown sugar", "quantity": "1", "unit": "tbsp" },
 				{ "name": "Thai basil", "quantity": "A handful", "note": "Chopped" },
-				{ "name": "Vegetable oil", "quantity": "2 tbsp" }
+				{ "name": "Vegetable oil", "quantity": "2", "unit": "tbsp" }
 			],
 			"steps": [
 				{
 					"step_number": 1,
 					"instruction": "Heat oil in a pan and fry the green curry paste for a minute.",
-					"duration": 2
+					"duration": "2"
 				},
 				{
 					"step_number": 2,
 					"instruction": "Add the coconut milk, followed by the vegetables and tofu. Bring to a simmer.",
-					"duration": 10,
+					"duration": "10",
 					"image": "https://cdn.tarladalal.com/members/9306/procstepimgs/thai-green-curry_dsc8625-(24)-12-185153.jpg"
 				},
 				{
 					"step_number": 3,
 					"instruction": "Stir in the fish sauce (or soy sauce) and brown sugar. Continue to simmer until vegetables are tender.",
-					"duration": 10
+					"duration": "10"
 				},
 				{
 					"step_number": 4,
 					"instruction": "Turn off the heat and stir in the Thai basil. Serve with jasmine rice.",
-					"duration": 3
+					"duration": "3"
 				}
 			]
 		},
 		{
+			"_id": "650da4fdf3b114329b094c09",
 			"type": "recipe",
-			"recipe_id": 24,
-			"owner_id": 6,
+			"owner_id": "650d9f60f3b114329b04a6df",
 			"title": "Lemon Blueberry Pound Cake",
 			"image": "https://www.theanthonykitchen.com/wp-content/uploads/2020/03/Blueberry-Pound-Cake-8.jpg",
 			"rating": [
-				{ "user_id": "user55", "rate": 5, "comment": "The best dessert I’ve had in a while!" },
-				{ "user_id": "user56", "rate": 4, "comment": "Loved the tangy and sweet combination." }
+				{
+					"user_id": "650d9ebff3b114329b042725",
+					"rate": 5,
+					"comment": "The best dessert I’ve had in a while!"
+				},
+				{
+					"user_id": "650d9f56f3b114329b049e92",
+					"rate": 4,
+					"comment": "Loved the tangy and sweet combination."
+				}
 			],
 			"categories": ["Dessert", "Baking"],
-			"is_featured": false,
+
 			"description": "A moist and dense pound cake with a tangy lemon flavor and bursts of fresh blueberries, topped with a sweet lemon glaze.",
-			"prep_time": "20 minutes",
-			"cook_time": "60 minutes",
-			"yield": 8,
+			"prep_time": "20",
+			"cook_time": "60",
+			"yield": "8",
 			"ingredient": [
-				{ "name": "All-purpose flour", "quantity": "2 cups" },
-				{ "name": "Baking powder", "quantity": "1 tsp" },
-				{ "name": "Salt", "quantity": "1/2 tsp" },
-				{ "name": "Unsalted butter", "quantity": "1 cup", "note": "Softened" },
-				{ "name": "Sugar", "quantity": "1 cup" },
-				{ "name": "Eggs", "quantity": 4 },
+				{ "name": "All-purpose flour", "quantity": "2", "unit": "cups" },
+				{ "name": "Baking powder", "quantity": "1", "unit": "cup" },
+				{ "name": "Salt", "quantity": "1/2", "unit": "cup" },
+				{ "name": "Unsalted butter", "quantity": "1", "unit": "cup", "note": "Softened" },
+				{ "name": "Sugar", "quantity": "1", "unit": "cup" },
+				{ "name": "Eggs", "quantity": "4" },
 				{ "name": "Lemon zest", "quantity": "from 2 lemons" },
-				{ "name": "Lemon juice", "quantity": "1/4 cup" },
-				{ "name": "Blueberries", "quantity": "1 cup" },
-				{ "name": "For the glaze: Icing sugar", "quantity": "1 cup" },
-				{ "name": "For the glaze: Lemon juice", "quantity": "2 tbsp" }
+				{ "name": "Lemon juice", "quantity": "1/4", "unit": "cup" },
+				{ "name": "Blueberries", "quantity": "1", "unit": "cup" },
+				{ "name": "For the glaze: Icing sugar", "quantity": "1", "unit": "cup" },
+				{ "name": "For the glaze: Lemon juice", "quantity": "2", "unit": "tbsp" }
 			],
 			"steps": [
 				{
 					"step_number": 1,
 					"instruction": "Preheat the oven to 350°F (175°C) and grease a loaf pan.",
-					"duration": 5
+					"duration": "5"
 				},
 				{
 					"step_number": 2,
 					"instruction": "In a bowl, whisk together the flour, baking powder, and salt.",
-					"duration": 5
+					"duration": "5"
 				},
 				{
 					"step_number": 3,
 					"instruction": "In another bowl, cream the butter and sugar until light and fluffy. Add eggs one at a time, beating well after each addition. Stir in the lemon zest and juice.",
-					"duration": 10
+					"duration": "10"
 				},
 				{
 					"step_number": 4,
 					"instruction": "Fold in the flour mixture, then the blueberries. Pour batter into the prepared pan.",
-					"duration": 5
+					"duration": "5"
 				},
 				{
 					"step_number": 5,
 					"instruction": "Bake for 50-60 minutes, or until a toothpick inserted into the center comes out clean.",
-					"duration": 60,
+					"duration": "60",
 					"image": "https://www.simplyrecipes.com/thmb/ne1cRQMJPZn9BVRF1o5YVbcdfII=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2013__05__lemon-blueberry-pound-cake-bake-in-oven-aa04694ea7ac43d2b84511ca0d609fec.jpg"
 				},
 				{
 					"step_number": 6,
 					"instruction": "While the cake is baking, make the glaze by mixing icing sugar and lemon juice. Pour over the warm cake after it’s out of the oven. Let cool before serving.",
-					"duration": 10
+					"duration": "10"
 				}
 			]
 		}
