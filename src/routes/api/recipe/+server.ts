@@ -1,41 +1,31 @@
-// get all recipe
 import type { RequestHandler } from './$types';
 
-// Dummy data incase of access denied to both Local/Online DB
+// db offlline
 import RECIPE_DATA from '$assets/dummyRecipeData.json';
+// db online
+import db from '$db/mongo';
 
+// get all recipes
 export const GET: RequestHandler = async ({ url }) => {
-	const recipe = await RECIPE_DATA.recipe;
-
-	// log of url
-
-	// URL {
-	// 	href: 'http://localhost:5173/api/recipe?limit=4',
-	// 	origin: 'http://localhost:5173',
-	// 	protocol: 'http:',
-	// 	username: '',
-	// 	password: '',
-	// 	host: 'localhost:5173',
-	// 	hostname: 'localhost',
-	// 	port: '5173',
-	// 	pathname: '/api/recipe',
-	// 	search: '?limit=4',
-	// 	searchParams: URLSearchParams { 'limit' => '4' },
-	// 	hash: ''
-	// }
-
 	const limit = url.searchParams.get('limit') ? Number(url.searchParams.get('limit')) : undefined;
+	try {
+		const collection = db.collection('recipe');
 
-
-	if (limit) {
-		const shuffled = recipe.sort(() => 0.5 - Math.random());
-		return new Response(JSON.stringify(shuffled.slice(0, limit)), {
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		});
-	} else {
-		return new Response(JSON.stringify(recipe));
+		if (limit) {
+			const recipes = await collection.aggregate([{ $sample: { size: limit } }]).toArray();
+			return new Response(JSON.stringify(recipes));
+		} else {
+			const recipes = await collection.find({}).toArray();
+			return new Response(JSON.stringify(recipes));
+		}
+	} catch (error) {
+		console.error('Database operation error:', error);
+		const recipe = await RECIPE_DATA.recipe;
+		if (limit) {
+			const shuffled = recipe.sort(() => 0.5 - Math.random());
+			return new Response(JSON.stringify(shuffled.slice(0, limit)));
+		} else {
+			return new Response(JSON.stringify(recipe));
+		}
 	}
-	
 };
