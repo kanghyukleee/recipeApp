@@ -46,8 +46,9 @@ declare global {
 				}[];
 			} | null;
 			profiles: {
+				_id?: string		// for mongoDB
 				type: 'profile';
-				user_id: number;
+				user_id?: number;		// for dummy data
 				user_image: string;
 				name: string;
 				recipe_ids: [];
