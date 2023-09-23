@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Card } from '$components';
 	import type { PageData } from './$types';
-	import { inview } from 'svelte-inview';	// intersection observer
+	import { inview } from 'svelte-inview'; // intersection observer
 
 	type RecipeType = {
 		type: 'recipe';
@@ -33,8 +33,9 @@
 		}[];
 	};
 	type ProfileType = {
+		_id?: string;
 		type: 'profile';
-		user_id: number;
+		user_id?: number;
 		user_image: string;
 		name: string;
 		recipe_ids: [];
@@ -43,7 +44,7 @@
 
 	export let data: PageData;
 
-	// 나중에 sections를 그냥 section으로 변경. 
+	// 나중에 sections를 그냥 section으로 변경.
 	let sections: {
 		title: string;
 		path: string;

@@ -69,7 +69,7 @@
 				<div class="profile-menu-content">
 					<ul>
 						<li>
-							<a href="/profile">User Profile</a>
+							<a href="/profile/me">User Profile</a>
 						</li>
 						<li>
 							<LogoutForm />
