@@ -8,12 +8,12 @@ declare global {
 		interface PageData {
 			user: {
 				_id: string;
-				email: string;
+				email: string;		// extract to profile 
 				verified_email: boolean;
-				name: string;
+				name: string;			// extract to profile
 				given_name: string;
 				family_name: string;
-				picture: string | null | undefined;
+				picture: string | null | undefined;		// extract to profile
 				locale: string;
 			} | null;
 			title?: string;
@@ -47,12 +47,12 @@ declare global {
 				}[];
 			} | null;
 			profiles: {
-				_id?: string; // for mongoDB
+				_id: string;
+				email: string;		// extracted from login
 				type: 'profile';
-				user_id?: number; // for dummy data
-				user_image: string;
-				name: string;
-				recipe_ids: [];
+				user_image: string;		// extracted from login
+				name: string;			// extracted from login
+				recipe_ids: string[];
 				followers: number;
 			} | null;
 		}
