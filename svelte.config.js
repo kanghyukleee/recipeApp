@@ -20,7 +20,8 @@ const config = {
 			$components: 'src/lib/components',
 			$assets: 'src/assets',
 			$helpers: 'src/lib/helpers',
-			$actions: 'src/lib/actions'
+			$actions: 'src/lib/actions',
+			$db:'src/db'
 		}
 	}
 };
