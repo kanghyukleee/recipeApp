@@ -1,4 +1,5 @@
 // See https://kit.svelte.dev/docs/types#app
+
 // for information about these interfaces
 declare global {
 	namespace App {
@@ -6,7 +7,7 @@ declare global {
 		// interface Locals {}
 		interface PageData {
 			user: {
-				id: string | number;
+				_id: string;
 				email: string;
 				verified_email: boolean;
 				name: string;
@@ -17,9 +18,9 @@ declare global {
 			} | null;
 			title?: string;
 			recipes: {
+				_id: string;
 				type: 'recipe';
-				recipe_id: number;
-				owner_id: number;
+				owner_id: string;
 				title: string;
 				image?: string;
 				rating: {
@@ -28,27 +29,27 @@ declare global {
 					comment?: string;
 				}[];
 				categories: string[];
-				is_featured: boolean;
 				description: string;
-				prep_time: string | number;
-				cook_time: string | number;
-				yield: string | number;
+				prep_time: string;
+				cook_time: string;
+				yield: string;
 				ingredient: {
 					name: string;
-					quantity: string | number;
+					quantity: string;
+					unit?: string;
 					note?: string;
 				}[];
 				steps: {
 					step_number: number;
 					instruction: string;
-					duration: string | number;
+					duration: string;
 					image?: string;
 				}[];
 			} | null;
 			profiles: {
-				_id?: string		// for mongoDB
+				_id?: string; // for mongoDB
 				type: 'profile';
-				user_id?: number;		// for dummy data
+				user_id?: number; // for dummy data
 				user_image: string;
 				name: string;
 				recipe_ids: [];
