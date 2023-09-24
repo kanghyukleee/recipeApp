@@ -8,7 +8,7 @@ import db from '$db/mongo';
 // get my recipes
 export const GET: RequestHandler = async ({ url }) => {
 	// get user_id
-	const userId = url.searchParams.get('id') ? Number(url.searchParams.get('id')) : null;		// this will be changed to string
+	const userId = url.searchParams.get('id') ? url.searchParams.get('id') : null;	
 
 	if (userId) {
 		try {

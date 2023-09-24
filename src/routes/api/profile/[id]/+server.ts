@@ -18,7 +18,7 @@ export const GET: RequestHandler = async ({ params }) => {
 		console.error('Database operation error:', error);
 		const profileRes = await PROFILE_DATA.profile;
 		const profile = profileRes.find((profile) => {
-			profile.user_id === id;
+			profile._id === id;
 		});
 		return new Response(JSON.stringify(profile));
 	}

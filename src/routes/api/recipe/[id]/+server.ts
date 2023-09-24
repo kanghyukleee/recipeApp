@@ -17,7 +17,7 @@ export const GET: RequestHandler = async ({params}) => {
   } catch (error) {
     console.error('Database operation error:', error);
     const recipeRes = await RECIPE_DATA.recipe;
-    const recipe = recipeRes.find((recipe) => { recipe.recipe_id === id});   // recipe_id will be recplaced as string. 
+    const recipe = recipeRes.find((recipe) => { recipe._id === id});   // recipe_id will be recplaced as string. 
     return new Response(JSON.stringify(recipe));
   }
 }

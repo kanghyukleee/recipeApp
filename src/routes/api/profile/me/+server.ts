@@ -9,7 +9,7 @@ import { ObjectId } from 'mongodb';
 // get user profile
 export const GET: RequestHandler = async ({ url }) => {
   // get user_id
-	const userId = url.searchParams.get('id') ? Number(url.searchParams.get('id')) : null;  // this will be changed to string
+	const userId = url.searchParams.get('id') ?url.searchParams.get('id') : null;  // this will be changed to string
 
   if(!userId){
     throw error(401, 'Session Expired!')
@@ -23,7 +23,7 @@ export const GET: RequestHandler = async ({ url }) => {
     console.error('Database operation error:', error);
     const profileRes = await PROFILE_DATA.profile;
     const profile = profileRes.find((profile) => {
-			profile.user_id === userId;
+			profile._id === userId;
 		});
     return new Response(JSON.stringify(profile));
   }
