@@ -1,18 +1,12 @@
-// import { fetchRefresh } from '$helpers';
+// this route do not require login
 import type { PageLoad } from './$types';
 
-// auto refresh token 
-// import { fetchRefresh } from "$helpers";
-
 export const load: PageLoad = async ({ fetch }) => {
-	// auto refresh token 
-	// const fetch = (path:string) => fetchRefresh(_fetch, path)  // fetch: _fetch
 
-
-	const recipe = await fetch('/api/recipe?limit=12');
-	const recipeRes = await recipe.json();
+	const recipeRes = await fetch('/api/recipe?limit=12');
+	const recipeJSON = await recipeRes.json();
 
 	return {
-		recipe: recipeRes
+		recipe: recipeJSON
 	};
 };

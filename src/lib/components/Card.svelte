@@ -3,40 +3,41 @@
 	import { UtensilsCrossed, Star } from 'lucide-svelte';
 
 	type RecipeType = {
+		_id: string;
 		type: 'recipe';
-		recipe_id: number;
-		owner_id: number;
+		owner_id: string;
 		title: string;
 		image?: string;
 		rating: {
 			user_id: string;
-			rate: 0 | 1 | 2 | 3 | 4 | 5;
+			rate: 1 | 2 | 3 | 4 | 5;
 			comment?: string;
 		}[];
 		categories: string[];
-		is_featured: boolean;
 		description: string;
-		prep_time: string | number;
-		cook_time: string | number;
-		yield: string | number;
+		prep_time: string;
+		cook_time: string;
+		yield: string;
 		ingredient: {
 			name: string;
-			quantity: string | number;
+			quantity: string;
+			unit?: string;
 			note?: string;
 		}[];
 		steps: {
 			step_number: number;
 			instruction: string;
-			duration: string | number;
-			image?: URL | string;
+			duration: string;
+			image?: string;
 		}[];
 	};
 	type ProfileType = {
+		_id: string;
+		email: string; // extracted from login
 		type: 'profile';
-		user_id: number;
-		user_image: string;
-		name: string;
-		recipe_ids: [];
+		user_image: string; // extracted from login
+		name: string; // extracted from login
+		recipe_ids: string[];
 		followers: number;
 	};
 
