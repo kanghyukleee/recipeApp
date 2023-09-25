@@ -10,7 +10,6 @@ export const GET: RequestHandler = async ({ url }) => {
 	const limit = url.searchParams.get('limit') ? Number(url.searchParams.get('limit')) : undefined;
 	try {
 		const collection = db.collection('recipe');
-
 		if (limit) {
 			const recipes = await collection.aggregate([{ $sample: { size: limit } }]).toArray();
 			return new Response(JSON.stringify(recipes));
@@ -21,6 +20,7 @@ export const GET: RequestHandler = async ({ url }) => {
 	} catch (error) {
 		console.error('Database operation error:', error);
 		const recipe = await RECIPE_DATA.recipe;
+
 		if (limit) {
 			const shuffled = recipe.sort(() => 0.5 - Math.random());
 			return new Response(JSON.stringify(shuffled.slice(0, limit)));

@@ -29,7 +29,6 @@
 				document.body.offsetHeight - (scrollY + window.innerHeight) < 214
 					? 1 - (document.body.offsetHeight - (scrollY + window.innerHeight)) / 213
 					: 0;
-			console.log(spinnerOpacity);
 		}
 	}
 
@@ -145,7 +144,7 @@
 		.loader-content {
 			align-items: center;
 			text-align: center;
-			margin-top: 150px;
+			margin-top: 0;
 			margin-bottom: 100px;
 			.loader {
 				width: 48px;
