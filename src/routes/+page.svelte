@@ -11,7 +11,7 @@
 		image?: string;
 		rating: {
 			user_id: string;
-			rate: 1 | 2 | 3 | 4 | 5;
+			rate: 0 | 1 | 2 | 3 | 4 | 5;
 			comment?: string;
 		}[];
 		categories: string[];
@@ -43,12 +43,11 @@
 	};
 
 	export let data: PageData;
-
-	let items: RecipeType[];
+	let items: (RecipeType | ProfileType)[] = [];
 
 	$: {
 		if (data) {
-			items.push(data.recipe);
+			items = data.recipes;
 		}
 	}
 </script>
@@ -74,7 +73,10 @@
 	on:inview_enter={async () => {
 		const recipe = await fetch('/api/recipe?limit=4');
 		const recipeRes = await recipe.json();
-		items = [...recipeRes];
+		items = items.concat(recipeRes);
+		console.log(items);
+		
+		
 	}}
 	aria-hidden="true"
 />
@@ -91,5 +93,8 @@
 			font-weight: 600;
 			margin: 0;
 		}
+	}
+	.content-loader {
+		margin-top: 150px;
 	}
 </style>

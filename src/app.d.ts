@@ -25,7 +25,7 @@ declare global {
 				image?: string;
 				rating: {
 					user_id: string;
-					rate: 1 | 2 | 3 | 4 | 5;
+					rate: 0| 1 | 2 | 3 | 4 | 5;
 					comment?: string;
 				}[];
 				categories: string[];

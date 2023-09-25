@@ -7,6 +7,6 @@ export const load: PageLoad = async ({ fetch }) => {
 	const recipeJSON = await recipeRes.json();
 
 	return {
-		recipe: recipeJSON
+		recipes: recipeJSON
 	};
 };
