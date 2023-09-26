@@ -82,7 +82,7 @@
 		{/if}
 		<div class="{item.type}-info">
 			<p class="truncate-1">{item.categories.map((tag) => tag).join(', ')}</p>
-			<h4 class="truncate-1">{item.title}</h4>
+			<h4 class="truncate-1"><a href="/{item.type}/{item._id}" title="{item.title}">{item.title}</a></h4>
 			<div class="{item.type}-rating">
 				{#if item.rating.length > 0}
 					<div class={zeroToOne}>
@@ -118,7 +118,7 @@
 			</div>
 		{/if}
 		<div class="{item.type}-info">
-			<h4 class="truncate-1">{item.name}</h4>
+			<h4 class="truncate-1"><a href="/{item.type}/{item._id}" title="{item.name}">{item.name}</a></h4>
 			<p class="truncate-1">{item.recipe_ids.length} recipes</p>
 			<p class="truncate-1">{followersFormat.format(item.followers)} followers</p>
 		</div>
