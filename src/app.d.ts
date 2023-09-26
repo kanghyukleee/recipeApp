@@ -17,7 +17,7 @@ declare global {
 				locale: string;
 			} | null;
 			title?: string;
-			recipes: {
+			recipe: {
 				_id: string;
 				type: 'recipe';
 				owner_id: string;
@@ -46,8 +46,8 @@ declare global {
 					image?: string;
 				}[];
 			} | null;
-			profiles: {
-				_id: string;
+			profile: {
+				_id: any;
 				email: string;		// extracted from login
 				type: 'profile';
 				user_image: string;		// extracted from login
