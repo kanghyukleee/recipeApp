@@ -10,6 +10,7 @@ export const load: LayoutLoad = ({ data, url }) => {
 
   return {
     user,
-		userProfile
+		userProfile,
+		pathname: url.pathname
   }
 };

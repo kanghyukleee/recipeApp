@@ -67,16 +67,18 @@
 
 		<main id="main-content" class:logged-in={user}>
 			<slot />
-
-			<div class="loader-content">
-				<!-- only when there is fetch works route -->
-				<span
-					bind:this={loadingSpinner}
-					class="loader"
-					id="loading"
-					style:opacity={`${spinnerOpacity}`}
-				/>
-			</div>
+			<!-- set routes that loader spinner need -->
+			{#if data.pathname === '/'}
+				<div class="loader-content">
+					<!-- only when there is fetch works route -->
+					<span
+						bind:this={loadingSpinner}
+						class="loader"
+						id="loading"
+						style:opacity={`${spinnerOpacity}`}
+					/>
+				</div>
+			{/if}
 		</main>
 	</div>
 </div>
@@ -126,8 +128,8 @@
 				margin-top: var(--topbar-height);
 				padding: 30px 15px 60px;
 
-				overscroll-behavior: auto;	//don't know this work as I expected...
-				
+				overscroll-behavior: auto; //don't know this work as I expected...
+
 				@include breakpoint.up('md') {
 					padding: 30px 30px 60px;
 				}
