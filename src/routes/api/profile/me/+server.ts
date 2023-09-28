@@ -17,14 +17,18 @@ export const GET: RequestHandler = async ({ url }) => {
   
   try {
     const collection = db.collection('profile');
-    const profile = collection.findOne({_id: new ObjectId(userId)});
-    return new Response(JSON.stringify(profile));
+    const profileRes = await collection.findOne({_id: new ObjectId(userId)});
+    const profileJSON = await profileRes
+     
+    return new Response(JSON.stringify(profileJSON));
   } catch (error) {
     console.error('Database operation error:', error);
     const profileRes = await PROFILE_DATA.profile;
     const profile = profileRes.find((profile) => {
 			profile._id === userId;
 		});
+
+    
     return new Response(JSON.stringify(profile));
   }
 };

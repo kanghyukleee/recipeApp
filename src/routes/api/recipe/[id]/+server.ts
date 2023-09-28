@@ -12,7 +12,7 @@ export const GET: RequestHandler = async ({params}) => {
   
   try {
     const collection = db.collection('recipe');
-    const recipe = await collection.find({_id: new ObjectId(id)});   // or '_id' maybe
+    const recipe = await collection.findOne({_id: new ObjectId(id)});   // or '_id' maybe
     return new Response(JSON.stringify(recipe));
   } catch (error) {
     console.error('Database operation error:', error);
