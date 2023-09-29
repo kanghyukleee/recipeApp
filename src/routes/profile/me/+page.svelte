@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card } from '$components';
+	import { Button, Card, ItemPage } from '$components';
 	import type { PageData } from './$types';
 
 	type RecipeType = {
@@ -31,38 +31,58 @@
 			image?: string;
 		}[];
 	};
-	type ProfileType = {
-		_id: string;
-		email: string; // extracted from login
-		type: 'profile';
-		user_image: string; // extracted from login
-		name: string; // extracted from login
-		recipe_ids: string[];
-		followers: number;
-	};
+
 	export let data: PageData;
+	let recipes: RecipeType[] = [];
+	const userProfile = data.userProfile;
 
-	const profile:ProfileType = data.profile
+	$: if (data.userRecipes.length > 0) {
+		recipes = data.userRecipes;
+	}
 
-  
-	let recipes: RecipeType[] = []; // recipes to display. 4~8 recipes
+	const followersFormat = Intl.NumberFormat('en', { notation: 'compact' });
 </script>
 
-<h1>User Profile</h1>
-<div class="info">
-  {profile.name}
-</div>
+{#if userProfile}
+	<ItemPage
+		name={userProfile.name}
+		image={userProfile.user_image}
+		color="null"
+		type={userProfile.type}
+	>
+		<p class="email" slot="email">{userProfile.email}</p>
+		<p class="followers" slot="followers">
+			{followersFormat.format(userProfile.followers)} Followers
+		</p>
 
+		<div class="content">
+			{#if recipes.length > 0}
+				<div class="grid-items">
+					{#each recipes as recipe}
+						<div class="grid-item">
+							<Card item={recipe} />
+						</div>
+					{/each}
+				</div>
+			{:else}
+				<div class="item-placeholder">
+					<h1>Upload Your Recipe</h1>
+					<Button element="a" href="/">Add Recipe</Button>
+				</div>
+			{/if}
+		</div>
+	</ItemPage>
+{:else}
+	<h1>Error!</h1>
+{/if}
 
-<div class="recipe-lists">
-	<div class="header">
-		<div class="header-left" />
-		<div class="header-right">See All</div>
-	</div>
-	<div class="gird-items">
-    card content
-  </div>
-</div>
-<!-- invisible loading spin  -->
 <style lang="scss">
+	.content {
+		.item-placeholder {
+			height: 100%;
+			align-items: center;
+			text-align: center;
+			margin-top: 100px;
+		}
+	}
 </style>

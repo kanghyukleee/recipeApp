@@ -2,15 +2,37 @@ import { fetchRefresh } from '$helpers';
 import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 
-interface UserProfile {
+
+type RecipeType = {
 	_id: string;
-	email: string;
-	type: 'profile';
-	user_image: string;
-	name: string;
-	recipe_ids: string[];
-	followers: number;
-}
+	type: 'recipe';
+	owner_id: string;
+	title: string;
+	image?: string;
+	rating: {
+		user_id: string;
+		rate: 0 | 1 | 2 | 3 | 4 | 5;
+		comment?: string;
+	}[];
+	categories: string[];
+	description: string;
+	prep_time: string;
+	cook_time: string;
+	yield: string;
+	ingredient: {
+		name: string;
+		quantity: string;
+		unit?: string;
+		note?: string;
+	}[];
+	steps: {
+		step_number: number;
+		instruction: string;
+		duration: string;
+		image?: string;
+	}[];
+};
+
 export const load: PageLoad = async ({ fetch: _fetch, parent }) => {
 	const fetch = (path: string) => fetchRefresh(_fetch, path);
 
@@ -21,14 +43,14 @@ export const load: PageLoad = async ({ fetch: _fetch, parent }) => {
 
 	// get my recipes (4~8 recipes)
 	if (userProfile && userProfile._id) {
-		const userRecipeRes = await fetch(`/api/recipe/me?id=${userProfile._id}&limit=4`);
-		const userRecipeJSON = await userRecipeRes.json();
+		const userRecipesRes = await fetch(`/api/recipe/me?id=${userProfile._id}&limit=4`);
+		const userRecipesJSON: RecipeType[] = await userRecipesRes.json();
 		return {
-			userRecipes: userRecipeJSON
+			userRecipes: userRecipesJSON
 		};
 	} else {
-    throw error(400, "Profile not Found!")
-  }
+		throw error(404, 'Profile not Found!');
+	}
 
 	// get my favorite recipes (4~8 recipes)
 };
