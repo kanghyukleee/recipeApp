@@ -1,1 +1,3 @@
-<h1>recipes</h1>
+<script lang="ts">
+  // redirect to '/' for now
+</script>
