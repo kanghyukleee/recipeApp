@@ -33,15 +33,18 @@
 		{/if}
 	</div>
 	<div class="info">
+		<!-- recipe slots -->
 		{#if type === 'recipe'}
 			<slot name="tag" />
 			<h1 class="title">{name}</h1>
 			<slot name="description" />
 			<slot name="rating" />
+		<!-- profile slots -->
 		{:else if type === 'profile'}
 			<h1 class="name">{name}</h1>
 			<slot name="email" />
 			<slot name="followers" />
+
 		{/if}
 	</div>
 </div>
@@ -63,11 +66,14 @@
 		position: relative;
 		display: flex;
 		flex-direction: column;
+		text-align: center;
+		
 		margin: calc(-1 * (30px + var(--topbar-height))) -30px 0;
 		padding: calc(30px + var(--topbar-height)) 30px 20px;
-		@include breakpoint.up('sm') {
+		@include breakpoint.up('md') {
 			flex-direction: row;
 			align-items: flex-end;
+			text-align-last: left;
 		}
 		.banner-gradient {
 			position: absolute;
@@ -93,7 +99,7 @@
 		.cover {
 			margin-right: 40px;
 			z-index: 10;
-			@include breakpoint.down('sm') {
+			@include breakpoint.down('md') {
 				margin-right: 0;
 				margin-bottom: 30px;
 			}
@@ -120,9 +126,11 @@
 				box-shadow: var(--shadow-value);
 				@include breakpoint.up('sm') {
 					width: 230px;
+			
 				}
 				@include breakpoint.up('md') {
 					width: 200px;
+		
 				}
 				@include breakpoint.up('lg') {
 					width: 230px;
