@@ -51,7 +51,7 @@
 	let threeToFour: string;
 	let fourToFive: string;
 
-	let ratingResult = ['fill', 'outline', 'off', 'off', 'off'];
+	let ratingResult = ['off', 'off', 'off', 'off', 'off'];
 
 	if (item.type === 'recipe') {
 		if (item.rating.length > 0) {
@@ -64,7 +64,7 @@
 		}
 	}
 
-	const followersFormat = Intl.NumberFormat('en', {notation: 'compact'})
+	const followersFormat = Intl.NumberFormat('en', { notation: 'compact' });
 </script>
 
 <div class="{item.type}-card">
@@ -82,7 +82,9 @@
 		{/if}
 		<div class="{item.type}-info">
 			<p class="truncate-1">{item.categories.map((tag) => tag).join(', ')}</p>
-			<h4 class="truncate-1"><a href="/{item.type}/{item._id}" title="{item.title}">{item.title}</a></h4>
+			<h4 class="truncate-1">
+				<a href="/{item.type}/{item._id}" title={item.title}>{item.title}</a>
+			</h4>
 			<div class="{item.type}-rating">
 				{#if item.rating.length > 0}
 					<div class={zeroToOne}>
@@ -118,7 +120,9 @@
 			</div>
 		{/if}
 		<div class="{item.type}-info">
-			<h4 class="truncate-1"><a href="/{item.type}/{item._id}" title="{item.name}">{item.name}</a></h4>
+			<h4 class="truncate-1">
+				<a href="/{item.type}/{item._id}" title={item.name}>{item.name}</a>
+			</h4>
 			<p class="truncate-1">{item.recipe_ids.length} recipes</p>
 			<p class="truncate-1">{followersFormat.format(item.followers)} followers</p>
 		</div>
@@ -178,7 +182,7 @@
 				display: flex;
 				:global(svg) {
 					width: 80%;
-					height: 80%;				
+					height: 80%;
 				}
 				.fill {
 					:global(svg) {
@@ -254,6 +258,12 @@
 			max-width: 100%;
 			border-radius: 100%;
 		}
+		&:hover {
+			background-color: var(--item-hover-color);
+			.profile-cover-placeholder {
+				background-color: var(--item-color);
+			}
+		}
 		.profile-info {
 			padding: 20px;
 			h4 {
@@ -262,12 +272,7 @@
 				font-size: functions.toRem(28);
 				margin-bottom: 0.5em;
 			}
-			&:hover {
-				background-color: var(--item-hover-color);
-				.profile-cover-placeholder {
-					background-color: var(--item-color);
-				}
-			}
+
 			h4 {
 				margin: 0 0 10px;
 				font-size: functions.toRem(16);
