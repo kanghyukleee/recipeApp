@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { Card } from '$components';
+	import { Card, Button } from '$components';
 	import type { PageData } from './$types';
-	import { inview } from 'svelte-inview'; // intersection observer
 
 	type RecipeType = {
 		_id: string;
@@ -43,16 +42,69 @@
 	};
 
 	export let data: PageData;
-	let items: (RecipeType | ProfileType)[] = [];
+
+	// let items: (RecipeType | ProfileType)[] = [];
+
+	let sections: {
+		title: string;
+		path: string;
+		items: (RecipeType | ProfileType)[] = [];
+		type: string;
+	}[] = [];
+
+	// $: {
+	// 	if (data) {
+	// 		items = data.recipes;
+	// 	}
+	// }
 
 	$: {
-		if (data) {
-			items = data.recipes;
+		// recipes data set
+		if (data.recipes) {
+			sections.push({
+				title: 'Recipes',
+				path: '/recipe',
+				items: data.recipes,
+				type: "recipe"
+			});
+		}
+		// profiles data set
+		if (data.profiles) {
+			sections.push({
+				title: 'Profiles',
+				path: '/profile',
+				items: data.profiles,
+				type: 'profile'
+			});
 		}
 	}
 </script>
 
-<div class="section-header">
+{#each sections as section}
+	<section class="content-row">
+		<!-- section header -->
+		<div class="content-row-header">
+			<div class="left">
+				<h2 class="section-title">{section.title}</h2>
+			</div>
+			<div class="right">
+				<Button element="a" href={section.path} varient="outline"
+					>See All<span class="visually-hidden">{section.title}</span></Button
+				>
+			</div>
+		</div>
+		<!-- section content -->
+		<div class="grid-items {section.type}">
+			{#each section.items as item}
+				<div class="grid-item">
+					<Card {item} />
+				</div>
+			{/each}
+		</div>
+	</section>
+{/each}
+
+<!-- <div class="section-header">
 	<h2 class="section-title">Recipes</h2>
 </div>
 
@@ -64,37 +116,33 @@
 			</div>
 		{/each}
 	</div>
-</section>
-
-<!-- intersection observer -->
-<div
-	class="content-loader"
-	use:inview
-	on:inview_enter={async () => {
-		const recipe = await fetch('/api/recipe?limit=4');
-		const recipeRes = await recipe.json();
-		items = items.concat(recipeRes);
-		console.log(items);
-		
-		
-	}}
-	aria-hidden="true"
-/>
+</section> -->
 
 <style lang="scss">
 	.content-row {
 		margin-bottom: 40px;
-	}
-	.section-header {
-		align-items: center;
-		margin-bottom: 20px;
-		.section-title {
-			font-size: functions.toRem(22);
-			font-weight: 600;
-			margin: 0;
+		.content-row-header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-bottom: 20px;
+			.section-title {
+				font-size: functions.toRem(22);
+				font-weight: 600;
+				margin: 0;
+			}
 		}
 	}
-	.content-loader {
-		margin-top: 150px;
-	}
+	// .section-header {
+	// 	align-items: center;
+	// 	margin-bottom: 20px;
+	// 	.section-title {
+	// 		font-size: functions.toRem(22);
+	// 		font-weight: 600;
+	// 		margin: 0;
+	// 	}
+	// }
+	// .content-loader {
+	// 	margin-top: 150px;
+	// }
 </style>

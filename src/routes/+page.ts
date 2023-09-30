@@ -2,11 +2,15 @@
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = async ({ fetch }) => {
-
-	const recipeRes = await fetch('/api/recipe?limit=12');
-	const recipeJSON = await recipeRes.json();
+	// get recipes
+	const recipesRes = await fetch('/api/recipe?limit=8');
+	const recipesJSON = await recipesRes.json();
+	// get profiles
+	const profilesRes = await fetch('/api/profile?limit=6');
+	const profilesJSON = await profilesRes.json();
 
 	return {
-		recipes: recipeJSON
+		recipes: recipesJSON,
+		profiles: profilesJSON
 	};
 };
