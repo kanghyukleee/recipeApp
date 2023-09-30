@@ -39,12 +39,11 @@
 			<h1 class="title">{name}</h1>
 			<slot name="description" />
 			<slot name="rating" />
-		<!-- profile slots -->
+			<!-- profile slots -->
 		{:else if type === 'profile'}
 			<h1 class="name">{name}</h1>
 			<slot name="email" />
 			<slot name="followers" />
-
 		{/if}
 	</div>
 </div>
@@ -58,7 +57,7 @@
 		position: relative;
 		z-index: 10;
 		min-height: 300px;
-		background-image: linear-gradient(0deg, var(--bg-color), var(--bg-gradient-color));
+		background-image: linear-gradient(0deg, var(--bg-color), var(--item-color));
 		margin: 0 -30px;
 		padding: 30px;
 	}
@@ -67,10 +66,10 @@
 		display: flex;
 		flex-direction: column;
 		text-align: center;
-		
+
 		margin: calc(-1 * (30px + var(--topbar-height))) -30px 0;
 		padding: calc(30px + var(--topbar-height)) 30px 20px;
-		@include breakpoint.up('md') {
+		@include breakpoint.up('xl') {
 			flex-direction: row;
 			align-items: flex-end;
 			text-align-last: left;
@@ -103,41 +102,42 @@
 				margin-right: 0;
 				margin-bottom: 30px;
 			}
-			.recipe-cover-img, .recipe-cover-placeholder {
-				width: 100px;
+			.recipe-cover-img,
+			.recipe-cover-placeholder {
+				width: 100%;
 				aspect-ratio: 1.5;
 				object-fit: cover;
 				box-shadow: var(--shadow-value);
 				@include breakpoint.up('sm') {
-					width: 345px;
+					width: 400px;
 				}
 				@include breakpoint.up('md') {
 					width: 300px;
 				}
 				@include breakpoint.up('lg') {
-					width: 345px;
+					width: 400px;
 				}
 			}
-			.profile-cover-img, .profile-cover-placeholder {
-				width: 100px;
+			.profile-cover-img,
+			.profile-cover-placeholder {
+				width: 100%;
 				border-radius: 100%;
 				aspect-ratio: 1;
 				object-fit: cover;
 				box-shadow: var(--shadow-value);
 				@include breakpoint.up('sm') {
 					width: 230px;
-			
 				}
 				@include breakpoint.up('md') {
 					width: 200px;
-		
 				}
 				@include breakpoint.up('lg') {
 					width: 230px;
 				}
 			}
 		}
-		.recipe-cover-placeholder, .profile-cover-placeholder {
+		.recipe-cover-placeholder,
+		.profile-cover-placeholder {
 			display: flex;
 			align-items: center;
 			justify-content: center;
