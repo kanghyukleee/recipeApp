@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { Button, Card, ItemPage } from '$components';
 	import type { PageData } from './$types';
+	import { inview } from 'svelte-inview'; // intersection observer
+
 
 	type RecipeType = {
 		_id: string;
@@ -55,34 +57,46 @@
 			{followersFormat.format(userProfile.followers)} Followers
 		</p>
 
-		<div class="content">
-			{#if recipes.length > 0}
-				<div class="grid-items">
-					{#each recipes as recipe}
-						<div class="grid-item">
-							<Card item={recipe} />
-						</div>
-					{/each}
-				</div>
-			{:else}
-				<div class="item-placeholder">
-					<h1>Upload Your Recipe</h1>
-					<Button element="a" href="/">Add Recipe</Button>
-				</div>
-			{/if}
-		</div>
+		{#if recipes.length > 0}
+			<div class="grid-items recipe">
+				{#each recipes as recipe}
+					<div class="grid-item">
+						<Card item={recipe} />
+					</div>
+				{/each}
+			</div>
+		{:else}
+			<div class="item-placeholder">
+				<h1>Upload Your Recipe</h1>
+				<Button element="a" href="/">Add Recipe</Button>
+			</div>
+		{/if}
 	</ItemPage>
 {:else}
 	<h1>Error!</h1>
+	<Button element="a" href="/">Home</Button>
 {/if}
 
+<!-- intersection observer -->
+<div
+	class="content-loader"
+	use:inview
+	on:inview_enter={async () => {
+		const recipe = await fetch(`/api/recipe?userid=${userProfile?._id}&limit=4`);
+		const recipeRes = await recipe.json();
+		recipes = recipes.concat(recipeRes);
+	}}
+	aria-hidden="true"
+/>
+
 <style lang="scss">
-	.content {
-		.item-placeholder {
-			height: 100%;
-			align-items: center;
-			text-align: center;
-			margin-top: 100px;
-		}
+	.item-placeholder {
+		height: 100%;
+		align-items: center;
+		text-align: center;
+		margin-top: 100px;
+	}
+	.content-loader {
+		margin-top: 300px;
 	}
 </style>
