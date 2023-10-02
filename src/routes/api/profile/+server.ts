@@ -9,16 +9,20 @@ import db from '$db/mongo';
 export const GET: RequestHandler = async ({ url }) => {
 	const limit = url.searchParams.get('limit') ? Number(url.searchParams.get('limit')) : undefined;
 
+	const aggregation: object[] = [];
+
+	// < more aggregation condition comes here >
+
+	if(limit) {
+		aggregation.push({ $sample: { size: limit } });
+	}
+
 	try {
 		const collection = db.collection('profile');
+		const profiles = await collection.aggregate(aggregation).toArray();
 
-		if (limit) {
-			const profiles = await collection.aggregate([{ $sample: { size: limit } }]).toArray();
-			return new Response(JSON.stringify(profiles));
-		} else {
-			const profiles = await collection.find({}).toArray();
-			return new Response(JSON.stringify(profiles));
-		}
+		return new Response(JSON.stringify(profiles));
+//=========================== Dummy Data ===================================
 	} catch (error) {
 		console.error('Database operation error:', error);
 		const profiles = await PROFILE_DATA.profile;

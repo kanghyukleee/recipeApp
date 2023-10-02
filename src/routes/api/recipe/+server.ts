@@ -10,63 +10,56 @@ import { ObjectId } from 'mongodb';
 export const GET: RequestHandler = async ({ url }) => {
 	// limit for every db search
 	const limit = url.searchParams.get('limit') ? Number(url.searchParams.get('limit')) : undefined;
-
 	// get recipes based on given user id
 	const userId = url.searchParams.get('userid') ? url.searchParams.get('userid') : undefined;
-	if (userId) {
-		try {
-			const collection = db.collection('recipe');
-			if (limit) {
-				const recipes = await collection
-					.aggregate([
-						{ $match: { owner_id: new ObjectId(userId) } },
-						{ $sample: { size: limit } },
-					])
-					.toArray();
-				console.log("/api/reciep/+server.ts:" ,recipes);
 
-				return new Response(JSON.stringify(recipes));
-			} else {
-				const recipes = await collection.find({ owner_id: new ObjectId(userId) }).toArray();
-				return new Response(JSON.stringify(recipes));
-			}
-		} catch (error) {
-			console.error('Database operation error:', error);
-			const recipes = await RECIPE_DATA.recipe;
-			const filteredRecipe = await recipes.filter((recipe) => {
+	const aggregation: object[] = [];
+
+	if(userId) {
+		aggregation.push({ $match: { owner_id: new ObjectId(userId) } });
+	}
+
+	// limit should be checked very last
+	if(limit) {
+		aggregation.push({ $sample: { size: limit } });
+	}
+
+	try {
+		const collection = db.collection('recipe');
+		const recipes = await collection.aggregate(aggregation).toArray();
+		
+		return new Response(JSON.stringify(recipes));
+
+//=========================== Dummy Data ===================================
+	} catch(error) {
+		console.error("Database operation error: ", error);
+		const dummyRecipes = await RECIPE_DATA.recipe;
+		
+		if(userId) {
+			const filteredRecipes = await dummyRecipes.filter((recipe) => {
 				recipe.owner_id === userId;
 			});
 			if (limit) {
-				if (filteredRecipe.length < limit) {
-					return new Response(JSON.stringify(filteredRecipe));
+				if (filteredRecipes.length < limit) {
+					return new Response(JSON.stringify(filteredRecipes));
 				} else {
-					const shuffled = filteredRecipe.sort(() => 0.5 - Math.random());
+					const shuffled = filteredRecipes.sort(() => 0.5 - Math.random());
 					return new Response(JSON.stringify(shuffled.slice(0, limit)));
 				}
 			} else {
-				return new Response(JSON.stringify(filteredRecipe));
+				return new Response(JSON.stringify(filteredRecipes));
 			}
-		}
-	}
-
-	// get recipes
-	try {
-		const collection = db.collection('recipe');
-		if (limit) {
-			const recipes = await collection.aggregate([{ $sample: { size: limit } }]).toArray();
-			return new Response(JSON.stringify(recipes));
 		} else {
-			const recipes = await collection.find({}).toArray();
-			return new Response(JSON.stringify(recipes));
-		}
-	} catch (error) {
-		console.error('Database operation error:', error);
-		const recipe = await RECIPE_DATA.recipe;
-		if (limit) {
-			const shuffled = recipe.sort(() => 0.5 - Math.random());
-			return new Response(JSON.stringify(shuffled.slice(0, limit)));
-		} else {
-			return new Response(JSON.stringify(recipe));
+			if (limit) {
+				if (dummyRecipes.length < limit) {
+					return new Response(JSON.stringify(dummyRecipes));
+				} else {
+					const shuffled = dummyRecipes.sort(() => 0.5 - Math.random());
+					return new Response(JSON.stringify(shuffled.slice(0, limit)));
+				}
+			} else {
+				return new Response(JSON.stringify(dummyRecipes));
+			}
 		}
 	}
 };

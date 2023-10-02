@@ -13,37 +13,54 @@ export const GET: RequestHandler = async ({ url }) => {
 	// get limit
 	const limit = url.searchParams.get('limit') ? Number(url.searchParams.get('limit')) : undefined;
 
+	const aggregation: object[] = [];
+
+	if (userId) {
+		aggregation.push({ $match: { owner_id: new ObjectId(userId) } });
+	}
+
+	// limit should be checked very last
+	if (limit) {
+		aggregation.push({ $sample: { size: limit } });
+	}
+
 	if (userId) {
 		try {
 			const collection = db.collection('recipe');
-			// check limit on DB
-			if (limit) {
-				const recipes = await collection
-					.aggregate([{ $match: { owner_id: new ObjectId(userId) } }, { $sample: { size: limit } }, {$project: {_id: 1}}])
-					.toArray();
-				return new Response(JSON.stringify(recipes));
-			} else {
-				const recipes = await collection.find({ owner_id: new ObjectId(userId) }).toArray();
-				return new Response(JSON.stringify(recipes));
-			}
+			const recipes = await collection.aggregate(aggregation).toArray();
+
+			return new Response(JSON.stringify(recipes));
+
+	//=========================== Dummy Data ===================================	
 		} catch (error) {
-			console.error('Database operation error:', error);
-			const recipes = await RECIPE_DATA.recipe;
-			const userRecipes = await recipes.filter((recipe) => {
-				recipe.owner_id === userId;
-			});	
-			if (limit) {
-				if (userRecipes.length < limit) {
-					// if dummy data have less number of items than given limit
-					return new Response(JSON.stringify(userRecipes))
+			console.error('Database operation error: ', error);
+			const dummyRecipes = await RECIPE_DATA.recipe;
+
+			if (userId) {
+				const filteredRecipes = await dummyRecipes.filter((recipe) => {
+					recipe.owner_id === userId;
+				});
+				if (limit) {
+					if (filteredRecipes.length < limit) {
+						return new Response(JSON.stringify(filteredRecipes));
+					} else {
+						const shuffled = filteredRecipes.sort(() => 0.5 - Math.random());
+						return new Response(JSON.stringify(shuffled.slice(0, limit)));
+					}
 				} else {
-					// if dummy data have enough number of items than given limit
-					const shuffled = userRecipes.sort(()=>0.5 - Math.random());
-					return new Response(JSON.stringify(shuffled.slice(0, limit))); 
+					return new Response(JSON.stringify(filteredRecipes));
 				}
 			} else {
-				// get all recipes of user
-				return new Response(JSON.stringify(userRecipes));
+				if (limit) {
+					if (dummyRecipes.length < limit) {
+						return new Response(JSON.stringify(dummyRecipes));
+					} else {
+						const shuffled = dummyRecipes.sort(() => 0.5 - Math.random());
+						return new Response(JSON.stringify(shuffled.slice(0, limit)));
+					}
+				} else {
+					return new Response(JSON.stringify(dummyRecipes));
+				}
 			}
 		}
 	} else {
