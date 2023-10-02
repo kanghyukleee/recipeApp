@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ItemPage } from '$components';
+	import { Card, ItemPage } from '$components';
 	import { Star, ChefHat, Timer, Utensils, ChevronRight } from 'lucide-svelte';
 	import type { PageData } from './$types';
 	import { rateResult } from '$helpers';
@@ -33,8 +33,19 @@
 			image?: string;
 		}[];
 	};
+	type ProfileType = {
+		_id: string;
+		email: string; // extracted from login
+		type: 'profile';
+		user_image: string; // extracted from login
+		name: string; // extracted from login
+		recipe_ids: string[];
+		followers: number;
+	};
 
 	export let data: PageData;
+
+	const profile: ProfileType = data.profile;
 	const recipe: RecipeType = data.recipe;
 
 	let totalRate = 0;
@@ -61,6 +72,7 @@
 	<!-- change categories to string, @Card -->
 	<p class="tag" slot="tag">{recipe.categories.map((tag) => tag).join(', ')}</p>
 	<p class="description" slot="description">{recipe.description}</p>
+	<p class="recipe-owner" slot="recipeOwner">Recipe by <a href="/profile/{profile._id}">{profile.name}</a></p>
 	<div class="rating" slot="rating">
 		{#if recipe.rating.length > 0}
 			<div class={zeroToOne}>
@@ -146,6 +158,14 @@
 </ItemPage>
 
 <style lang="scss">
+	.recipe-owner {
+		line-height: 1;
+		font-weight: 300;
+		a {
+			font-weight: 800;
+			text-decoration: none;
+		}
+	}
 	.rating {
 		align-items: center;
 		display: flex;
@@ -188,15 +208,15 @@
 		.yield {
 			width: 100%;
 			text-align: center;
-      p{
-        font-weight: 600;
-        font-size: functions.toRem(20);
-      }
+			p {
+				font-weight: 600;
+				font-size: functions.toRem(20);
+			}
 			:global(svg) {
 				margin-right: 10px;
-        height: 10%;
-        width: 10%;
-        stroke-width: 1.2;
+				height: 10%;
+				width: 10%;
+				stroke-width: 1.2;
 			}
 		}
 	}
@@ -256,4 +276,5 @@
 			}
 		}
 	}
+	
 </style>

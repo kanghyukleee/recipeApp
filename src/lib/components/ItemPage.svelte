@@ -39,6 +39,7 @@
 			<h1 class="title">{name}</h1>
 			<slot name="description" />
 			<slot name="rating" />
+			<slot name="recipeOwner" />
 			<!-- profile slots -->
 		{:else if type === 'profile'}
 			<h1 class="name">{name}</h1>
