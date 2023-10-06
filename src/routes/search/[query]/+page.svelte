@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { Card } from '$components';
-	import { Search } from 'lucide-svelte';
+	import { SearchForm } from '$components';
 	import type { PageData } from './$types';
-	import { page } from '$app/stores';
 
 	type RecipeType = {
 		_id: string;
@@ -35,77 +34,38 @@
 	};
 
 	export let data: PageData;
-  let items: RecipeType[] = [];
-	$: if(data.result) {
-    items = data.result
-  }
-
-	let searchInput: HTMLInputElement;
-	$: searchQuery = $page.params.query || '';
-	
-
+	let items: RecipeType[] = [];
+	$: if (data.result) {
+		items = data.result;
+	}
 </script>
 
 <div class="section-header">
 	<h2>{data.title}</h2>
 </div>
 
-<form action="/search" method="GET" role="search">
-	<div class="search-input-wrapper">
-		<Search aria-hidden focusable="false" />
-		<input
-			class="search-input"
-			type="search"
-			bind:this={searchInput}
-			value={searchQuery}
-			name="q"
-			placeholder="Search for recipes, categories, or ingredients!"
-			aria-label="Search for recipes, categories, or ingredients!"
-		/>
-	</div>
-</form>
+<SearchForm />
 
 <section class="content-row">
-	<div class="grid-items recipe">
-		{#each items as item}
-			<div class="grid-item">
-				<Card {item} />
-			</div>
-		{/each}
-	</div>
+	{#if items.length > 0}
+		<div class="grid-items recipe">
+			{#each items as item}
+				<div class="grid-item">
+					<Card {item} />
+				</div>
+			{/each}
+		</div>
+	{:else}
+		<h2 class="warning">We couldn't find any recipes. Try another search!</h2>
+	{/if}
 </section>
 
 <style lang="scss">
-	.search-input-wrapper {
-		position: relative;
-		display: flex;
-		align-items: center;
-    justify-content: center;
-		margin-bottom: 80px;
-		:global(svg) {
-			position: absolute;
-			margin-right: 610px;
-			stroke: var(--medium-gray);
-			width: 22px;
-			height: 22px;
-      margin-top: 50px;
-      @include breakpoint.down('lg') {
-        margin-right: 360px;
-      }
-		}
-		.search-input {
-      margin-top: 50px;
-
-			border: none;
-			padding: 0 20px 0 40px;
-			height: calc(var(--topbar-height) - 25px);
-			border-radius: 20px;
-			font-size: functions.toRem(14);
-			color: var(--medium-gray);
-      @include breakpoint.up('lg') {
-        width: 650px;
-      }
-      width: 400px;
+	.content-row {
+		margin-top: 80px;
+		.warning {
+			margin-top: 200px;
+			text-align: center;
 		}
 	}
 </style>

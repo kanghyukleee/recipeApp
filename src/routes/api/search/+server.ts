@@ -12,6 +12,8 @@ export const GET: RequestHandler = async ({ url }) => {
 	const query = url.searchParams.get('q') ? url.searchParams.get('q') : undefined;
 	const limit = url.searchParams.get('limit') ? Number(url.searchParams.get('limit')) : undefined;
 
+
+	// change from $regex to $search
 	const regexPattern = query ? new RegExp(query, 'i') : null;
 	const recipeQuery = regexPattern
 		? {
