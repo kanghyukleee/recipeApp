@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { IconButton } from '$components';
 	import { Plus, X } from 'lucide-svelte';
+	import { createEventDispatcher } from 'svelte';
 
 	let recipeTitle: string;
 	// ===========================================================================================
@@ -65,6 +66,25 @@
 			steps: stepSets
 		});
 	};
+
+  const dispatch = createEventDispatcher();
+  const sendData = () => {
+    const newRecipe = {
+      type: 'recipe',
+			owner_id: 'take this later',
+			title: recipeTitle,
+			rating: [],
+			categories: tags,
+			description,
+			prep_time: prepTime,
+			cook_time: cookTime,
+			yield: servings,
+			ingredient: ingredientSets,
+			steps: stepSets
+    }
+    dispatch('getNewRecipe', newRecipe);
+  }
+ 
 </script>
 
 <section class="title">
@@ -260,7 +280,7 @@
 </section>
 
 <section class="submit">
-	<button on:click={submitSet}>submit</button>
+	<button on:click={sendData}>submit</button>
 </section>
 
 <style lang="scss">

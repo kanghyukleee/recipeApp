@@ -8,3 +8,4 @@ export { default as IconButton } from './IconButton.svelte';
 export { default as Card } from './Card.svelte';
 export { default as ItemPage } from './ItemPage.svelte';
 export { default as SearchForm } from './SearchForm.svelte';
+export { default as NewRecipeForm } from './NewRecipeForm.svelte';
