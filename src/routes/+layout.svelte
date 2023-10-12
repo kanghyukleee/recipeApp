@@ -68,17 +68,7 @@
 		<main id="main-content" class:logged-in={user}>
 			<slot />
 			<!-- set routes that loader spinner need -->
-			{#if data.pathname === '/'}
-				<div class="loader-content">
-					<!-- only when there is fetch works route -->
-					<span
-						bind:this={loadingSpinner}
-						class="loader"
-						id="loading"
-						style:opacity={`${spinnerOpacity}`}
-					/>
-				</div>
-			{/if}
+			
 		</main>
 	</div>
 </div>
@@ -100,7 +90,7 @@
 				display: flex;
 				align-items: center;
 				width: 100%;
-				z-index: 999;
+				z-index: 100;
 				:global(html.no-js) & {
 					position: sticky;
 					top: 0;
@@ -128,7 +118,7 @@
 				margin-top: var(--topbar-height);
 				padding: 30px 15px 60px;
 
-				overscroll-behavior: auto; //don't know this work as I expected...
+				// overscroll-behavior: auto; //don't know this work as I expected...
 
 				@include breakpoint.up('md') {
 					padding: 30px 30px 60px;
@@ -143,29 +133,6 @@
 				}
 			}
 		}
-		.loader-content {
-			align-items: center;
-			text-align: center;
-			margin-top: 0;
-			margin-bottom: 100px;
-			.loader {
-				width: 48px;
-				height: 48px;
-				border: 5px solid;
-				border-color: var(--accent-color) transparent;
-				border-radius: 50%;
-				display: inline-block;
-				box-sizing: border-box;
-				animation: rotation 1s linear infinite;
-			}
-			@keyframes rotation {
-				0% {
-					transform: rotate(0deg);
-				}
-				100% {
-					transform: rotate(360deg);
-				}
-			}
-		}
+		
 	}
 </style>
