@@ -1,5 +1,5 @@
 import { fetchRefresh } from '$helpers';
-import { error } from '@sveltejs/kit';
+import { error, json } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 
 
@@ -37,14 +37,17 @@ export const load: PageLoad = async ({ fetch: _fetch, parent }) => {
 	const fetch = (path: string) => fetchRefresh(_fetch, path);
 
 	const { user, userProfile } = await parent();
+	const userProfileJSON = userProfile ? JSON.parse(userProfile): null
+	
 	if (!user) {
 		throw error(401, 'Session Expired!');
 	}
 
 	// get my recipes (4~8 recipes)
-	if (userProfile && userProfile._id) {
-		const userRecipesRes = await fetch(`/api/recipe/me?id=${userProfile._id}&limit=4`);
+	if (userProfile && userProfileJSON._id) {
+		const userRecipesRes = await fetch(`/api/recipe/me?id=${userProfileJSON._id}&limit=4`);
 		const userRecipesJSON: RecipeType[] = await userRecipesRes.json();
+			
 		return {
 			userRecipes: userRecipesJSON
 		};

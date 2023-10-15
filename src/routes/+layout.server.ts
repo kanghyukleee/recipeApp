@@ -1,14 +1,15 @@
 import { redirect } from '@sveltejs/kit';
 import type { LayoutServerLoad } from './$types';
 import db from '$db/mongo'
+import type { ObjectId } from 'mongodb';
 
 interface UserProfile {
-	_id?: any;
+	_id?: string | ObjectId;
 	email: string;
 	type: "profile";
 	user_image: string;
 	name: string;
-	recipe_ids: string[];
+	recipe_ids: (ObjectId | string)[];
 	followers: number;
 }
 
@@ -41,18 +42,19 @@ export const load: LayoutServerLoad = async ({ cookies, fetch, url }) => {
 		}}
 		const	options = { upsert: true, returnNewDocument: true}
 
-		const result = await collection.findOneAndUpdate(filter, update, options);
-
-		const dbProfile = result.value || update.$set;
-		
-		if(dbProfile && dbProfile._id) {
-			dbProfile._id = dbProfile._id.toString()
+		try{
+			const result = await collection.findOneAndUpdate(filter, update, options);
+			const dbProfile = result.value 
+			return {
+				user: profile,
+				userProfile : JSON.stringify(dbProfile)			// I have no Idea why this works
+			};
+		} catch (error) {
+			console.error('Failed to update user profile', error)
+			return {
+				user: profile
+			}
 		}
-		
-		return {
-			user: profile,
-			userProfile : dbProfile
-		};
 	}
 	// access token denied
 	if (profileRes.status === 401 && refreshToken) {

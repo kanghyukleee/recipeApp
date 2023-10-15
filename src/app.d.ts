@@ -1,5 +1,4 @@
 // See https://kit.svelte.dev/docs/types#app
-
 // for information about these interfaces
 declare global {
 	namespace App {
@@ -47,12 +46,12 @@ declare global {
 				}[];
 			} | null;
 			profile: {
-				_id: any;
+				_id: string;
 				email: string;		// extracted from login
 				type: 'profile';
 				user_image: string;		// extracted from login
 				name: string;			// extracted from login
-				recipe_ids: string[];
+				recipe_ids: ObjectId[];
 				followers: number;
 			} | null;
 		}

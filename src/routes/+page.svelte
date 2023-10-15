@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Card, Button } from '$components';
 	import type { PageData } from './$types';
+	
 
 	type RecipeType = {
 		_id: string;
@@ -48,7 +49,7 @@
 	let sections: {
 		title: string;
 		path: string;
-		items: (RecipeType | ProfileType)[] = [];
+		items: (RecipeType | ProfileType)[];
 		type: string;
 	}[] = [];
 

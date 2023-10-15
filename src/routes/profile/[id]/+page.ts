@@ -36,7 +36,8 @@ export const load: PageLoad = async ({ fetch, params, parent }) => {
 	const pathId = await params.id;
 	// user id if exist
 	const { userProfile } = await parent();
-	const userId = userProfile ? userProfile._id : null;
+	const userProfileJSON =userProfile ? JSON.parse(userProfile) :null
+	const userId = userProfileJSON._id.toString()
 
 	// check user trying to access own profile
 	if (userProfile && pathId === userId) {

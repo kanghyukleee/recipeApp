@@ -10,6 +10,7 @@
 
 	import { browser } from '$app/environment';
 
+
 	NProgress.configure({ showSpinner: false });
 
 	export let data: LayoutData;
@@ -40,6 +41,7 @@
 	beforeNavigate(() => {
 		NProgress.start();
 	});
+
 </script>
 
 <svelte:window bind:scrollY />
@@ -68,7 +70,6 @@
 		<main id="main-content" class:logged-in={user}>
 			<slot />
 			<!-- set routes that loader spinner need -->
-			
 		</main>
 	</div>
 </div>
@@ -133,6 +134,5 @@
 				}
 			}
 		}
-		
 	}
 </style>

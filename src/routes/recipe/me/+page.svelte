@@ -53,7 +53,7 @@
 	{:else}
 		<div class="item-placeholder">
 			<h1 class="notification">Upload Your Recipe</h1>
-			<Button element="a" href="/">Add Recipe</Button>
+			<Button element="a" href="/recipe/new">Add Recipe</Button>
 		</div>
 	{/if}
 {:else}

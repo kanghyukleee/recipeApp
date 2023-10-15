@@ -19,5 +19,4 @@ export async function start_mongo(): Promise<MongoClient> {
     throw error
   }
 }
-
 export default client.db('theRecipe');

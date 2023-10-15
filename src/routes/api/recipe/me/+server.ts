@@ -28,7 +28,7 @@ export const GET: RequestHandler = async ({ url }) => {
 		try {
 			const collection = db.collection('recipe');
 			const recipes = await collection.aggregate(aggregation).toArray();
-
+		
 			return new Response(JSON.stringify(recipes));
 
 	//=========================== Dummy Data ===================================	

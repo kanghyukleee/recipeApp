@@ -9,8 +9,8 @@ export const load: LayoutLoad = ({ data, url }) => {
 	}
 
   return {
-    user,
-		userProfile,
+    user,						// google profile	
+		userProfile,		// the recipe profile
 		pathname: url.pathname
   }
 };
